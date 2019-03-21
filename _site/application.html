@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="本文从登录、获取设备数据、建立长连接到设备控制等方面讲解如何在酷宅云平台上面实现与设备的数据交互。让你可以快速地开发应用，并了解用户与设备之间的关系，设备控制和响应的过程。下面一起来通过示例应用快速入门如何开发自己的应用">
+<meta name="keywords" content=" ">
+<title>创建第一个应用 | Jekyll theme for documentation</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> 酷宅开放平台</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="创建第一个应用">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">酷宅开发平台 2.0</li>
+  
+  
+  
+  <li>
+      
+      <a href="platformOverview.html">平台概述</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="apiFee.html">API收费标准</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">开发文档</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="developerGuide.html">开发者指南</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="develop.html">准备开发环境</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="developer.html">成为开发者</a></li>
+          
+          
+          
+          
+          
+          
+          <li class="active"><a href="application.html">创建第一个应用</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="instruction.html">开发通用说明</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="pair.html">配对过程</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="sdk.html">SDK</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">API中心</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="apiOverview.html">API总览</a></li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">区域功能</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="region.html">查询当前区域</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">帐号管理功能</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="code.html">验证码</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="register.html">注册</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findpassword.html">找回密码</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updatePassword.html">修改密码</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="login.html">登录</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="token.html">token刷新</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">设备管理功能</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="devices.html">设备列表</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="device.html">单个设备查询</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addDevice.html">添加设备</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deleteDevice.html">删除设备</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateDevice.html">修改设备名称</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addGsm.html">增加GSM设备</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addDeviceGroup.html">增加设备分组</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateGroup.html">修改设备分组</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deleteGroup.html">删除设备分组</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addToGroup.html">添加设备到分组</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findGroup.html">查询设备分组</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">设备控制功能</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="dispatch.html">分配服务</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="handshake.html">握手</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="online.html">设备上线/离线</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deviceStatus.html">更新/上报状态</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findStatus.html">设备状态查询</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="share.html">分享</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="shareUpdate.html">修改分享</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="shareCancel.html">撤销分享</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deviceStatusHttp.html">查询设备状态</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateStatusHttp.html">更新设备状态</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">常见问题</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="faqOauth.html">认证</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqCode.html">验证码</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqAccount.html">帐号</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqDevice.html">设备</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="contactUs.html">联系我们</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">创建第一个应用</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">本文从登录、获取设备数据、建立长连接到设备控制等方面讲解如何在酷宅云平台上面实现与设备的数据交互。让你可以快速地开发应用，并了解用户与设备之间的关系，设备控制和响应的过程。下面一起来通过示例应用快速入门如何开发自己的应用</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/tomjoht/documentation-theme-jekyll/blob/gh-pages/pages/mydoc/application.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <h1 id="示例">示例</h1>
+<p>示例提供开发参考，具体开发过程中，请替换成自己的参数。</p>
+
+<pre><code>第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。
+第二步：设备列表，获取帐号下添加的所有设备。设备控制时需要提供相关设备数据以及用户数据。
+第三步：访问分配服务，获取连接信息。
+第四步：建立连接，通过第三步获取的连接信息，建立连接。
+第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手。握手成功后，表示认证通过可以接下来进行设备控制。
+第六步：控制设备，通过第二步获取的设备信息，发送update指令进行设备控制。
+</code></pre>
+
+<h2 id="创建websocket连接和发送控制命令流程">创建websocket连接和发送控制命令流程</h2>
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/2ab3e0e98d38e1204d4e85d71ae84ab3?showdoc=.jpg" alt="" /></p>
+
+<h2 id="登录">登录</h2>
+<p>调用登录接口 <code>https://testapi.coolkit.cn:8080/api/user/login</code></p>
+
+<p>请求方法： POST</p>
+
+<p>请求参数：(appid由销售提供,phoneNumber,password,ts,nonce请替换成自己的参数)</p>
+
+<p>参数说明请查看<a href="instruction.html">开发通用说明</a>和<a href="login.html">登录服务</a></p>
+
+<pre><code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
+请求头：
+Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=
+Content-Type:application/json
+认证头说明：Sign+空格+签名值。签名值通过传递的参数算出。注意参数顺序传递不一样，签名值也会不一样。
+</code></pre>
+
+<p>关于签名，请查看<a href="instruction.html">开发通用说明</a></p>
+
+<p><strong>调试工具：Postman</strong></p>
+
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/c93e9a4cd4c96ebb320cd2ef8535199e?showdoc=.jpg" alt="" /></p>
+
+<p>注意：截图红框中返回的at作为登录后的接口签名值。当at失效时，通过rt刷新at。</p>
+
+<p><strong>认证头截图：</strong></p>
+
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/5861408dc344e5716c8618a2454b8a87?showdoc=.jpg" alt="" /></p>
+
+<p><strong>返回参数</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数名</th>
+      <th style="text-align: left">必选</th>
+      <th style="text-align: left">类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>失败时返回，且只会返回error</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">at</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>acess token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rt</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>refresh token，rt有效期为两个月</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>用户信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">region</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>区域</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code>error错误码
+400: 缺少参数
+301：用户在其他大区，需要客户端结合region重定向,重新连接
+401:用户名密码错误
+402：邮箱未激活
+404：用户不存在
+406：认证失败
+500：服务器错误
+</code></pre>
+
+<p><strong>返回示例</strong></p>
+
+<pre><code>{
+    "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //请求其他接口的签名值。有效期一个月
+    "rt": "436adf6b1f1e5e6fdc6061317b3aca6bcefa45c1",  //token失效时，刷新token时使用。有效期两个月
+    "user": {
+        "_id": "5bf3b28e9ac7c1788fc27f1b",
+        "phoneNumber": "+8613570211955",
+        "appId": "I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF",
+        "lang": "cn",
+        "online": false,
+        "onlineTime": "2018-12-20T01:45:36.771Z",
+        "ip": "113.110.230.62",
+        "location": "广东",
+        "offlineTime": "2018-12-20T01:46:40.978Z",
+        "createdAt": "2018-11-20T07:06:54.710Z",
+        "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667"
+    },
+    "region": "cn"
+}
+</code></pre>
+
+<h2 id="请求设备列表">请求设备列表</h2>
+<p>调用获取设备列表接口 <code>https://testapi.coolkit.cn:8080/api/user/device?version=8</code></p>
+
+<p>请求方法： GET</p>
+
+<p>请求头：
+Authorization:Bearer b1d576f797ae86d276d366e7b8772ecbacecc18d(上文登录成功返回的at，即access token)</p>
+
+<p>Content-Type:application/json</p>
+
+<p>认证头说明：Bearer+空格+at。关于签名，请查看<a href="instruction.html">开发通用说明</a></p>
+
+<p><strong>调试工具：Postman</strong></p>
+
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/416fb269d043615cb621d0020212e953?showdoc=.jpg" alt="" /></p>
+
+<p><strong>返回参数</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数名</th>
+      <th style="text-align: left">必选</th>
+      <th style="text-align: left">类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>成功返回error:0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">devicelist</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">Object</td>
+      <td>设备信息列表</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code>设备信息列表重点数据解析：
+sharedBy：分享方的信息（被分享方查看显示）
+sharedTo：被分享方的信息（分享方查看显示）
+</code></pre>
+
+<p><strong>返回示例</strong></p>
+
+<pre><code>{
+    "error": 0,
+    "devicelist": [
+        {
+            "name": "我的设备00140e",
+            "deviceid": "100000140e",
+            "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667",
+            "onlineTime": "2018-12-20T08:58:44.177Z",
+            "ip": "113.110.230.62",
+            "location": "广东",
+            "groups": [],
+            "params": {
+                "startup": "off",
+                "staMac": "18:FE:34:FE:70:7D",
+                "rssi": -73,
+                "fwVersion": "1.6.0",
+                "switch": "off"
+            },
+            "online": true,
+            "createdAt": "2018-12-20T08:58:39.582Z",
+            "sharedTo": [],
+            "uiid": 1
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="访问分配服务">访问分配服务</h2>
+<p>调用分配服务接口 <code>https://testapi.coolkit.cc:8080/dispatch/app</code></p>
+
+<p>请求方法： POST</p>
+
+<p>请求参数：(appid由销售提供,ts,nonce自己替换)</p>
+
+<p>请求参数说明请查看<a href="https://www.showdoc.cc/coolkit?page_id=1202173029627789" title="分配服务">分配服务</a>
+<code>{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}</code></p>
+
+<p><strong>调试工具：Postman</strong></p>
+
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/db18156609b7ef8046ea3a251f98bea0?showdoc=.jpg" alt="" /></p>
+
+<p><strong>返回参数：重点参数详解（通过返回的IP或者domain+port请求下文的建立连接），详情查看<a href="dispatch.html">分配服务</a></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数名</th>
+      <th style="text-align: left">必选</th>
+      <th style="text-align: left">类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">IP</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>长连接服务器外网IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">Int</td>
+      <td>长连接服务器外网端口</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">domain</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="建立连接">建立连接</h2>
+<p>通过分配服务返回的IP或者domain建立握手。请求 <code>wss://test-pconnect1.coolkit.cc:8080/api/ws</code></p>
+
+<p>websocket测试工具： <code>http://www.blue-zero.com/WebSocket/</code></p>
+
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/1c7e025cea9e4aac37f0ed6982749940?showdoc=.jpg" alt="" /></p>
+
+<p>如上图，连接已建立，正在等待数据…。表示连接成功，可以开始接下来的握手了。</p>
+
+<h2 id="握手">握手</h2>
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/00f0ca63f139131ff6c90eb3ef38a82d?showdoc=.jpg" alt="" /></p>
+
+<p>参数说明请查看<a href="handshake.html">握手</a></p>
+
+<pre><code>握手示例数据：at和apikey都在登录后返回的参数中有。
+注意：ts为到秒的时间戳，ts不符合规则会请求失败。
+at，apikey，appid，nonce，sequence替换成自己的参数
+
+{"action":"userOnline","version":8,"ts":1545219251,"at":"351bc7395e03a39fd537db8d6137d6f3d9548568","userAgent":"app","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"asbsedwq","sequence":"1545219251123"}
+</code></pre>
+
+<p>握手成功响应：</p>
+
+<pre><code>{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
+</code></pre>
+
+<p>hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务器收到ping后会响应pong
+<img src="https://www.showdoc.cc/server/api/common/visitfile/sign/d704be6a5a227dd05808aed4ddf1d73b?showdoc=.jpg" alt="" /></p>
+
+<h2 id="发送控制指令">发送控制指令</h2>
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/03eb49909867fe056bf952c484c7147a?showdoc=.jpg" alt="" /></p>
+
+<p>控制指令示例参数。params的协议根据不同设备有所不同。商务合作后会根据对接的设备提供协议文档。apikey,deviceid,sequence,params替换成自己的参数
+参数说明请查看<a href="deviceStatus.html">更新/上报状态</a></p>
+
+<pre><code>{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
+</code></pre>
+
+<p>控制指令回复：回复error:0表示成功。更多错误码请查看<a href="deviceStatus.html">更新/上报状态</a></p>
+
+<pre><code>{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
+</code></pre>
+
+<p><strong>注意：</strong></p>
+
+<p>一：如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值。如果设备主人就是自己，则登录返回的apikey和设备列表返回的apikey，都可以。</p>
+
+<p>二：设备一定要在线。成功后，观察设备是否执行了开或者关</p>
+
+<p>整个流程顺利完成。接下来在<a href="apiOverview.html">API中心</a>查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。</p>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'idratherbewriting'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2019 酷宅科技。 版权所有。 <br />
+<span>最后更新时间:</span> 2019-03-20<br/>
+<p><img src="images/coolkit.png" alt="CoolKit"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-66296557-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+</html>

@@ -1,0 +1,494 @@
+[
+
+
+
+
+{
+"title": "添加设备",
+"tags": "",
+"keywords": "",
+"url": "addDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "添加设备分组",
+"tags": "",
+"keywords": "",
+"url": "addDeviceGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "添加GSM设备",
+"tags": "",
+"keywords": "",
+"url": "addGsm.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "添加设备到分组",
+"tags": "",
+"keywords": "",
+"url": "addToGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "收费标准",
+"tags": "",
+"keywords": "",
+"url": "apiFee.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "API总览",
+"tags": "",
+"keywords": "",
+"url": "apiOverview.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "创建第一个应用",
+"tags": "",
+"keywords": "",
+"url": "application.html",
+"summary": "本文从登录、获取设备数据、建立长连接到设备控制等方面讲解如何在酷宅云平台上面实现与设备的数据交互。让你可以快速地开发应用，并了解用户与设备之间的关系，设备控制和响应的过程。下面一起来通过示例应用快速入门如何开发自己的应用"
+}
+,
+
+
+
+{
+"title": "验证码",
+"tags": "",
+"keywords": "",
+"url": "code.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "联系我们",
+"tags": "",
+"keywords": "",
+"url": "contactUs.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "删除设备",
+"tags": "",
+"keywords": "",
+"url": "deleteDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "删除设备分组",
+"tags": "",
+"keywords": "",
+"url": "deleteGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "准备开发环境",
+"tags": "",
+"keywords": "",
+"url": "develop.html",
+"summary": "测试工具的下载以及测试数据准备，为请求平台设备数据以及控制设备提供数据认证基础"
+}
+,
+
+
+
+{
+"title": "成为开发者",
+"tags": "",
+"keywords": "",
+"url": "developer.html",
+"summary": "通过分配的测试APPID才能拥有请求平台服务的权限。并对平台对接提供专业技术支持，缩短开发周期"
+}
+,
+
+
+
+{
+"title": "开发者指南",
+"tags": "",
+"keywords": "",
+"url": "developerGuide.html",
+"summary": "为帮助开发者更快地熟悉酷宅开放平台，更迅速地开发应用，酷宅开放平台特编制《开发者指南》"
+}
+,
+
+
+
+{
+"title": "单个设备查询",
+"tags": "",
+"keywords": "",
+"url": "device.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "更新/上报状态",
+"tags": "",
+"keywords": "",
+"url": "deviceStatus.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "查询设备状态",
+"tags": "",
+"keywords": "",
+"url": "deviceStatusHttp.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "设备列表",
+"tags": "",
+"keywords": "",
+"url": "devices.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "分配服务",
+"tags": "",
+"keywords": "",
+"url": "dispatch.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "帐号",
+"tags": "",
+"keywords": "",
+"url": "faqAccount.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "验证码",
+"tags": "",
+"keywords": "",
+"url": "faqCode.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "设备",
+"tags": "",
+"keywords": "",
+"url": "faqDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "认证",
+"tags": "",
+"keywords": "",
+"url": "faqOauth.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "查询设备分组",
+"tags": "",
+"keywords": "",
+"url": "findGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "设备状态查询",
+"tags": "",
+"keywords": "",
+"url": "findStatus.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "找回密码",
+"tags": "",
+"keywords": "",
+"url": "findpassword.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "握手",
+"tags": "",
+"keywords": "",
+"url": "handshake.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "平台概述",
+"tags": "",
+"keywords": "sample homepage",
+"url": "index.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "开发通用说明",
+"tags": "",
+"keywords": "",
+"url": "instruction.html",
+"summary": "请求云平台服务认证准备。包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明"
+}
+,
+
+
+
+{
+"title": "登录",
+"tags": "",
+"keywords": "",
+"url": "login.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "设备上线/离线",
+"tags": "",
+"keywords": "",
+"url": "online.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "配对过程",
+"tags": "",
+"keywords": "",
+"url": "pair.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "平台概述",
+"tags": "",
+"keywords": "",
+"url": "platformOverview.html",
+"summary": "公司简介、平台优势、平台开放的意义、应用场景"
+}
+,
+
+
+
+{
+"title": "查询当前区域",
+"tags": "",
+"keywords": "",
+"url": "region.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "注册",
+"tags": "",
+"keywords": "",
+"url": "register.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "SDK",
+"tags": "",
+"keywords": "release notes, announcements, what's new, new features",
+"url": "sdk.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "分享",
+"tags": "",
+"keywords": "",
+"url": "share.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "撤销分享",
+"tags": "",
+"keywords": "",
+"url": "shareCancel.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "修改分享",
+"tags": "",
+"keywords": "",
+"url": "shareUpdate.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "token刷新",
+"tags": "",
+"keywords": "",
+"url": "token.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "修改设备名称",
+"tags": "",
+"keywords": "",
+"url": "updateDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "修改设备分组",
+"tags": "",
+"keywords": "",
+"url": "updateGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "修改密码",
+"tags": "",
+"keywords": "",
+"url": "updatePassword.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "更新设备状态",
+"tags": "",
+"keywords": "",
+"url": "updateStatusHttp.html",
+"summary": ""
+}
+
+
+
+
+
+
+]
