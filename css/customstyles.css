@@ -262,8 +262,9 @@ div#toc ul li ul li::before {
     content: "–  ";
 }
 
+
 div#toc >ul::before {
-    content: "目录";
+    content: "Table of Contents";
     font-weight: 500;
     color: #555;
     text-align:center;
