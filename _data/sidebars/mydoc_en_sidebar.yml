@@ -1,0 +1,208 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: CoolKit Cloud Platform
+  version: 2.0
+  folders:
+
+  - title: Platform Overview
+    output: web
+    url: /platformOverview_en.html
+    
+  - title: API Fee
+    output: web
+    url: /apiFee_en.html
+    
+  - title: Getting Started
+    output: web, pdf
+    folderitems:
+
+    - title: Developer Guide
+      url: /developerGuide_en.html
+      output: web, pdf
+
+    - title: Prepare Your Development Environment
+      url: /develop_en.html
+      output: web, pdf
+
+    - title: Become A Developer
+      url: /developer_en.html
+      output: web, pdf
+
+    - title: Create Your First Application
+      url: /application_en.html
+      output: web, pdf
+
+    - title: General Developer Instruction
+      url: /instruction_en.html
+      output: web, pdf
+
+    - title: Pairing Process
+      url: /pair_en.html
+      output: web, pdf
+
+    - title: SDK
+      url: /sdk_en.html
+      output: web, pdf
+
+  - title: API Center
+    output: web
+    folderitems:
+
+    - title: API Overview
+      url: /apiOverview_en.html
+      output: web
+
+      subfolders:
+      - title: Region
+        output: web
+        subfolderitems:
+
+        - title: Check current region
+          url: /region_en.html
+          output: web
+
+      - title: Account Management
+        output: web
+        subfolderitems:
+
+        - title: Verification code
+          url: /code_en.html
+          output: web
+
+        - title: Register
+          url: /register_en.html
+          output: web
+  
+        - title: Reset password
+          url: /findpassword_en.html
+          output: web
+
+        - title: Change Password
+          url: /updatePassword_en.html
+          output: web
+
+        - title: Login
+          url: /login_en.html
+          output: web
+
+        - title: Token Refresh
+          url: /token_en.html
+          output: web
+
+      - title: Device Management
+        output: web
+        subfolderitems:
+
+        - title: Device List
+          url: /devices_en.html
+          output: web
+
+        - title: Check Device
+          url: /device_en.html
+          output: web
+
+        - title: Add Device
+          url: /addDevice_en.html
+          output: web
+
+        - title: Delete Device
+          url: /deleteDevice_en.html
+          output: web
+
+        - title: Change Device Name
+          url: /updateDevice_en.html
+          output: web
+
+        - title: Add GSM Device
+          url: /addGsm_en.html
+          output: web
+
+        - title: Add Group
+          url: /addDeviceGroup_en.html
+          output: web
+
+        - title: Change Group
+          url: /updateGroup_en.html
+          output: web
+
+        - title: Delete Group
+          url: /deleteGroup_en.html
+          output: web
+
+        - title: Add device to Group
+          url: /addToGroup_en.html
+          output: web
+
+        - title: Check Group
+          url: /findGroup_en.html
+          output: web
+
+      - title: Device Control
+        output: web
+        subfolderitems:
+        
+        - title: Server Dispatch
+          url: /dispatch_en.html
+          output: web
+
+        - title: Handshake
+          url: /handshake_en.html
+          output: web
+
+        - title: Device Online/Offline
+          url: /online_en.html
+          output: web
+
+        - title: Update/Report Status
+          url: /deviceStatus_en.html
+          output: web
+
+        - title: Check Device Status
+          url: /findStatus_en.html
+          output: web
+
+        - title: Share Device
+          url: /share_en.html
+          output: web
+
+        - title: Update Share
+          url: /shareUpdate_en.html
+          output: web
+
+        - title: Cancel Share
+          url: /shareCancel_en.html
+          output: web
+
+        - title: Check Device Status
+          url: /deviceStatusHttp_en.html
+          output: web
+
+        - title: Update Device Status
+          url: /updateStatusHttp_en.html
+          output: web
+
+  - title: FAQ
+    output: web, pdf
+    folderitems:
+
+    - title: Authentication
+      url: /faqOauth_en.html
+      output: web, pdf
+
+    - title: Verification code
+      url: /faqCode_en.html
+      output: web, pdf
+
+    - title: Account
+      url: /faqAccount_en.html
+      output: web, pdf
+
+    - title: Device
+      url: /faqDevice_en.html
+      output: web, pdf
+
+  - title: Contact Us
+    url: /contactUs_en.html
+    output: web, pdf

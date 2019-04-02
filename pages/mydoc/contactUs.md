@@ -16,6 +16,6 @@ folder: mydoc
  
 扫描二维码关注我们
 
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/44cdf69f947cc976aaca092834773acb?showdoc=.jpg)
+<img src="{{ "images/contactUs.png" }}" alt="联系我们"/>
 
 

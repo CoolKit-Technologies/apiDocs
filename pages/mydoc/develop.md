@@ -28,7 +28,7 @@ folder: mydoc
 
    2,设备上无法看到设备id。测试APP配对添加设备时，会显示设备id，见下图红框。设备id格式1000******。提供设备id给对接销售
    
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/8f1c892e245cd5d5a8131ec356303692?showdoc=.jpg)
+   <img src="{{ "images/pairDevice.jpg" }}" alt="配对设备"/>
 
 ## 添加设备
    使用测试APP，配对添加购买的设备(如配对设备过程中，出现找不到设备提示，需提供设备id，由开发导入数据到测试环境)。

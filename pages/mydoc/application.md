@@ -21,7 +21,7 @@ folder: mydoc
 ```
 
 ## 创建websocket连接和发送控制命令流程
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/2ab3e0e98d38e1204d4e85d71ae84ab3?showdoc=.jpg)
+<img src="{{ "images/controlFlow.jpg" }}" alt="流程图"/>
 
 ## 登录
 调用登录接口 ``` https://testapi.coolkit.cn:8080/api/user/login``` 
@@ -44,13 +44,13 @@ Content-Type:application/json
   
   **调试工具：Postman**
   
-  ![](https://www.showdoc.cc/server/api/common/visitfile/sign/c93e9a4cd4c96ebb320cd2ef8535199e?showdoc=.jpg)
+<img src="{{ "images/postman_loginParams.jpg" }}" alt="登录"/>
   
 注意：截图红框中返回的at作为登录后的接口签名值。当at失效时，通过rt刷新at。
   
   **认证头截图：**
 
-  ![](https://www.showdoc.cc/server/api/common/visitfile/sign/5861408dc344e5716c8618a2454b8a87?showdoc=.jpg)
+<img src="{{ "images/postmanSign.jpeg" }}" alt="认证头"/>
   
 **返回参数** 
 
@@ -110,7 +110,7 @@ Content-Type:application/json
 
 **调试工具：Postman**
 
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/416fb269d043615cb621d0020212e953?showdoc=.jpg)
+<img src="{{ "images/postman_deviceList.jpg" }}" alt="设备列表"/>
 
 
 **返回参数** 
@@ -163,12 +163,12 @@ sharedTo：被分享方的信息（分享方查看显示）
 
 请求参数：(appid由销售提供,ts,nonce自己替换)
 
-请求参数说明请查看[分配服务](https://www.showdoc.cc/coolkit?page_id=1202173029627789 "分配服务")
+请求参数说明请查看[分配服务](dispatch.html)
 ```{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}```
 
 **调试工具：Postman**
 
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/db18156609b7ef8046ea3a251f98bea0?showdoc=.jpg)
+<img src="{{ "images/postman_dispatch.jpg" }}" alt="分配服务"/>
 
 **返回参数：重点参数详解（通过返回的IP或者domain+port请求下文的建立连接），详情查看[分配服务](dispatch.html)**
 
@@ -183,12 +183,13 @@ sharedTo：被分享方的信息（分享方查看显示）
 
 websocket测试工具： ```http://www.blue-zero.com/WebSocket/```
 
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/1c7e025cea9e4aac37f0ed6982749940?showdoc=.jpg)
+<img src="{{ "images/connection.jpg" }}" alt="建立连接"/>
 
 如上图，连接已建立，正在等待数据...。表示连接成功，可以开始接下来的握手了。
 
 ## 握手
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/00f0ca63f139131ff6c90eb3ef38a82d?showdoc=.jpg)
+
+<img src="{{ "images/useronline.jpg" }}" alt="握手"/>
 
 参数说明请查看[握手](handshake.html)
 
@@ -203,10 +204,12 @@ websocket测试工具： ```http://www.blue-zero.com/WebSocket/```
 	{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
 
 hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务器收到ping后会响应pong
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/d704be6a5a227dd05808aed4ddf1d73b?showdoc=.jpg)
+
+<img src="{{ "images/ping.jpg" }}" alt="保持心跳"/>
 
 ## 发送控制指令
-![](https://www.showdoc.cc/server/api/common/visitfile/sign/03eb49909867fe056bf952c484c7147a?showdoc=.jpg)
+
+<img src="{{ "images/control.jpg" }}" alt="控制指令"/>
 
 控制指令示例参数。params的协议根据不同设备有所不同。商务合作后会根据对接的设备提供协议文档。apikey,deviceid,sequence,params替换成自己的参数
 参数说明请查看[更新/上报状态](deviceStatus.html)

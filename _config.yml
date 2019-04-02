@@ -6,10 +6,16 @@ output: web
 topnav_title: 酷宅开放平台
 # this appears on the top navigation bar next to the home button
 
+topnav_titleEn: CoolKit Cloud Platform
+# this appears on the top navigation bar next to the home button
+
 site_title: Jekyll theme for documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-company_name: 酷宅科技
+company_name: 深圳酷宅科技有限公司
+# this appears in the footer
+
+company_nameEn: Coolkit Technology Co.,Ltd
 # this appears in the footer
 
 github_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
