@@ -17,7 +17,7 @@ Handshake happens on app and device.
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |
 |action |Yes  |String |userOnline   |
-|version |Yes  |Int | IOT agreement version, current is 8    |
+|version |Yes  |Int |  The current version of IOT agreement is 8 and latest version is 8. -If device is deleted and version is no less than 7, 415 error will be returned three times.-Requesting three times will return 404.-In case there was no pairing info in previous version, 404 will be returned.     |
 |imei |No  |String | available in app client only,imei of cellphone   |
 |ts |Yes  |Int | timestamp to second on app client   |
 |os |No  |String | available in mobile app only, value is：android/ios  |

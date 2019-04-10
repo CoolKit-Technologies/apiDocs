@@ -23,6 +23,7 @@ Add device to user account, returning the data of successfully added device.
 |name |No  |String | Device name |
 |subDeviceId |No  |String | When isSub:1， subDeviceId is required |
 |isSub |No  |String | Sub device or not 0：No 1：Yes |
+|chipid |No |String | Device chip id |
 
 **Response parameters:**
 

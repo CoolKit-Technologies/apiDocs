@@ -25,6 +25,7 @@ layout: page_en
 |appid |Yes  |String | appid provided by Coolkit    |
 |nonce     |Yes  |String | 8-digit random alphanumeric string    |
 |version     |Yes  |Int | version:8 Agreed Version    |
+|appVersion     |No  |String | when version>=8 appVersion is required    |
 
 ## Signature Rule
 - All API accessing(including login) before login requires signature calculation.Signature value is put in Authorization Header of HTTP.For example:

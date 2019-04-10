@@ -15,7 +15,7 @@ folder: mydoc
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |action |是  |String |userOnline   |
-|version |是  |Int | IOT协议版本，当前为8    |
+|version |是  |Int | IOT协议版本，当前为8,最新版为8。如果设备被删除了并且version>=7，会返回三次415的错误代码，如果超过3次还是返回404；之前的版本只要没配对信息就返回404    |
 |imei |否  |String | App端特有属性：手机的imei号   |
 |ts |是  |Int | APP端为到秒时间戳   |
 |os |否  |String | 手机APP才上报，值为：android/ios   |
@@ -25,6 +25,7 @@ folder: mydoc
 |appid |是  |String | 酷宅分配给第三方应用的appid  |
 |nonce |是  |String | 32位随机整型16进制字符表示，即8位字母数字随机值  |
 |sequence |是  |String | 到毫秒的时间戳字符  |
+|appVersion |否  |String | App上报当前的版本号  |
 
 
 **设备端握手**
@@ -33,13 +34,13 @@ folder: mydoc
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |action |是  |String |register   |
-|version |是  |Int | IOT协议版本，当前为8    |
+|version |是  |Int | IOT协议版本，当前为8,最新版为8。如果设备被删除了并且version>=7，会返回三次415的错误代码，如果超过3次还是返回404；之前的版本只要没配对信息就返回404    |
 |deviceid     |是  |String | 设备id    |
 |ts |是  |Int | uint32 变量转为10进制字符串   |
 |userAgent |是  |String | device  |
 |apikey |是  |String | 设备出厂apikey  |
 |mac |是  |String | 设备真实的mac地址  |
-
+|chipid |否  |String | 设备真实的芯片地址。version>=8必填,否则握手通过不了返回403错  |
 
 - 响应参数
 

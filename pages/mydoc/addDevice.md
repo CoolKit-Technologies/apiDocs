@@ -22,6 +22,7 @@ folder: mydoc
 |name |否  |String | 设备名称 |
 |subDeviceId |否  |String | 如果isSub:1， subDeviceId必填 |
 |isSub |否  |String | 是否为子设备0：不是   1：是 |
+|chipid |否  |String | 设备的芯片id |
 
 **响应参数:**
 

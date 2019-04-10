@@ -24,6 +24,7 @@ folder: mydoc
 |appid |是  |String | 酷宅给第三方应用分配的appid    |
 |nonce     |是  |String | 8位随机字符串，只由字母数字组成    |
 |version     |是  |Int | version:8 协议版本    |
+|appVersion     |否  |String | version>=8 必填    |
 
 ## 签名规则
 - 未登录的所有接口（包括登录接口）调用都需要计算签名，签名值放在HTTP的Authorization头中。如：
