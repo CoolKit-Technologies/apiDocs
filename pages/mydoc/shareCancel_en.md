@@ -25,7 +25,7 @@ After sharer cancels the share, device will be deleted from sharee’s account.S
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |
 |uid |Yes  |String |user account,add +86 to accounts of users in China, user in other regions or countries need to select country or email   |
-
+|deviceName |Yes  |String | Device Name   |
 
 - Response parameters
 

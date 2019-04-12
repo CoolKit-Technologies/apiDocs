@@ -20,7 +20,7 @@ Add device to user account, returning the data of successfully added device.
 |:----    |:---|:----- |-----   |
 |deviceid     |Yes  |String | Device id |
 |apikey     |Yes  |String | Device apikey |
-|name |No  |String | Device name |
+|name |Yes  |String | Device name |
 |subDeviceId |No  |String | When isSub:1， subDeviceId is required |
 |isSub |No  |String | Sub device or not 0：No 1：Yes |
 |chipid |No |String | Device chip id |

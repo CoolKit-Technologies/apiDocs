@@ -19,7 +19,7 @@ folder: mydoc
 |:----    |:---|:----- |-----   |
 |deviceid     |是  |String | 设备id |
 |apikey     |是  |String | 设备apikey |
-|name |否  |String | 设备名称 |
+|name |是  |String | 设备名称 |
 |subDeviceId |否  |String | 如果isSub:1， subDeviceId必填 |
 |isSub |否  |String | 是否为子设备0：不是   1：是 |
 |chipid |否  |String | 设备的芯片id |
