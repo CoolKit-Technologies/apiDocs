@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -671,7 +674,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>1、permit计算规则：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1、permit计算规则：
 新增权限，例如要给用户赋予 新增、修改、启用定时器的权限
 permit=1 | 2 | 8  结果等于11
 
@@ -715,7 +718,7 @@ permit= permit|xxx(具体的权限数值)
 	子设备的权限与网关的权限保持一致；
 
 	主人如果需要针对某一个子设备给对方设置不一样的权限，可以在app里选中子设备单独进行修改，就像普通的设备一样操作。
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>响应参数</li>
@@ -764,7 +767,7 @@ permit= permit|xxx(具体的权限数值)
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0:ok(操作成功)
 400:Bad Request（参数错误）
 401:认证不通过
@@ -772,7 +775,7 @@ permit= permit|xxx(具体的权限数值)
 406:用户在其他设备登录
 500:Internal Server Error（服务器内部错误）
 504:分享超时（对方没有拒绝也没有同意）
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -784,7 +787,7 @@ permit= permit|xxx(具体的权限数值)
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

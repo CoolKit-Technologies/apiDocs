@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -561,10 +564,10 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>
-    <p>现网环境URL： <code>https://api.coolkit.cn:8080/api/user/region</code></p>
+    <p>现网环境URL： <code class="highlighter-rouge">https://api.coolkit.cn:8080/api/user/region</code></p>
   </li>
   <li>
-    <p>测试环境URL： <code>https://testapi.coolkit.cn:8080/api/user/region</code>   不需要使用region功能</p>
+    <p>测试环境URL： <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/region</code>   不需要使用region功能</p>
   </li>
 </ul>
 
@@ -608,12 +611,12 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>返回示例</strong></p>
 
-<pre><code>{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "requestid": "1543229049906-asbsedwq",
     "region": "cn",   //cn,eu,us,as四个区域
     "error": 0
 }
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -625,7 +628,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

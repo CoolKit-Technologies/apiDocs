@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -604,6 +607,12 @@ $('#toc').on('click', 'a', function() {
       <td style="text-align: left">Int</td>
       <td>version:8 协议版本</td>
     </tr>
+    <tr>
+      <td style="text-align: left">appVersion</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">String</td>
+      <td>version&gt;=8 必填</td>
+    </tr>
   </tbody>
 </table>
 
@@ -613,16 +622,16 @@ $('#toc').on('click', 'a', function() {
  Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=</li>
 </ul>
 
-<pre><code>签名算法见本章下文的签名计算
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>签名算法见本章下文的签名计算
+</code></pre></div></div>
 
 <ul>
   <li>GET请求：
 将所有参数（sign除外）按照参数名的字母顺序排序，并用&amp;连接：</li>
 </ul>
 
-<pre><code>appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF"&amp;deviceid="1000052354"&amp;nonce="2323dfgh"&amp;ts=1545219251
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF"&amp;deviceid="1000052354"&amp;nonce="2323dfgh"&amp;ts=1545219251
+</code></pre></div></div>
 
 <p>计算签名:将app secret作为key，生成被签名串的HMAC-SHA256 签名。
 将得到的签名BASE64编码后设置到Authorization头中</p>
@@ -630,9 +639,9 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li>POST请求:
 待签名串为整个body的json数据(通用说明里的参数以及接口中的参数)，以登录接口为例。 如：
-<code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"phoneNumber":"+86********","password":"****"}</code>
+<code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"phoneNumber":"+86********","password":"****"}</code>
 或
-<code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"email":"dev@coolit.cc","password":"****"}</code>
+<code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"email":"dev@coolit.cc","password":"****"}</code>
 注意：phoneNumber的值需要加上国家码如：+86
 phoneNumber和email只需要传递其中一个。亚洲区域传递phoneNumber，其他区域才传递email</li>
 </ul>
@@ -643,16 +652,16 @@ phoneNumber和email只需要传递其中一个。亚洲区域传递phoneNumber�
 
 <p>method:POST（GET方式查看签名规则）</p>
 
-<pre><code>var crypto = require('crypto');
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var crypto = require('crypto');
 var appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF";
 var appsecret="S1fHFiMqzykNdxlSrk9Pjdczp7rsvt3M";
 var params={"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
 var buffer = new Buffer(JSON.stringify(params),"utf-8");
 var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
-</code></pre>
+</code></pre></div></div>
 
 <p>上述参数算出来的签名值
-<code>"QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U="</code></p>
+<code class="highlighter-rouge">"QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U="</code></p>
 
 <p>可以拿demo的参数放到自己的签名算法中，算出来的签名值和提供的签名值一致，表示签名算法通过。</p>
 
@@ -679,7 +688,7 @@ var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

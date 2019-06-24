@@ -26,10 +26,43 @@
 
 
 {
+"title": "Add Group",
+"tags": "",
+"keywords": "",
+"url": "addDeviceGroup_en.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Add Device",
+"tags": "",
+"keywords": "",
+"url": "addDevice_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "添加GSM设备",
 "tags": "",
 "keywords": "",
 "url": "addGsm.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Add GSM Device",
+"tags": "",
+"keywords": "",
+"url": "addGsm_en.html",
 "summary": ""
 }
 ,
@@ -48,10 +81,32 @@
 
 
 {
+"title": "Add device to Group",
+"tags": "",
+"keywords": "",
+"url": "addToGroup_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "收费标准",
 "tags": "",
 "keywords": "",
 "url": "apiFee.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "API Fee",
+"tags": "",
+"keywords": "",
+"url": "apiFee_en.html",
 "summary": ""
 }
 ,
@@ -70,6 +125,17 @@
 
 
 {
+"title": "API Overview",
+"tags": "",
+"keywords": "",
+"url": "apiOverview_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "创建第一个应用",
 "tags": "",
 "keywords": "",
@@ -81,10 +147,32 @@
 
 
 {
+"title": "Create Your First Application",
+"tags": "",
+"keywords": "",
+"url": "application_en.html",
+"summary": "This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below."
+}
+,
+
+
+
+{
 "title": "验证码",
 "tags": "",
 "keywords": "",
 "url": "code.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Verification code",
+"tags": "",
+"keywords": "",
+"url": "code_en.html",
 "summary": ""
 }
 ,
@@ -103,10 +191,32 @@
 
 
 {
+"title": "Contact Us",
+"tags": "",
+"keywords": "",
+"url": "contactUs_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "删除设备",
 "tags": "",
 "keywords": "",
 "url": "deleteDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Delete Device",
+"tags": "",
+"keywords": "",
+"url": "deleteDevice_en.html",
 "summary": ""
 }
 ,
@@ -125,11 +235,33 @@
 
 
 {
+"title": "Delete Group",
+"tags": "",
+"keywords": "",
+"url": "deleteGroup_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "准备开发环境",
 "tags": "",
 "keywords": "",
 "url": "develop.html",
 "summary": "测试工具的下载以及测试数据准备，为请求平台设备数据以及控制设备提供数据认证基础"
+}
+,
+
+
+
+{
+"title": "Prepare Your Development Environment",
+"tags": "",
+"keywords": "",
+"url": "develop_en.html",
+"summary": "Download test tool and prepare test data, so as to prepare yourself for data authentication before you can request device data and control devices."
 }
 ,
 
@@ -158,10 +290,43 @@
 
 
 {
+"title": "Developer Guide",
+"tags": "",
+"keywords": "",
+"url": "developerGuide_en.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Become A Developer",
+"tags": "",
+"keywords": "",
+"url": "developer_en.html",
+"summary": "You will gain the authorization to access platform services through your APPID, and get professional technical help from our tech support, so as to shorten your development period."
+}
+,
+
+
+
+{
 "title": "单个设备查询",
 "tags": "",
 "keywords": "",
 "url": "device.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Check Device",
+"tags": "",
+"keywords": "",
+"url": "device_en.html",
 "summary": ""
 }
 ,
@@ -191,10 +356,43 @@
 
 
 {
+"title": "Check Device Status",
+"tags": "",
+"keywords": "",
+"url": "deviceStatusHttp_en.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Update/Report Status",
+"tags": "",
+"keywords": "",
+"url": "deviceStatus_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "设备列表",
 "tags": "",
 "keywords": "",
 "url": "devices.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Device List",
+"tags": "",
+"keywords": "",
+"url": "devices_en.html",
 "summary": ""
 }
 ,
@@ -213,10 +411,32 @@
 
 
 {
+"title": "Server Dispatch",
+"tags": "",
+"keywords": "",
+"url": "dispatch_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "帐号",
 "tags": "",
 "keywords": "",
 "url": "faqAccount.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Account",
+"tags": "",
+"keywords": "",
+"url": "faqAccount_en.html",
 "summary": ""
 }
 ,
@@ -235,10 +455,32 @@
 
 
 {
+"title": "Verification code",
+"tags": "",
+"keywords": "",
+"url": "faqCode_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "设备",
 "tags": "",
 "keywords": "",
 "url": "faqDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Device",
+"tags": "",
+"keywords": "",
+"url": "faqDevice_en.html",
 "summary": ""
 }
 ,
@@ -257,10 +499,32 @@
 
 
 {
+"title": "Authentication",
+"tags": "",
+"keywords": "",
+"url": "faqOauth_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "查询设备分组",
 "tags": "",
 "keywords": "",
 "url": "findGroup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Check Group",
+"tags": "",
+"keywords": "",
+"url": "findGroup_en.html",
 "summary": ""
 }
 ,
@@ -279,6 +543,17 @@
 
 
 {
+"title": "Check Device Status",
+"tags": "",
+"keywords": "",
+"url": "findStatus_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "找回密码",
 "tags": "",
 "keywords": "",
@@ -290,10 +565,32 @@
 
 
 {
+"title": "Reset password",
+"tags": "",
+"keywords": "",
+"url": "findpassword_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "握手",
 "tags": "",
 "keywords": "",
 "url": "handshake.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Handshake",
+"tags": "",
+"keywords": "",
+"url": "handshake_en.html",
 "summary": ""
 }
 ,
@@ -323,10 +620,32 @@
 
 
 {
+"title": "General Developer Instruction",
+"tags": "",
+"keywords": "",
+"url": "instruction_en.html",
+"summary": "Preparation for accessing Cloud platform services,including descriptions for general parameters,introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token."
+}
+,
+
+
+
+{
 "title": "登录",
 "tags": "",
 "keywords": "",
 "url": "login.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Login",
+"tags": "",
+"keywords": "",
+"url": "login_en.html",
 "summary": ""
 }
 ,
@@ -345,10 +664,32 @@
 
 
 {
+"title": "Device Online/Offline",
+"tags": "",
+"keywords": "",
+"url": "online_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "配对过程",
 "tags": "",
 "keywords": "",
 "url": "pair.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Pairing Process",
+"tags": "",
+"keywords": "",
+"url": "pair_en.html",
 "summary": ""
 }
 ,
@@ -367,10 +708,32 @@
 
 
 {
+"title": "Platform Overview",
+"tags": "",
+"keywords": "",
+"url": "platformOverview_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "查询当前区域",
 "tags": "",
 "keywords": "",
 "url": "region.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Check current region",
+"tags": "",
+"keywords": "",
+"url": "region_en.html",
 "summary": ""
 }
 ,
@@ -389,10 +752,32 @@
 
 
 {
+"title": "Register",
+"tags": "",
+"keywords": "",
+"url": "register_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "SDK",
 "tags": "",
 "keywords": "release notes, announcements, what's new, new features",
 "url": "sdk.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "SDK",
+"tags": "",
+"keywords": "release notes, announcements, what's new, new features",
+"url": "sdk_en.html",
 "summary": ""
 }
 ,
@@ -424,10 +809,43 @@
 
 
 {
+"title": "Cancel Share",
+"tags": "",
+"keywords": "",
+"url": "shareCancel_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "修改分享",
 "tags": "",
 "keywords": "",
 "url": "shareUpdate.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Update Share",
+"tags": "",
+"keywords": "",
+"url": "shareUpdate_en.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Share Device",
+"tags": "",
+"keywords": "",
+"url": "share_en.html",
 "summary": ""
 }
 ,
@@ -446,10 +864,32 @@
 
 
 {
+"title": "Token Refresh",
+"tags": "",
+"keywords": "",
+"url": "token_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "修改设备名称",
 "tags": "",
 "keywords": "",
 "url": "updateDevice.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Change Device Name",
+"tags": "",
+"keywords": "",
+"url": "updateDevice_en.html",
 "summary": ""
 }
 ,
@@ -468,6 +908,17 @@
 
 
 {
+"title": "Change Group",
+"tags": "",
+"keywords": "",
+"url": "updateGroup_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "修改密码",
 "tags": "",
 "keywords": "",
@@ -479,10 +930,43 @@
 
 
 {
+"title": "Change Password",
+"tags": "",
+"keywords": "",
+"url": "updatePassword_en.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "更新设备状态",
 "tags": "",
 "keywords": "",
 "url": "updateStatusHttp.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Update Device Status",
+"tags": "",
+"keywords": "",
+"url": "updateStatusHttp_en.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "feed.xml",
 "summary": ""
 }
 

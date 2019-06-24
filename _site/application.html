@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -561,19 +564,19 @@ $('#toc').on('click', 'a', function() {
    <h1 id="示例">示例</h1>
 <p>示例提供开发参考，具体开发过程中，请替换成自己的参数。</p>
 
-<pre><code>第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。
 第二步：设备列表，获取帐号下添加的所有设备。设备控制时需要提供相关设备数据以及用户数据。
 第三步：访问分配服务，获取连接信息。
 第四步：建立连接，通过第三步获取的连接信息，建立连接。
 第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手。握手成功后，表示认证通过可以接下来进行设备控制。
 第六步：控制设备，通过第二步获取的设备信息，发送update指令进行设备控制。
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="创建websocket连接和发送控制命令流程">创建websocket连接和发送控制命令流程</h2>
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/2ab3e0e98d38e1204d4e85d71ae84ab3?showdoc=.jpg" alt="" /></p>
+<p><img src="images/controlFlow.jpg" alt="流程图" /></p>
 
 <h2 id="登录">登录</h2>
-<p>调用登录接口 <code>https://testapi.coolkit.cn:8080/api/user/login</code></p>
+<p>调用登录接口 <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/login</code></p>
 
 <p>请求方法： POST</p>
 
@@ -581,24 +584,24 @@ $('#toc').on('click', 'a', function() {
 
 <p>参数说明请查看<a href="instruction.html">开发通用说明</a>和<a href="login.html">登录服务</a></p>
 
-<pre><code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
 请求头：
 Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=
 Content-Type:application/json
 认证头说明：Sign+空格+签名值。签名值通过传递的参数算出。注意参数顺序传递不一样，签名值也会不一样。
-</code></pre>
+</code></pre></div></div>
 
 <p>关于签名，请查看<a href="instruction.html">开发通用说明</a></p>
 
 <p><strong>调试工具：Postman</strong></p>
 
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/c93e9a4cd4c96ebb320cd2ef8535199e?showdoc=.jpg" alt="" /></p>
+<p><img src="images/postman_loginParams.jpg" alt="登录" /></p>
 
 <p>注意：截图红框中返回的at作为登录后的接口签名值。当at失效时，通过rt刷新at。</p>
 
 <p><strong>认证头截图：</strong></p>
 
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/5861408dc344e5716c8618a2454b8a87?showdoc=.jpg" alt="" /></p>
+<p><img src="images/postmanSign.jpeg" alt="认证头" /></p>
 
 <p><strong>返回参数</strong></p>
 
@@ -645,7 +648,7 @@ Content-Type:application/json
   </tbody>
 </table>
 
-<pre><code>error错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error错误码
 400: 缺少参数
 301：用户在其他大区，需要客户端结合region重定向,重新连接
 401:用户名密码错误
@@ -653,11 +656,11 @@ Content-Type:application/json
 404：用户不存在
 406：认证失败
 500：服务器错误
-</code></pre>
+</code></pre></div></div>
 
 <p><strong>返回示例</strong></p>
 
-<pre><code>{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //请求其他接口的签名值。有效期一个月
     "rt": "436adf6b1f1e5e6fdc6061317b3aca6bcefa45c1",  //token失效时，刷新token时使用。有效期两个月
     "user": {
@@ -675,10 +678,10 @@ Content-Type:application/json
     },
     "region": "cn"
 }
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="请求设备列表">请求设备列表</h2>
-<p>调用获取设备列表接口 <code>https://testapi.coolkit.cn:8080/api/user/device?version=8</code></p>
+<p>调用获取设备列表接口 <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device?version=8</code></p>
 
 <p>请求方法： GET</p>
 
@@ -691,7 +694,7 @@ Authorization:Bearer b1d576f797ae86d276d366e7b8772ecbacecc18d(上文登录成功
 
 <p><strong>调试工具：Postman</strong></p>
 
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/416fb269d043615cb621d0020212e953?showdoc=.jpg" alt="" /></p>
+<p><img src="images/postman_deviceList.jpg" alt="设备列表" /></p>
 
 <p><strong>返回参数</strong></p>
 
@@ -720,14 +723,14 @@ Authorization:Bearer b1d576f797ae86d276d366e7b8772ecbacecc18d(上文登录成功
   </tbody>
 </table>
 
-<pre><code>设备信息列表重点数据解析：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>设备信息列表重点数据解析：
 sharedBy：分享方的信息（被分享方查看显示）
 sharedTo：被分享方的信息（分享方查看显示）
-</code></pre>
+</code></pre></div></div>
 
 <p><strong>返回示例</strong></p>
 
-<pre><code>{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "error": 0,
     "devicelist": [
         {
@@ -752,21 +755,21 @@ sharedTo：被分享方的信息（分享方查看显示）
         }
     ]
 }
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="访问分配服务">访问分配服务</h2>
-<p>调用分配服务接口 <code>https://testapi.coolkit.cc:8080/dispatch/app</code></p>
+<p>调用分配服务接口 <code class="highlighter-rouge">https://testapi.coolkit.cc:8080/dispatch/app</code></p>
 
 <p>请求方法： POST</p>
 
 <p>请求参数：(appid由销售提供,ts,nonce自己替换)</p>
 
-<p>请求参数说明请查看<a href="https://www.showdoc.cc/coolkit?page_id=1202173029627789" title="分配服务">分配服务</a>
-<code>{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}</code></p>
+<p>请求参数说明请查看<a href="dispatch.html">分配服务</a>
+<code class="highlighter-rouge">{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}</code></p>
 
 <p><strong>调试工具：Postman</strong></p>
 
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/db18156609b7ef8046ea3a251f98bea0?showdoc=.jpg" alt="" /></p>
+<p><img src="images/postman_dispatch.jpg" alt="分配服务" /></p>
 
 <p><strong>返回参数：重点参数详解（通过返回的IP或者domain+port请求下文的建立连接），详情查看<a href="dispatch.html">分配服务</a></strong></p>
 
@@ -802,47 +805,50 @@ sharedTo：被分享方的信息（分享方查看显示）
 </table>
 
 <h2 id="建立连接">建立连接</h2>
-<p>通过分配服务返回的IP或者domain建立握手。请求 <code>wss://test-pconnect1.coolkit.cc:8080/api/ws</code></p>
+<p>通过分配服务返回的IP或者domain建立握手。请求 <code class="highlighter-rouge">wss://test-pconnect1.coolkit.cc:8080/api/ws</code></p>
 
-<p>websocket测试工具： <code>http://www.blue-zero.com/WebSocket/</code></p>
+<p>websocket测试工具： <code class="highlighter-rouge">http://www.blue-zero.com/WebSocket/</code></p>
 
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/1c7e025cea9e4aac37f0ed6982749940?showdoc=.jpg" alt="" /></p>
+<p><img src="images/connection.jpg" alt="建立连接" /></p>
 
 <p>如上图，连接已建立，正在等待数据…。表示连接成功，可以开始接下来的握手了。</p>
 
 <h2 id="握手">握手</h2>
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/00f0ca63f139131ff6c90eb3ef38a82d?showdoc=.jpg" alt="" /></p>
+
+<p><img src="images/useronline.jpg" alt="握手" /></p>
 
 <p>参数说明请查看<a href="handshake.html">握手</a></p>
 
-<pre><code>握手示例数据：at和apikey都在登录后返回的参数中有。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>握手示例数据：at和apikey都在登录后返回的参数中有。
 注意：ts为到秒的时间戳，ts不符合规则会请求失败。
 at，apikey，appid，nonce，sequence替换成自己的参数
 
 {"action":"userOnline","version":8,"ts":1545219251,"at":"351bc7395e03a39fd537db8d6137d6f3d9548568","userAgent":"app","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"asbsedwq","sequence":"1545219251123"}
-</code></pre>
+</code></pre></div></div>
 
 <p>握手成功响应：</p>
 
-<pre><code>{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
+</code></pre></div></div>
 
-<p>hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务器收到ping后会响应pong
-<img src="https://www.showdoc.cc/server/api/common/visitfile/sign/d704be6a5a227dd05808aed4ddf1d73b?showdoc=.jpg" alt="" /></p>
+<p>hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务器收到ping后会响应pong</p>
+
+<p><img src="images/ping.jpg" alt="保持心跳" /></p>
 
 <h2 id="发送控制指令">发送控制指令</h2>
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/03eb49909867fe056bf952c484c7147a?showdoc=.jpg" alt="" /></p>
+
+<p><img src="images/control.jpg" alt="控制指令" /></p>
 
 <p>控制指令示例参数。params的协议根据不同设备有所不同。商务合作后会根据对接的设备提供协议文档。apikey,deviceid,sequence,params替换成自己的参数
 参数说明请查看<a href="deviceStatus.html">更新/上报状态</a></p>
 
-<pre><code>{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
+</code></pre></div></div>
 
 <p>控制指令回复：回复error:0表示成功。更多错误码请查看<a href="deviceStatus.html">更新/上报状态</a></p>
 
-<pre><code>{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
+</code></pre></div></div>
 
 <p><strong>注意：</strong></p>
 
@@ -862,7 +868,7 @@ at，apikey，appid，nonce，sequence替换成自己的参数
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

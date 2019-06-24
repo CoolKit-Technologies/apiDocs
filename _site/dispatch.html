@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -563,7 +566,7 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>公共说明（重要）：</strong></p>
 
-<p>websocket接口地址格式：<code>wss://ip_address:port/api/ws</code></p>
+<p>websocket接口地址格式：<code class="highlighter-rouge">wss://ip_address:port/api/ws</code></p>
 
 <p>ip_address:由分配服务接口返回（尽量使用ip，无法跳过证书检查则使用域名）</p>
 
@@ -576,8 +579,8 @@ $('#toc').on('click', 'a', function() {
 <p>应用端通过该接口查询websocket长连接服务器的信息（Ip、端口）,然后连接长连接服务。</p>
 <ul>
   <li>注意：Authorization头要有access  token。</li>
-  <li>正式环境URL: <code>https://cn(区域)-disp.coolkit.cn:8080/dispatch/app</code></li>
-  <li>测试环境URL: <code>https://testapi.coolkit.cn:8080/dispatch/app</code></li>
+  <li>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-disp.coolkit.cn:8080/dispatch/app</code></li>
+  <li>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/dispatch/app</code></li>
   <li>
     <p>请求方法： POST</p>
   </li>
@@ -680,14 +683,14 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0:成功
 400:客户端参数错误
 401:认证不通过（ 提示登录 ）
 402:过期 （ APP自动刷新access token）
 403:无权限 （ APP提示无权限，比如APP无权访问OTA接口）（401-403认证错误由内部认证系统给出）
 500:服务端内部错误
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -699,7 +702,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

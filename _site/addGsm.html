@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -560,10 +563,10 @@ $('#toc').on('click', 'a', function() {
 目前GSM设备添加成功后注册到对应区域后(比如：cn，eu，us，as)，不能更改。后续会进行优化。</p>
 <ul>
   <li>
-    <p>正式环境URL: <code>https://cn(区域)-api.coolkit.cn:8080/api/user/device/addGsm</code></p>
+    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/user/device/addGsm</code></p>
   </li>
   <li>
-    <p>测试环境URL: <code>https://testapi.coolkit.cn:8080/api/user/device/addGsm</code></p>
+    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device/addGsm</code></p>
   </li>
   <li>
     <p>请求方法： POST</p>
@@ -651,7 +654,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>1.Device name, id and apikey must not be empty! (传递的参数不完整) code：400
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.Device name, id and apikey must not be empty! (传递的参数不完整) code：400
 2.Invalid device id format! (设备id不符合规范)     code：401
 3.Add device failed! (添加设备失败)   code：500
 4.Device does not exist! (设备不存在)  code：404
@@ -659,7 +662,7 @@ $('#toc').on('click', 'a', function() {
 6.Device has already been added!' : 'Device belongs to other user! (设备已经被添加)  code：409
 7.find brand failed! (查找品牌失败 ps：设备列表展现字段)  code：502
 8.find modelInfo failed! (查找产品型号失败 ps：设备列表展现字段)  code：503
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>设备信息</li>
@@ -814,7 +817,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

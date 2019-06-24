@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -622,12 +625,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>因为该参数值会因为设备的不同而不同（每种新设备都可能有自己的内容），所以不管是设备端还是app端发送的指令，服务端都直接转发或者存储params参数，不会做任何逻辑检查或者操作。例如：
 单通道开关格式例子：</p>
-<pre><code>"params":{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params":{
     "switch":"on"
  }
-</code></pre>
+</code></pre></div></div>
 <p>多通道开关格式例子：</p>
-<pre><code>"params": {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params": {
         "switches": [
             {
                 "switch": "off",
@@ -647,13 +650,13 @@ $('#toc').on('click', 'a', function() {
             }
         ]
 }
-</code></pre>
+</code></pre></div></div>
 
 <p>定时器例子：
 总体说明，设备可以添加多个定时器，每一次新增、修改、删除定时器的时候，都要全量提交定时器数组。比如目前定时器有2两个，那么如果再新增一个，那么提交的timers数组里，除了新增的这个定时器信息以外还要包含之前那两个定时器的信息。</p>
 
 <p>单次定时，也就是只会执行一次:</p>
-<pre><code>"params":{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params":{
         "timers":[
             {
                 "enabled":1, //1表示启用
@@ -667,9 +670,9 @@ $('#toc').on('click', 'a', function() {
             }
         ]
     }
-</code></pre>
+</code></pre></div></div>
 <p>重复定时：</p>
-<pre><code>"params":{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params":{
         "timers":[
             {
                 "enabled":1,
@@ -683,9 +686,9 @@ $('#toc').on('click', 'a', function() {
             }
         ]
     }
-</code></pre>
+</code></pre></div></div>
 <p>循环定时：</p>
-<pre><code>"params":{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params":{
         "timers":[
             {
                 "enabled":1,
@@ -702,9 +705,9 @@ $('#toc').on('click', 'a', function() {
             }
         ]
     }
-</code></pre>
+</code></pre></div></div>
 <p>延时定时（指定在多少分钟后执行，也就是单次执行，只是为了可以快速添加定时器）：</p>
-<pre><code>"params":{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"params":{
         "timers":[
             {
                 "enabled":1,
@@ -719,7 +722,7 @@ $('#toc').on('click', 'a', function() {
             }
         ]
     }
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>返回参数</li>
@@ -768,7 +771,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0:ok(操作成功)
 400:Bad Request（参数错误）
 403:Forbidden（无权限）
@@ -776,7 +779,7 @@ $('#toc').on('click', 'a', function() {
 以下是app端专用的返回：
 503:Device Offline(设备不在线)
 504:Request Timeout（响应超时）
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -788,7 +791,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

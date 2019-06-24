@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -576,7 +579,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">Region</td>
       <td style="text-align: left">获取当前区域</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1201741327551474" title="api/user/region">api/user/region</a></td>
+      <td><a href="region.html">api/user/region</a></td>
     </tr>
   </tbody>
 </table>
@@ -595,32 +598,32 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">验证码</td>
       <td style="text-align: left">注册，重置密码，找回密码获取验证码</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1201889758554755" title="api/sms">api/sms</a></td>
+      <td><a href="code.html">api/sms</a></td>
     </tr>
     <tr>
       <td style="text-align: left">注册</td>
       <td style="text-align: left">注册APP帐号</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1201981282383906" title="api/user/register">api/user/register</a></td>
+      <td><a href="register.html">api/user/register</a></td>
     </tr>
     <tr>
       <td style="text-align: left">找回密码</td>
       <td style="text-align: left">忘记密码的情况下，通过注册的帐号接收验证码，重新设置密码</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1201995399162773" title="/api/user/password/reset">/api/user/password/reset</a></td>
+      <td><a href="findpassword.html">/api/user/password/reset</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">重置密码</td>
+      <td style="text-align: left">修改密码</td>
       <td style="text-align: left">出于帐号安全，通过原来的密码设置帐号新密码，不需要通过验证码方式校验</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1335451415606976" title="/api/user/password">/api/user/password</a></td>
+      <td><a href="updatePassword.html">/api/user/password</a></td>
     </tr>
     <tr>
       <td style="text-align: left">登录</td>
       <td style="text-align: left">登录APP</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202011736886956" title="api/user/login">api/user/login</a></td>
+      <td><a href="login.html">api/user/login</a></td>
     </tr>
     <tr>
       <td style="text-align: left">token刷新</td>
       <td style="text-align: left">aceess token失效时，可通过refresh token重新获取token</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1251109658173327" title="api/user/refresh">api/user/refresh</a></td>
+      <td><a href="token.html">api/user/refresh</a></td>
     </tr>
   </tbody>
 </table>
@@ -639,52 +642,57 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">设备列表</td>
       <td style="text-align: left">或者帐号下添加的所有设备，包括分享给用户的设备</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202019570403450" title="api/user/device">api/user/device</a></td>
+      <td><a href="devices.html">api/user/device</a></td>
     </tr>
     <tr>
       <td style="text-align: left">单个设备查询</td>
       <td style="text-align: left">通过设备id，查询单个设备信息</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202152606940996" title="api/user/device/:deviceid">api/user/device/:deviceid</a></td>
+      <td><a href="device.html">api/user/device/:deviceid</a></td>
     </tr>
     <tr>
       <td style="text-align: left">添加设备</td>
       <td style="text-align: left">设备添加到用户帐号下</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1246248393232848" title="api/user/device/add">api/user/device/add</a></td>
+      <td><a href="addDevice.html">api/user/device/add</a></td>
     </tr>
     <tr>
       <td style="text-align: left">删除设备</td>
       <td style="text-align: left">设备从用户帐号下移除</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1246573582219825" title="api/user/device/:deviceid">api/user/device/:deviceid</a></td>
+      <td><a href="deleteDevice.html">api/user/device/:deviceid</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">修改设备名称</td>
+      <td style="text-align: left">给设备重新命名</td>
+      <td><a href="updateDevice.html">api/user/device/:deviceid</a></td>
     </tr>
     <tr>
       <td style="text-align: left">增加GSM设备</td>
-      <td style="text-align: left">扫描二维码添加GSM设备</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1246621644554862" title="api/user/device/addGsm">api/user/device/addGsm</a></td>
+      <td style="text-align: left">添加GSM设备</td>
+      <td><a href="addGsm.html">api/user/device/addGsm</a></td>
     </tr>
     <tr>
       <td style="text-align: left">增加设备分组</td>
       <td style="text-align: left">管理设备的分组</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1246683492161675" title="api/group">api/group</a></td>
+      <td><a href="addDeviceGroup.html">api/group</a></td>
     </tr>
     <tr>
       <td style="text-align: left">修改设备分组</td>
       <td style="text-align: left">修改分组名称，app上展示的顺序</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1247472314877360" title="api/group">api/group</a></td>
+      <td><a href="updateGroup.html">api/group</a></td>
     </tr>
     <tr>
       <td style="text-align: left">删除设备分组</td>
       <td style="text-align: left">1,删除分组 2,删除分组以及分组下的设备</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1247498963128566" title="api/group">api/group</a></td>
+      <td><a href="deleteGroup.html">api/group</a></td>
     </tr>
     <tr>
       <td style="text-align: left">添加设备到分组</td>
       <td style="text-align: left">给设备划分分组</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1247549246387719" title="api/group/addDevice">api/group/addDevice</a></td>
+      <td><a href="addToGroup.html">api/group/addDevice</a></td>
     </tr>
     <tr>
       <td style="text-align: left">查询设备分组</td>
       <td style="text-align: left">获取设备所有分组信息</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1247642428646484" title="api/group">api/group</a></td>
+      <td><a href="findGroup.html">api/group</a></td>
     </tr>
   </tbody>
 </table>
@@ -707,42 +715,42 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">分配服务</td>
       <td style="text-align: left">获取长连接信息</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202173029627789" title="dispatch/app">dispatch/app</a></td>
+      <td><a href="dispatch.html">dispatch/app</a></td>
     </tr>
     <tr>
       <td style="text-align: left">握手</td>
       <td style="text-align: left">实现连接建立时的认证，客户端上报环境数据，服务器返回配置数据</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202174857250681" title="握手">握手</a></td>
+      <td><a href="handshake.html">握手</a></td>
     </tr>
     <tr>
       <td style="text-align: left">设备上线/离线</td>
       <td style="text-align: left">服务端检测到设备上线或者下线以后，会向app发送通知指令。该指令app端是被动接收，不需要主动发送</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202174964396364" title="设备上线/离线">设备上线/离线</a></td>
+      <td><a href="online.html">设备上线/离线</a></td>
     </tr>
     <tr>
       <td style="text-align: left">更新/上报状态</td>
       <td style="text-align: left">更改设备状态。比如：开关，颜色，亮度，色温以及设置各类定时器</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202175854299191" title="更新/上报状态">更新/上报状态</a></td>
+      <td><a href="deviceStatus.html">更新/上报状态</a></td>
     </tr>
     <tr>
       <td style="text-align: left">设备状态查询</td>
       <td style="text-align: left">设备端和app向服务器发送该指令，查询设备状态或者参数。比如：设备开关状态，是否设置定时器等</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202188439794615" title="设备状态查询">设备状态查询</a></td>
+      <td><a href="findStatus.html">设备状态查询</a></td>
     </tr>
     <tr>
       <td style="text-align: left">分享</td>
       <td style="text-align: left">分享设备给其他用户，实现一个设备多人可以控制的场景</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202189190913987" title="分享">分享</a></td>
+      <td><a href="share.html">分享</a></td>
     </tr>
     <tr>
       <td style="text-align: left">修改分享</td>
       <td style="text-align: left">修改设备分享的控制或者数据权限等</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1251137151306076" title="修改分享">修改分享</a></td>
+      <td><a href="shareUpdate.html">修改分享</a></td>
     </tr>
     <tr>
       <td style="text-align: left">撤销分享</td>
       <td style="text-align: left">收回分享的设备控制权限</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1251227410217597" title="撤销分享">撤销分享</a></td>
+      <td><a href="shareCancel.html">撤销分享</a></td>
     </tr>
   </tbody>
 </table>
@@ -763,12 +771,12 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">查询设备状态</td>
       <td style="text-align: left">设备端和app向服务器发送该指令，查询设备状态或者参数。比如：设备开关状态，是否设置定时器等</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202190144776500" title="api/user/device/status">api/user/device/status</a></td>
+      <td><a href="deviceStatusHttp.html">api/user/device/status</a></td>
     </tr>
     <tr>
       <td style="text-align: left">更新设备状态</td>
       <td style="text-align: left">更改设备状态。比如：开关，颜色，亮度，色温以及设置各类定时器</td>
-      <td><a href="https://www.showdoc.cc/coolkit?page_id=1202190743141696" title="api/user/device/status">api/user/device/status</a></td>
+      <td><a href="updateStatusHttp.html">api/user/device/status</a></td>
     </tr>
   </tbody>
 </table>
@@ -783,7 +791,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

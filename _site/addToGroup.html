@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -560,10 +563,10 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>
-    <p>正式环境URL: <code>https://cn(区域)-api.coolkit.cn:8080/api/group/addDevice</code></p>
+    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/group/addDevice</code></p>
   </li>
   <li>
-    <p>测试环境URL: <code>https://testapi.coolkit.cn:8080/api/group/addDevice</code></p>
+    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/group/addDevice</code></p>
   </li>
   <li>
     <p>请求方法： POST</p>
@@ -633,7 +636,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>本接口支持多个不同分组的设备，移动到不同的分组，采用数组对象的方式实现，json例子：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>本接口支持多个不同分组的设备，移动到不同的分组，采用数组对象的方式实现，json例子：
 [
    {
       "source_id":"分组1",
@@ -664,7 +667,7 @@ type字段说明：
 
 如果type=1 , 那么数据库结果就是：
 "groups":["333"]   也就是说不管原来设备有几个分组，现在只保留最新这一个
-</code></pre>
+</code></pre></div></div>
 
 <p><strong>响应参数:</strong></p>
 
@@ -687,12 +690,12 @@ type字段说明：
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0:操作成功
 400:参数错误
 401:认证失败
 500:服务器错误
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -704,7 +707,7 @@ type字段说明：
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

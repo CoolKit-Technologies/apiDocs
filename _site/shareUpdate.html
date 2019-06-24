@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -652,7 +655,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>1、permit计算规则：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1、permit计算规则：
      新增权限，例如要给用户赋予 新增、修改、启用定时器的权限
      permit=1 | 2 | 8  结果等于11
 
@@ -686,7 +689,7 @@ $('#toc').on('click', 'a', function() {
      查询是否有“修改权限”、“删除权限”
      queryPermit= 2|4   结果等于6
      boolean isPermit=((permit &amp; queryPermit) == queryPermit)   结果为false
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>响应参数</li>
@@ -735,14 +738,14 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0: ok(操作成功)
 400: Bad Request（参数错误）
 401:认证不通过
 403:Forbidden（无权限）
 406:用户在其他设备登录
 500:Internal Server Error（服务器内部错误）
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -754,7 +757,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

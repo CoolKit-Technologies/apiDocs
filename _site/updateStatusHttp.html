@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -558,8 +561,8 @@ $('#toc').on('click', 'a', function() {
 
    <p>更改设备状态，比如：设备开关，设置定时器等</p>
 <ul>
-  <li>现网环境URL: <code>https://cn(区域)-api.coolkit.cn:8080/api/user/device/status</code></li>
-  <li>测试环境URL: <code>https://testapi.coolkit.cn:8080/api/user/device/status</code></li>
+  <li>现网环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/user/device/status</code></li>
+  <li>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device/status</code></li>
   <li>请求方法： POST</li>
   <li>请求参数：</li>
 </ul>
@@ -591,7 +594,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>因为该参数值根据不同设备而不同（每种新设备都可能有自己的内容），所以不管是设备端还是app端发送的指令，服务端都直接转发或者存储params参数，不会做任何逻辑检查或者操作。例如：</p>
 
-<pre><code>单通道开关格式例子：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>单通道开关格式例子：
 "params":{
    "switch":"on"
 }
@@ -617,12 +620,12 @@ $('#toc').on('click', 'a', function() {
       }
    ]
 }
-</code></pre>
+</code></pre></div></div>
 
 <p>定时器例子：
 总体说明，设备可以添加多个定时器，每一次新增、修改、删除定时器的时候，都要全量提交定时器数组。比如目前定时器有2两个，那么如果再新增一个，那么提交的timers数组里，除了新增的这个定时器信息以外还要包含之前那两个定时器的信息。</p>
 
-<pre><code>单次定时，也就是只会执行一次
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>单次定时，也就是只会执行一次
 "params":{
    "timers":[
       {
@@ -690,7 +693,7 @@ $('#toc').on('click', 'a', function() {
       }
    ]
 }
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>响应参数</li>
@@ -721,14 +724,14 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0：操作成功
 400：参数错误
 401：认证失败
 403：无权限
 500：服务器内部错误
 503：设备不在线
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -740,7 +743,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data...">
+<meta name="keywords" content=" ">
+<title>Create Your First Application | Jekyll theme for documentation</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> CoolKit Cloud Platform</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Create Your First Application">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">CoolKit Cloud Platform 2.0</li>
+  
+  
+  
+  <li>
+      
+      <a href="platformOverview_en.html">Platform Overview</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="apiFee_en.html">API Fee</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">Getting Started</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="developerGuide_en.html">Developer Guide</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="develop_en.html">Prepare Your Development Environment</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="developer_en.html">Become A Developer</a></li>
+          
+          
+          
+          
+          
+          
+          <li class="active"><a href="application_en.html">Create Your First Application</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="instruction_en.html">General Developer Instruction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="pair_en.html">Pairing Process</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="sdk_en.html">SDK</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">API Center</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="apiOverview_en.html">API Overview</a></li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Region</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="region_en.html">Check current region</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Account Management</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="code_en.html">Verification code</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="register_en.html">Register</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findpassword_en.html">Reset password</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updatePassword_en.html">Change Password</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="login_en.html">Login</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="token_en.html">Token Refresh</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Device Management</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="devices_en.html">Device List</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="device_en.html">Check Device</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addDevice_en.html">Add Device</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deleteDevice_en.html">Delete Device</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateDevice_en.html">Change Device Name</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addGsm_en.html">Add GSM Device</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addDeviceGroup_en.html">Add Group</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateGroup_en.html">Change Group</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deleteGroup_en.html">Delete Group</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="addToGroup_en.html">Add device to Group</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findGroup_en.html">Check Group</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Device Control</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="dispatch_en.html">Server Dispatch</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="handshake_en.html">Handshake</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="online_en.html">Device Online/Offline</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deviceStatus_en.html">Update/Report Status</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="findStatus_en.html">Check Device Status</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="share_en.html">Share Device</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="shareUpdate_en.html">Update Share</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="shareCancel_en.html">Cancel Share</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="deviceStatusHttp_en.html">Check Device Status</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="updateStatusHttp_en.html">Update Device Status</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="#">FAQ</a>
+      
+      <ul>
+          
+          
+          
+          <li><a href="faqOauth_en.html">Authentication</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqCode_en.html">Verification code</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqAccount_en.html">Account</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="faqDevice_en.html">Device</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      
+      <a href="contactUs_en.html">Contact Us</a>
+      
+      <ul>
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Create Your First Application</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below.</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+   <h1 id="example">Example</h1>
+<p>The example here is for reference only. Please use your own parameters when developing your own application.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>First step: Login, authenticate your account and get authentication token. You will be granted access to services after you are authenticated.
+Second step：Device List. Obtain all the devices in your account. When you control the device, you need to provide the device data and user info.
+Third step：Access dispatched server to get connection info.
+Fourth step：Build connection.Build connection with the connection info from third step.
+Fifth step：Handshake.Handshake with the access token(‘at’ means access token) you get on the first step.If handshake is done successfully, you have passed the authentication and should be ready to control devices.
+Sixth step：Control the device. Send update command to the device through the device info you get on the second step.
+</code></pre></div></div>
+
+<h2 id="the-workflow-of-building-websocket-connection-and-sending-command-to-control-device">The workflow of building websocket connection and sending command to control device</h2>
+
+<p><img src="images/controlFlow.jpg" alt="workflow" /></p>
+
+<h2 id="login">Login</h2>
+<p>Login API <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/login</code></p>
+
+<p>Request Method： POST</p>
+
+<p>Request Parameters：(appid provided by your salesperson,phoneNumber,password,ts, nonce Please use your own ‘nonce’ here)</p>
+
+<p>Click here to check Parameter descriptions <a href="instruction_en.html">General Developer instructions</a> and <a href="login_en.html">Login</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
+Request Header：
+Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=
+Content-Type:application/json
+Authorization header decription：Sign+Space+Signature value.Signature value is calculated by the passed parameters.Note that signature value will be different in case the order of parameters changes.
+</code></pre></div></div>
+
+<p>For more about signature, please click to check <a href="instruction_en.html">General developer instructions</a></p>
+
+<p><strong>Debug Tool：Postman</strong></p>
+
+<p><img src="images/postman_loginParams.jpg" alt="Login" /></p>
+
+<p>Note：The marked ‘at’ in screenshot works as signature value for socket after login.When at expires,refresh ‘at’ via ‘rt’.</p>
+
+<p><strong>Screenshot for Authorization header：</strong></p>
+
+<p><img src="images/postmanSign.jpeg" alt="Authorization" /></p>
+
+<p><strong>Return parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">String</td>
+      <td>returned if failed，and only error will be returned</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">at</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">String</td>
+      <td>acess token，at remains valid for a month（Note:at will be regenerated everytime you login,and one account can’t be used for multiple smartphones.)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rt</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">String</td>
+      <td>refresh token，rt stays valid for two months</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">String</td>
+      <td>user info</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">region</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">String</td>
+      <td>region server</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error code
+400: missing parameters
+301：user in another region server,app need to relocate server and reconnect
+401: wrong account or password
+402：inactivated email
+404：account does not exist
+406：authorization failed
+500：server error
+</code></pre></div></div>
+
+<p><strong>Response Example</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //signature value to access other interfaces.Valid for a month
+    "rt": "436adf6b1f1e5e6fdc6061317b3aca6bcefa45c1",  //when token expires，use this to refresh token.Valid for two months
+    "user": {
+        "_id": "5bf3b28e9ac7c1788fc27f1b",
+        "phoneNumber": "+8613570211955",
+        "appId": "I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF",
+        "lang": "cn",
+        "online": false,
+        "onlineTime": "2018-12-20T01:45:36.771Z",
+        "ip": "113.110.230.62",
+        "location": "广东",
+        "offlineTime": "2018-12-20T01:46:40.978Z",
+        "createdAt": "2018-11-20T07:06:54.710Z",
+        "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667"
+    },
+    "region": "cn"
+}
+</code></pre></div></div>
+
+<h2 id="request-device-list">Request device list</h2>
+<p>API for accessing device list <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device?version=8</code></p>
+
+<p>Request method： GET</p>
+
+<p>Request Header：
+Authorization:Bearer b1d576f797ae86d276d366e7b8772ecbacecc18d(‘at’ retrieved after login，say ‘access token’)</p>
+
+<p>Content-Type:application/json</p>
+
+<p>Authorization header decription：Bearer+Space+at.For more about signature, please click to check <a href="instruction_en.html">General developer instructions</a></p>
+
+<p><strong>Debug Tool：Postman</strong></p>
+
+<p><img src="images/postman_deviceList.jpg" alt="Device List" /></p>
+
+<p><strong>Return parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">String</td>
+      <td>return ‘error:0’ when success</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">devicelist</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Object</td>
+      <td>Device list</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Important info in Device list：
+sharedBy：who the device is shared by（For sharee to check）
+sharedTo：To whom the device is shared（For sharer to check）
+</code></pre></div></div>
+
+<p><strong>返回示例</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "error": 0,
+    "devicelist": [
+        {
+            "name": "我的设备00140e",
+            "deviceid": "100000140e",
+            "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667",
+            "onlineTime": "2018-12-20T08:58:44.177Z",
+            "ip": "113.110.230.62",
+            "location": "广东",
+            "groups": [],
+            "params": {
+                "startup": "off",
+                "staMac": "18:FE:34:FE:70:7D",
+                "rssi": -73,
+                "fwVersion": "1.6.0",
+                "switch": "off"
+            },
+            "online": true,
+            "createdAt": "2018-12-20T08:58:39.582Z",
+            "sharedTo": [],
+            "uiid": 1
+        }
+    ]
+}
+</code></pre></div></div>
+
+<h2 id="access-server-dispatch">Access Server Dispatch</h2>
+<p>API for server dispatch <code class="highlighter-rouge">https://testapi.coolkit.cc:8080/dispatch/app</code></p>
+
+<p>Request method： POST</p>
+
+<p>Request Parameters：(appid provided by your salesperson,ts,nonce use your own ‘ts’ and ‘nonce’ here)</p>
+
+<p>Click to check request parameters descripion <a href="dispatch_en.html">Server Dispatch</a>
+<code class="highlighter-rouge">{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}</code></p>
+
+<p><strong>Debug Tool：Postman</strong></p>
+
+<p><img src="images/postman_dispatch.jpg" alt="Server Dispatch" /></p>
+
+<p><strong>Return parameters：For detailed descripion of Key parameters（through returned IP or access following ‘create connection’API via domain+port），Please click to check <a href="dispatch_en.html" title="Server Dispatch">Server Dispatch</a></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">IP</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">String</td>
+      <td>Persistent connection to server IP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Int</td>
+      <td>Persistent connection to server port</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">domain</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">String</td>
+      <td>Persistent connection to server domain.Only app returns domain now.android client should select ip to create persistent connection, so as to reduce issues caused by dns resolution.js client can not skip certificate check, so only domain can be used.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="create-connection">Create Connection</h2>
+<p>Create handshake through IP returned by Server Dispatch or domain.Call <code class="highlighter-rouge">wss://test-pconnect1.coolkit.cc:8080/api/ws</code></p>
+
+<p>websocket Test Tool： <code class="highlighter-rouge">http://www.blue-zero.com/WebSocket/</code></p>
+
+<p><img src="images/connection.jpg" alt="Connection" /></p>
+
+<p>See pic above，Connect has been created，receiving data….This means connection has been created successfully.Ready to start handshake.</p>
+
+<h2 id="handshake">Handshake</h2>
+
+<p><img src="images/useronline.jpg" alt="Handshake" /></p>
+
+<p>Please click to check parameter description.<a href="handshake_en.html">Handshake</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Example for handshake：at and apikey are both in returned parameters after login.
+    Note: ts should be timestamp to second,otherwise request will fail. 
+Use your own  'at'，'apikey'，'appid'，'nonce'，'sequence'
+
+{"action":"userOnline","version":8,"ts":1545219251,"at":"351bc7395e03a39fd537db8d6137d6f3d9548568","userAgent":"app","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"asbsedwq","sequence":"1545219251123"}
+</code></pre></div></div>
+
+<p>Response of Handshake success：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
+</code></pre></div></div>
+
+<p>hbInterval is hearbeat interval.ping needs to be sent in 145S.Server will respond pong when ping is received.</p>
+
+<p><img src="images/ping.jpg" alt="hearbeat" /></p>
+
+<h2 id="send-control-command">Send control command</h2>
+
+<p><img src="images/control.jpg" alt="control command" /></p>
+
+<p>Example of paramters for control commands.Params vary accoridng to protocols.When business agreement is reached,protocol documentation will be provided based on type of device.Use your own apikey,deviceid,sequence,params
+For parameter description, please check <a href="deviceStatus_en.html">Update/Report Status</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
+</code></pre></div></div>
+
+<p>Response for control command：Return error:0 means operation success.For more error codes, please check <a href="deviceStatus_en.html">Update/Report Status</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
+</code></pre></div></div>
+
+<p><strong>Note：</strong></p>
+
+<p>a：If device is shared by other user,you must select apikey returned from device list.If you are device owner,both apikey returned from login and apikey from device list will work.</p>
+
+<p>b：Device must be online.After command is sent, check if device turns on/off accordingly.</p>
+
+<p>Until now, everything went on well, next, please check <a href="apiOverview_en.html">API Center</a> for how to access Region,Account,Device Management,Device Control and Authorization.</p>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2019 Coolkit Technology Co.,Ltd. All rights reserved. <br />
+<span>Page last updated:</span> 2019-03-20<br/>
+<p><img src="images/coolkit.png" alt="CoolKit"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+</html>

@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -560,10 +563,10 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>
-    <p>正式环境URL: <code>https://cn(区域)-api.coolkit.cn:8080/api/sms</code></p>
+    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/sms</code></p>
   </li>
   <li>
-    <p>测试环境URL: <code>https://testapi.coolkit.cn:8080/api/sms</code></p>
+    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/sms</code></p>
   </li>
   <li>
     <p>请求方法： POST</p>
@@ -631,7 +634,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>错误码：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码：
 0:操作成功
 301:用户在其他大区，需要客户端结合region重定向,重新连接
 400:参数错误
@@ -640,7 +643,7 @@ $('#toc').on('click', 'a', function() {
 500:服务器错误
 504:发送失败
 160038:发送频率高，超过限制
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -651,7 +654,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>

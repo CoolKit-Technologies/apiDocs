@@ -40,7 +40,6 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
@@ -109,6 +108,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+		<li style="line-height: 50px;">
+		    <label><a href="index.html">中文</a></label>
+		    <label><a href="platformOverview_en.html">English</a></label>
+		</li>
                 <li>
                     <!--start search-->
                     <div id="search-demo-container">
@@ -558,8 +561,8 @@ $('#toc').on('click', 'a', function() {
 
    <p>查询设备的状态。比如：定时器，开关状态等</p>
 <ul>
-  <li>现网环境URL： <code>https://cn(区域)-api.coolkit.cn:8080/api/user/device/status</code></li>
-  <li>测试环境URL：<code>https://testapi.coolkit.cn:8080/api/user/device/status</code></li>
+  <li>现网环境URL： <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/user/device/status</code></li>
+  <li>测试环境URL：<code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device/status</code></li>
   <li>请求方法： GET</li>
   <li>请求参数：</li>
 </ul>
@@ -589,10 +592,10 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<pre><code>params举例说明：
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>params举例说明：
 需要查询switch和timers，请求url为:
 https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd
-</code></pre>
+</code></pre></div></div>
 
 <ul>
   <li>响应参数</li>
@@ -629,7 +632,7 @@ https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd
   </tbody>
 </table>
 
-<pre><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
 0:操作成功
 400:参数错误
 401:认证失败
@@ -642,7 +645,7 @@ Params说明：
 { "error": 0,"params": { "switch": "on" } }
 没有查询到任何参数：
 { "error": 0,"params": { } }
-</code></pre>
+</code></pre></div></div>
 
 
 
@@ -654,7 +657,7 @@ Params说明：
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 酷宅科技。 版权所有。 <br />
+               &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
 <span>最后更新时间:</span> 2019-03-20<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
