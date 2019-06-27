@@ -33,7 +33,7 @@ folder: mydoc
 参数说明请查看[开发通用说明](instruction.html)和[登录服务](login.html)
 
 ```
-{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
+{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":15452192511,"version":8,"nonce":"asbsedwq"}
 请求头：
 Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=
 Content-Type:application/json
