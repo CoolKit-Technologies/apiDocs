@@ -2,7 +2,7 @@
 title: Prepare Your Development Environment
 sidebar: mydoc_en_sidebar
 permalink: develop_en.html
-last_updated: 2019-03-20
+last_updated: 2019-07-19
 summary: Download test tool and prepare test data, so as to prepare yourself for data authentication before you can request device data and control devices.
 folder: mydoc
 layout: page_en
@@ -11,7 +11,7 @@ layout: page_en
 
 ## Download Test APP
 - Test APP is only available in Android
-- [Click to download eWeLink APP](http://testapi.coolkit.cn:8081/app-DEBUG.apk_3.5.5_legu_signed_zipalign.apk "Click to download eWeLink APP")
+- [Click to download eWeLink APP](http://testapi.coolkit.cn:8081/apk/app-DEBUG.apk_3.5.5_legu_signed_zipalign.apk "Click to download eWeLink APP")
 
 ## Link for you to buy test device
 [buy device](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4001-18687042379.1.43af163fxntdCk&id=527345142232&scene=taobao_shop)

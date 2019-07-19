@@ -2,7 +2,7 @@
 title: 准备开发环境
 sidebar: mydoc_sidebar
 permalink: develop.html
-last_updated: 2019-03-20
+last_updated: 2019-07-19
 summary: "测试工具的下载以及测试数据准备，为请求平台设备数据以及控制设备提供数据认证基础"
 folder: mydoc
 ---
@@ -10,7 +10,7 @@ folder: mydoc
 
 ## 测试APP下载
 - 测试APP只有安卓版
-- [点击下载APP](http://testapi.coolkit.cn:8081/app-DEBUG.apk_3.5.5_legu_signed_zipalign.apk "点击下载APP")
+- [点击下载APP](http://testapi.coolkit.cn:8081/apk/app-DEBUG.apk_3.5.5_legu_signed_zipalign.apk "点击下载APP")
 
 ## 测试设备购买链接
 [购买设备](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4001-18687042379.1.43af163fxntdCk&id=527345142232&scene=taobao_shop)
