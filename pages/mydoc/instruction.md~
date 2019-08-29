@@ -37,7 +37,7 @@ folder: mydoc
 将所有参数（sign除外）按照参数名的字母顺序排序，并用&连接：
 
 ```
-appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF"&deviceid="1000052354"&nonce="2323dfgh"&ts=1545219251
+appid=I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF&deviceid=1000052354&nonce=2323dfgh&ts=1545219251
 ```
 
 计算签名:将app secret作为key，生成被签名串的HMAC-SHA256 签名。

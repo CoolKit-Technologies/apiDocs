@@ -39,7 +39,7 @@ Please refer to 'Signature Calculation' below for Signature Algorithmc
 Order all parameters alphabetically based on the names of parameters and concatenate them with &.
 
 ```
-appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF"&deviceid="1000052354"&nonce="2323dfgh"&ts=1545219251
+appid=I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF&deviceid=1000052354&nonce=2323dfgh&ts=1545219251
 ```
 
 Signature Calculation: Set ‘app secret’ as key，generate sigature string based on HMAC-SHA256.
