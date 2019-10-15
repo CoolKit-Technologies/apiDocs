@@ -40,7 +40,7 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -572,53 +572,57 @@ $('#toc').on('click', 'a', function() {
 
 <p><a href="develop.html">准备开发环境 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1,首先下载安装易微联测试版APP（已经安装正式版APP，需卸载正式版APP后再安装测试版APP）。
-2,使用易微联APP注册测试帐号并登录，登录成功后才能获取权限认证，认证通过才能调用设备相关服务。
-3,购买测试设备并用APP添加设备。为后续设备数据服务以及设备控制服务做准备。
-4,设备上线后，在APP上控制设备。保证设备控制没问题后，后续通过设备控制服务(websocket)来进行设备控制。
-</code></pre></div></div>
+<ul>
+  <li>首先下载安装易微联正式版APP。</li>
+  <li>使用易微联APP注册手机或邮箱帐号并登录，登录成功后才能获取权限认证，认证通过才能调用设备相关服务（邮箱注册需牢记注册区域）。</li>
+  <li>购买测试设备并用易微联APP添加设备，为后续设备数据服务以及设备控制服务做准备。</li>
+  <li>设备上线后，在易微联APP上控制设备。保证设备控制没有问题，后续通过设备控制服务(WebSocket)来进行设备控制。</li>
+</ul>
 
 <h2 id="成为开发者">成为开发者</h2>
 
-<p><a href="developer.html">成为开发者   点击查看</a></p>
+<p><a href="developer.html">成为开发者 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>首先需要和销售对接，达成商务合作。平台分配拥有请求云平台服务权限的APPID，同时由销售协调技术支持，通过微信群的方式提供技术支持，缩短开发周期。
-</code></pre></div></div>
+<ul>
+  <li>首先需要和销售对接，达成商务合作。</li>
+  <li>平台分配拥有请求云平台服务权限的APPID，同时由销售协调技术支持，通过微信群的方式提供技术支持，缩短开发周期。</li>
+</ul>
 
 <h2 id="创建第一个应用">创建第一个应用</h2>
 
-<p><a href="application.html">创建第一个应用  点击查看</a></p>
+<p><a href="application.html">创建第一个应用 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>介绍如何通过酷宅云平台提供的服务开发自己的应用。从登录到控制设备整个流程通过示范应用更快更容易理解怎么开发自己的应用。
-</code></pre></div></div>
+<ul>
+  <li>介绍如何通过酷宅云平台提供的服务开发自己的应用。</li>
+  <li>从登录到控制设备整个流程的示范应用，让你更快理解物联网接入流程。</li>
+</ul>
 
 <h2 id="开发通用说明">开发通用说明</h2>
 
-<p><a href="instruction.html">开发通用说明  点击查看</a></p>
+<p><a href="instruction.html">开发通用说明 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1,HTTP接口必填参数详解。
-2,认证的签名规则以及签名算法，指引快速通过安全认证，获取访问接口权限。
-3,Access Token以及Refresh Token规则介绍。如何刷新Token。
-</code></pre></div></div>
+<ul>
+  <li>HTTP接口必填参数详解。</li>
+  <li>认证的签名规则以及签名算法，指引快速通过安全认证，获取访问接口权限。</li>
+  <li>Access Token以及Refresh Token规则介绍（也可以了解一下 <a href="https://oauth.net/2/">OAuth 2.0协议</a>）。</li>
+</ul>
 
 <h2 id="api中心">API中心</h2>
 
-<p><a href="apiOverview.html">API中心  点击查看</a></p>
+<p><a href="apiOverview.html">API中心 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>提供区域功能，帐号管理功能，设备管理功能，设备控制功能。详细介绍：设备分组，设备设置各类定时器，设备分享等常用功能。
-</code></pre></div></div>
+<ul>
+  <li>提供区域查询、帐号管理、设备管理、设备控制等接口的信息。</li>
+  <li>详细介绍包括但不限于设备分组、设备设置、定时器、设备分享等常用功能。</li>
+</ul>
 
 <h2 id="配对过程">配对过程</h2>
 
-<p><a href="pair.html">配对过程  点击查看</a></p>
+<p><a href="pair.html">配对过程 点击查看</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch配对和ap配对流程。
-</code></pre></div></div>
-
-<h2 id="sdk">SDK</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>暂无SDK，敬请期待！
-</code></pre></div></div>
+<ul>
+  <li>Touch配对和AP配对流程。</li>
+</ul>
 
 
 
@@ -631,7 +635,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-15<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

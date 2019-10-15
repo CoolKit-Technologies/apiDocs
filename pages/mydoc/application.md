@@ -1,7 +1,8 @@
 ---
 title: 创建第一个应用
-last_updated: 2019-03-20
-summary: "本文从登录、获取设备数据、建立长连接到设备控制等方面讲解如何在酷宅云平台上面实现与设备的数据交互。让你可以快速地开发应用，并了解用户与设备之间的关系，设备控制和响应的过程。下面一起来通过示例应用快速入门如何开发自己的应用"
+last_updated: 2019-10-15
+summary: "本节从账号登录、获取设备数据、建立长连接实现设备控制等方面讲解如何在酷宅云平台上面实现客户端与设备的数据交互。
+下面通过示例应用快速入门「如何开发自己的应用？」"
 sidebar: mydoc_sidebar
 permalink: application.html
 folder: mydoc
@@ -9,223 +10,420 @@ folder: mydoc
 
 
 # 示例
-示例提供开发参考，具体开发过程中，请替换成自己的参数。
+
+示例数值仅供参考，具体开发过程，请替换成自己的参数。
+
 
 ```
 第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。
 第二步：设备列表，获取帐号下添加的所有设备。设备控制时需要提供相关设备数据以及用户数据。
 第三步：访问分配服务，获取连接信息。
-第四步：建立连接，通过第三步获取的连接信息，建立连接。
-第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手。握手成功后，表示认证通过可以接下来进行设备控制。
+第四步：建立长连接，通过第三步获取的长连接信息，建立连接。
+第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手，握手成功后，表示认证通过，允许进行设备控制。
 第六步：控制设备，通过第二步获取的设备信息，发送update指令进行设备控制。
 ```
 
-## 创建websocket连接和发送控制命令流程
-<img src="{{ "images/controlFlow.jpg" }}" alt="流程图"/>
+## 第一步：登录
 
-## 登录
-调用登录接口 ``` https://testapi.coolkit.cn:8080/api/user/login``` 
+接口测试工具：https://www.getpostman.com/  
+在线快速测试：https://getman.cn/
 
-请求方法： POST
+- 接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
+- 请求方法： POST
 
-请求参数：(appid由销售提供,phoneNumber,password,ts,nonce请替换成自己的参数)
+**请求参数：**
 
-参数说明请查看[开发通用说明](instruction.html)和[登录服务](login.html)
+Headers：
 
-```
-{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":15452192511,"version":8,"nonce":"asbsedwq"}
-请求头：
-Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=
-Content-Type:application/json
-认证头说明：Sign+空格+签名值。签名值通过传递的参数算出。注意参数顺序传递不一样，签名值也会不一样。
-```
+|名称|参数值|是否必须|示例|
+:-: | :-: | :-: | :-: | :-:
+|Authorization|Sign+空格+签名值|是|Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+|
+|Content-Type|application/json|是|application/json|
 
-关于签名，请查看[开发通用说明](instruction.html)
-  
-  **调试工具：Postman**
-  
-<img src="{{ "images/postman_loginParams.jpg" }}" alt="登录"/>
-  
-注意：截图红框中返回的at作为登录后的接口签名值。当at失效时，通过rt刷新at。
-  
-  **认证头截图：**
+Params：
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|phoneNumber|string|-|登录手机（优先）|
+|email|string|-|登录邮箱|
+|password|string|是|登录密码|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|预设版本|
 
-<img src="{{ "images/postmanSign.jpeg" }}" alt="认证头"/>
-  
-**返回参数** 
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|error |否  |String |失败时返回，且只会返回error|
-|at |否  |String |acess token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）   |
-|rt |否  |String | refresh token，rt有效期为两个月    |
-|user     |否  |String | 用户信息    |
-|region     |否  |String | 区域    |
-  
-```
-error错误码
-400: 缺少参数
-301：用户在其他大区，需要客户端结合region重定向,重新连接
-401:用户名密码错误
-402：邮箱未激活
-404：用户不存在
-406：认证失败
-500：服务器错误
-```
+示例：
 
- **返回示例**
-
-``` 
+```Json
 {
-    "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //请求其他接口的签名值。有效期一个月
-    "rt": "436adf6b1f1e5e6fdc6061317b3aca6bcefa45c1",  //token失效时，刷新token时使用。有效期两个月
-    "user": {
-        "_id": "5bf3b28e9ac7c1788fc27f1b",
-        "phoneNumber": "+8613570211955",
-        "appId": "I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF",
-        "lang": "cn",
-        "online": false,
-        "onlineTime": "2018-12-20T01:45:36.771Z",
-        "ip": "113.110.230.62",
-        "location": "广东",
-        "offlineTime": "2018-12-20T01:46:40.978Z",
-        "createdAt": "2018-11-20T07:06:54.710Z",
-        "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667"
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "phoneNumber":"+8613123456789",
+    "password":"12345678",
+    "ts": 1558004249,
+    "version":8,
+    "nonce":"q3wz95p6"
+}
+```
+
+备注：
+
+接口路径中的cn代表服务器区域，可替换成eu、us、as
+签名值计算规则请查看 [开发通用说明](instruction.html)
+
+**响应参数(基础):**
+
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|error|string|否|失败时返回，且只会返回error|
+|at|string|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
+|rt|string|否|Refresh Token，rt有效期为两个月，用于刷新at|
+|user|Object|否|用户信息|
+|region|String|否|注册区域|
+
+
+错误码（以实际为准）：
+
+400：参数不完整或错误  
+301：账号注册在其他区域，需要查询「区域接口」重定向  
+401：账号密码错误  
+402：账号未激活  
+404：账号不存在  
+406：认证失败（APPID错误或签名错误）  
+500：服务器内部错误  
+
+返回示例(数据已脱敏)：
+
+```Json
+{
+    "at":"a527297584f1ca030579a90d2e800481e22e850a",
+    "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
+    "user":{
+        "_id":"5c984cd3dc8295fa0ef3e592",
+        "phoneNumber":"+8613123456789",
+        "appId":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+        "lang":"cn",
+        "online":false,
+        "onlineTime":"2019-05-16T10:48:42.091Z",
+        "ip":"113.87.160.95",
+        "location":"广东",
+        "offlineTime":"2019-05-16T10:51:22.090Z",
+        "appInfos":[
+            {
+                "appVersion":"3.13.0",
+                "os":"android"
+            }
+        ],
+        "nickname":"eWelink",
+        "createdAt":"2019-03-25T03:36:51.335Z",
+        "apikey":"95da0fea-5692-469a-c562-4dd5ee9a51f1"
     },
-    "region": "cn"
+    "region":"cn"
 }
 ```
 
-## 请求设备列表
-调用获取设备列表接口 ``` https://testapi.coolkit.cn:8080/api/user/device?version=8```
+备注：
 
-请求方法： GET
+- at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
+- rt存在的目的是刷新at
+- region为账号注册所在区域
 
-请求头：
-Authorization:Bearer b1d576f797ae86d276d366e7b8772ecbacecc18d(上文登录成功返回的at，即access token)
+## 第二步：请求设备列表
 
-Content-Type:application/json
+- 接口地址： https://cn-api.coolkit.cn:8080/api/user/device  
+- 请求方法： GET
 
-认证头说明：Bearer+空格+at。关于签名，请查看[开发通用说明](instruction.html)
+**请求参数：**
 
-**调试工具：Postman**
+Headers：
 
-<img src="{{ "images/postman_deviceList.jpg" }}" alt="设备列表"/>
+|名称|参数值|是否必须|示例|
+:-: | :-: | :-: | :-: | :-:
+|Authorization|Bearer+空格+at|是|Bearer a527297584f1ca030579a90d2e800481e22e850a|
+|Content-Type|application/json|是|application/json|
 
+Body:
 
-**返回参数** 
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|lang|string|否|cn 响应返回中文信息；en 响应返回英文信息|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|预设版本|
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|error |是  |String |成功返回error:0|
-|devicelist |否  |Object |设备信息列表   |
+示例：
 
-```
-设备信息列表重点数据解析：
-sharedBy：分享方的信息（被分享方查看显示）
-sharedTo：被分享方的信息（分享方查看显示）
-```
-
-**返回示例**
-
-``` 
+```Json
 {
-    "error": 0,
-    "devicelist": [
-        {
-            "name": "我的设备00140e",
-            "deviceid": "100000140e",
-            "apikey": "a4e77f7e-2116-4215-b961-6f3fc5982667",
-            "onlineTime": "2018-12-20T08:58:44.177Z",
-            "ip": "113.110.230.62",
-            "location": "广东",
-            "groups": [],
-            "params": {
-                "startup": "off",
-                "staMac": "18:FE:34:FE:70:7D",
-                "rssi": -73,
-                "fwVersion": "1.6.0",
-                "switch": "off"
-            },
-            "online": true,
-            "createdAt": "2018-12-20T08:58:39.582Z",
-            "sharedTo": [],
-            "uiid": 1
-        }
-    ]
+    "lang":"cn",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "nonce":"q3wz95p6",
+    "ts": 1558004249,
+    "version":8
+}
+// 最终结构：https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&nonce=q3wz95p6&ts=1558004249&version=8
+```
+
+备注：GET请求会将Json格式数据转为特定字符，放到URL中。
+
+**响应参数(基础):**
+
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|error|string|否|失败时返回，且只会返回error|
+|devicelist|Object|否|设备信息列表|
+
+错误码：暂无
+
+返回示例(数据已脱敏)：
+
+```Json
+[
+    {
+        "_id": "***************",
+        "name": "我的设备213ac8",
+        "type": "10",
+        "deviceid": "1000213ac8",
+        "apikey": "3541f7af-*ec5-4502-9bf3-eb4b09e9e12*",
+        "extra": {
+            "_id": "***************",
+            "extra": {
+                "model": "PSA-B11-GL",
+                "ui": "单通道开关",
+                "description": "WWJG001111",
+                "manufacturer": "深圳创易智能系统有限公司",
+                "mac": "**:**:**:**:**:**",
+                "apmac": "**:**:**:**:**:**",
+                "modelInfo": "***************",
+                "brandId": "***************",
+                "uiid": 6,
+                "staMac": "**:**:**:**:**:**",
+                "chipid": "********"
+            }
+        },
+        "__v": 0,
+        "onlineTime": "2019-10-15T07:22:14.361Z",
+        "ip": "110.110.110.110",
+        "location": "广东",
+        "settings": {
+            "opsNotify": 0,
+            "opsHistory": 1,
+            "alarmNotify": 1,
+            "wxAlarmNotify": 0,
+            "wxOpsNotify": 0,
+            "wxDoorbellNotify": 0,
+            "appDoorbellNotify": 1
+        },
+        "devGroups": [],
+        "groups": [],
+        "params": {
+            "pulseWidth": 500,
+            "pulse": "off",
+            "init": 1,
+            "startup": "off",
+            "staMac": "**:**:**:**:**:**",
+            "rssi": -50,
+            "fwVersion": "3.0.1",
+            "switch": "off",
+            "sledOnline": "on",
+            "version": 8
+        },
+        "online": true,
+        "createdAt": "2019-10-15T07:22:11.700Z",
+        "group": "",
+        "sharedTo": [],
+        "devicekey": "***************",
+        "deviceUrl": "",
+        "brandName": "Maker",
+        "showBrand": true,
+        "brandLogoUrl": "",
+        "productModel": "Sonoff basic R2",
+        "devConfig": {},
+        "uiid": 6
+    }
+]
+```
+
+备注：
+
+- sharedBy：分享方的信息（接收方查看设备列表才显示）
+- sharedTo：被分享方的信息（分享方查看设备列表才显示）
+- 不同设备的UIID会不同，UI决定显示的效果
+- 如果返回为[]，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
+
+
+## 第三步：请求分配服务
+
+- 接口地址： https://cn-api.coolkit.cn:8080/dispatch/app
+- 请求方法： POST
+
+**请求参数：**
+
+Headers：
+
+|名称|参数值|是否必须|示例|
+:-: | :-: | :-: | :-: | :-:
+|Authorization|Bearer+空格+at|是|Bearer a527297584f1ca030579a90d2e800481e22e850a|
+|Content-Type|application/json|是|application/json|
+
+Params：
+
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|accept|string|是|默认填ws即可|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|预设版本|
+
+
+示例：
+
+```Json
+{
+    "accept":"ws",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts": 1571139270,
+    "version":8,
+    "nonce":"po89ks8z"
 }
 ```
 
-## 访问分配服务 
-调用分配服务接口 ``` https://testapi.coolkit.cc:8080/dispatch/app```
+**响应参数(基础):**
 
-请求方法： POST
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|IP|string|是|长连接服务器外网IP|
+|port|int|是|长连接服务器外网端口|
+|domain|string|是|长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。|
+|error|string|是|成功返回error:0|
+|reason|string|是|成功返回ok|
 
-请求参数：(appid由销售提供,ts,nonce自己替换)
+错误码：暂无
 
-请求参数说明请查看[分配服务](dispatch.html)
-```{"accept":"ws","version":8,"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","ts":1545219251123,"nonce":"asbsedwq"}```
+返回示例：
 
-**调试工具：Postman**
+```Json
+{
+    "port": 8080,
+    "IP": "52.80.19.131",
+    "reason": "ok",
+    "domain": "cn-pconnect2.coolkit.cc",
+    "error": 0
+}
+```
 
-<img src="{{ "images/postman_dispatch.jpg" }}" alt="分配服务"/>
+## 第四步：建立长连接
 
-**返回参数：重点参数详解（通过返回的IP或者domain+port请求下文的建立连接），详情查看[分配服务](dispatch.html)**
+创建WebSocket连接和发送控制命令流程：
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|IP     |是  |String | 长连接服务器外网IP    |
-|port     |是  |Int | 长连接服务器外网端口    |
-|domain     |是  |String | 长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。    |
+![创建WebSocket连接](img/WebSocket.png)
 
-## 建立连接 
-通过分配服务返回的IP或者domain建立握手。请求 ```wss://test-pconnect1.coolkit.cc:8080/api/ws```
+通过第三步请求分配服务返回的IP或者domain+Port建立长连接。
 
-websocket测试工具： ```http://www.blue-zero.com/WebSocket/```
+请求：wss://cn-pconnect2.coolkit.cc:8080/api/ws
 
-<img src="{{ "images/connection.jpg" }}" alt="建立连接"/>
+WebSocket测试工具：[http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
 
-如上图，连接已建立，正在等待数据...。表示连接成功，可以开始接下来的握手了。
 
-## 握手
+## 第五步：握手
 
-<img src="{{ "images/useronline.jpg" }}" alt="握手"/>
+如上图提示「Websocket连接已建立，正在等待数据...」，就表示连接成功了，可以开始握手。
 
-参数说明请查看[握手](handshake.html)
 
-	握手示例数据：at和apikey都在登录后返回的参数中有。
-	注意：ts为到秒的时间戳，ts不符合规则会请求失败。
-	at，apikey，appid，nonce，sequence替换成自己的参数
+握手示例数据：
 
-	{"action":"userOnline","version":8,"ts":1545219251,"at":"351bc7395e03a39fd537db8d6137d6f3d9548568","userAgent":"app","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"asbsedwq","sequence":"1545219251123"}
+```Json
+{
+    "action":"userOnline",
+    "version":8,
+    "ts":1571141259,
+    "at":"登录接口获取的AT",
+    "userAgent":"app",
+    "apikey":"登录接口获取的用户APIKEY",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "nonce":"2plz69ax",
+    "sequence":"毫秒级时间戳，举例：1571141530100"
+}
+// 需去掉空格压缩
+```
 
 握手成功响应：
 
-	{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
+![WebSocket握手](img/WebSocket_handshake.png)
 
-hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务器收到ping后会响应pong
+示例：
 
-<img src="{{ "images/ping.jpg" }}" alt="保持心跳"/>
+```Json
+{
+    "error":0,
+    "apikey":"登录接口获取的用户APIKEY",
+    "config":{
+        "hb":1,
+        "hbInterval":145
+    },
+    "sequence":"毫秒级时间戳，举例：1571141259100"
+}
+```
 
-## 发送控制指令
+心跳时间：
 
-<img src="{{ "images/control.jpg" }}" alt="控制指令"/>
+「hbInterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。
 
-控制指令示例参数。params的协议根据不同设备有所不同。商务合作后会根据对接的设备提供协议文档。apikey,deviceid,sequence,params替换成自己的参数
-参数说明请查看[更新/上报状态](deviceStatus.html)
-
-	{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
-
-控制指令回复：回复error:0表示成功。更多错误码请查看[更新/上报状态](deviceStatus.html)
-
-	{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
-
-**注意：**
-
-一：如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值。如果设备主人就是自己，则登录返回的apikey和设备列表返回的apikey，都可以。
-
-二：设备一定要在线。成功后，观察设备是否执行了开或者关
+![WebSocket心跳时间](img/WebSocket_hbInterval.png)
 
 
-整个流程顺利完成。接下来在[API中心](apiOverview.html)查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。
+## 第六步：控制设备
 
+说明：
+
+设备在状态改变时会上报信息，这时候如果是APP收到信息，就会同步显示状态，如果自己做服务器或者客户端，也可以将这个变化记录下来，方便自己做统计或者做历史记录功能。
+
+![WebSocket状态上报](img/WebSocket_update.png)
+
+发送控制指令：
+
+params的协议根据不同设备有所不同，商务合作后会根据对接的设备提供 「协议文档」。
+
+「apikey、deviceid、sequence、params」都要替换成自己已经添加设备的参数
+
+参数说明请查看「[更新/上报状态](deviceStatus.html)」
+
+示例：
+
+```Json
+{
+    "action":"update",
+    "apikey":"登录接口获取的用户APIKEY",
+    "deviceid":"设备列表接口获取的设备ID",
+    "userAgent":"app",
+    "sequence":"毫秒级时间戳，举例：1571141530100",
+    "params":{
+        "switch":"off"
+    }
+}
+// 需去掉空格压缩
+```
+
+![WebSocket发送控制指令](img/WebSocket_control.png)
+
+控制指令返回：
+
+返回「error:0」表示成功，更多错误码请查看「[更新/上报状态](deviceStatus.html)」
+
+示例：
+
+```Json
+{
+    "error":0,
+    "deviceid":"设备列表接口获取的设备ID",
+    "apikey":"登录接口获取的用户APIKEY",
+    "sequence":"1571141530100"
+}
+```
+
+注意：
+
+- 如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。
+- 设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。
+- 整个流程顺利完成，接下来在「[API中心](apiOverview.html)」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。
