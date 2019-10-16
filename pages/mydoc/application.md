@@ -41,6 +41,7 @@ Headers：
 |Content-Type|application/json|是|application/json|
 
 Params：
+
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
 |phoneNumber|string|-|登录手机（优先）|
@@ -50,7 +51,6 @@ Params：
 |nonce|string|是|8位字母数字随机数|
 |ts|int|是|时间戳精确到秒|
 |version|int|是|预设版本|
-
 
 示例：
 
@@ -325,7 +325,7 @@ Params：
 
 WebSocket测试工具：[http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
 
-![创建WebSocket连接](img/WebSocket_handshake.png)
+![创建WebSocket连接](img/WebSocket_wait.png)
 
 ## 第五步：握手
 

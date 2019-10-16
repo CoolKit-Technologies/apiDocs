@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="请求云平台服务认证准备。包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明">
+<meta name="description" content="请求云平台服务认证准备，包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明。">
 <meta name="keywords" content=" ">
-<title>开发通用说明 | Jekyll theme for documentation</title>
+<title>通用说明 | Jekyll theme for documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -124,7 +124,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="开发通用说明">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="通用说明">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -525,7 +525,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">开发通用说明</h1>
+   <h1 class="post-title-main">通用说明</h1>
 </div>
 
 
@@ -533,7 +533,7 @@
 <div class="post-content">
 
    
-    <div class="summary">请求云平台服务认证准备。包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明</div>
+    <div class="summary">请求云平台服务认证准备，包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明。</div>
    
 
     
@@ -561,14 +561,17 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <h2 id="开发通用说明">开发通用说明</h2>
+   <h2 id="通用说明">通用说明</h2>
 
-<p>说明：通用说明里的参数是所有接口的公用参数，请求接口时需要传递通用参数+接口参数。（开发通用说明仅适用于REST API接口，WebSocket接口<a href="dispatch.html">请查看</a>）</p>
+<p>说明：</p>
+
+<p>通用说明里的参数是所有接口的公用参数，请求接口时需要传递通用参数+接口参数。（开发通用说明仅适用于REST API接口，WebSocket接口<a href="dispatch.html">请查看</a>）</p>
+
 <ul>
-  <li>HTTP请求头需指定Content-Type:application/json</li>
+  <li>HTTP请求头需指定：<strong>Content-Type:application/json</strong></li>
   <li>字符编码：utf-8</li>
-  <li>HTTP  请求头Authorization字段必须有签名或access token值</li>
-  <li>HTTP和websocket接口全部使用SSL/TLS，端口为8080，服务端支持SSLV3,TLS1.1, TLS 1.2</li>
+  <li>HTTP请求头「Authorization」字段必须有「签名」或「Access Token」值</li>
+  <li>HTTP和WebSocket接口全部使用SSL/TLS，端口为8080，服务端支持SSLV3、TLS1.1、TLS1.2、TLS1.3</li>
 </ul>
 
 <p><strong>必选参数如下：</strong></p>
@@ -576,108 +579,163 @@ $('#toc').on('click', 'a', function() {
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">ts</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Long</td>
-      <td>进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）</td>
+      <td style="text-align: center">appid</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">酷宅给第三方应用分配的appid</td>
     </tr>
     <tr>
-      <td style="text-align: left">appid</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>酷宅给第三方应用分配的appid</td>
+      <td style="text-align: center">nonce</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">8位随机字符串，只由字母数字组成</td>
     </tr>
     <tr>
-      <td style="text-align: left">nonce</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>8位随机字符串，只由字母数字组成</td>
+      <td style="text-align: center">ts</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）</td>
     </tr>
     <tr>
-      <td style="text-align: left">version</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
-      <td>version:8 协议版本</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">appVersion</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>version&gt;=8 必填</td>
+      <td style="text-align: center">version</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">协议版本，默认填8</td>
     </tr>
   </tbody>
 </table>
 
+<p>备注：</p>
+
+<ul>
+  <li>用户或者设备apikey原则上也要上传，涉及到设备操作上传设备apikey，例如查询设备详情，修改设备名称。</li>
+  <li>如果遇到接口报400错误，检查这些必填项。</li>
+</ul>
+
 <h2 id="签名规则">签名规则</h2>
+
 <ul>
-  <li>未登录的所有接口（包括登录接口）调用都需要计算签名，签名值放在HTTP的Authorization头中。如：
- Authorization:Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=</li>
+  <li>未登录的所有接口（包括登录接口）调用都需要计算签名，签名值放在HTTP请求头中的「Authorization」里。</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>签名算法见本章下文的签名计算
+<p>如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Authorization: Sign 2CqlYZcS8x6LI27DgfX3QdqnVCFqbEz8sZXtOGEFuGc=
 </code></pre></div></div>
 
+<p>签名算法见本章下文的签名计算</p>
+
 <ul>
-  <li>GET请求：
-将所有参数（sign除外）按照参数名的字母顺序排序，并用&amp;连接：</li>
+  <li>GET请求：</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>appid=I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF&amp;deviceid=1000052354&amp;nonce=2323dfgh&amp;ts=1545219251
+<p>将所有参数（sign除外）按照参数名的字母顺序排序，并用&amp;连接：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;deviceid=1000012345&amp;nonce=2323dfgh&amp;ts=1558004249
 </code></pre></div></div>
 
-<p>计算签名:将app secret作为key，生成被签名串的HMAC-SHA256 签名。
-将得到的签名BASE64编码后设置到Authorization头中</p>
+<p>计算签名:将「App Secret」作为key，生成被签名串的「HMAC-SHA256」签名。
+将得到的签名 Base64 编码后设置到「Authorization」中</p>
 
 <ul>
-  <li>POST请求:
-待签名串为整个body的json数据(通用说明里的参数以及接口中的参数)，以登录接口为例。 如：
-<code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"phoneNumber":"+86********","password":"****"}</code>
-或
-<code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"email":"dev@coolit.cc","password":"****"}</code>
-注意：phoneNumber的值需要加上国家码如：+86
-phoneNumber和email只需要传递其中一个。亚洲区域传递phoneNumber，其他区域才传递email</li>
+  <li>POST请求:</li>
 </ul>
+
+<p>待签名串为整个body的json数据(通用说明里的参数以及接口中的参数)，以登录接口为例。</p>
+
+<p>如：</p>
+
+<pre><code class="language-Json">{"appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr","nonce":"232323df","ts":1558004249,"version":8,"phoneNumber":"+8613123456789","password":"12345678"}
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-Json">{"appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr","nonce":"232323df","ts":1558004249,"version":8,"email":"123@gmail.com","password":"12345678"}
+</code></pre>
+
+<p>注意：</p>
+
+<p>phoneNumber的值需要加上国家码如：+86
+phoneNumber和email只需要传递其中一个。中国区域只能传递「phoneNumber」，亚洲区域可传「phoneNumber」或「email」，欧洲和美洲地区传递「email」。</p>
 
 <h2 id="签名计算">签名计算</h2>
 
-<p>签名算法demo: 【nodejs】 以登录接口为例</p>
+<p>签名算法Demo①：以登录接口为例，Method：POST（GET方式查看签名规则）</p>
 
 <p>method:POST（GET方式查看签名规则）</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var crypto = require('crypto');
-var appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF";
-var appsecret="S1fHFiMqzykNdxlSrk9Pjdczp7rsvt3M";
-var params={"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
-var buffer = new Buffer(JSON.stringify(params),"utf-8");
-var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// node.js
+let crypto = require('crypto');
+let appid="McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr";
+let appsecret="OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c";
+let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613185260282", "ts": 1560306258, "version": 8}
+let buffer = new Buffer(JSON.stringify(params),"utf-8");
+let theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
+console.log(theSign)
+// WNHrI1ywr+DjpQ1Y0A6oZSqMGV4MJhtAPW0tPMlG9PQ=
 </code></pre></div></div>
 
-<p>上述参数算出来的签名值
-<code class="highlighter-rouge">"QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U="</code></p>
+<p>签名算法Demo②：</p>
+
+<pre><code class="language-Python"># Python
+# 生成签名
+import hashlib
+import hmac
+import base64
+
+def makeSign(key, message):
+    j = hmac.new(key.encode(), message.encode(), digestmod=hashlib.sha256)
+    return (base64.b64encode(j.digest())).decode()
+
+def main():
+    import json
+    data = {
+        'appid': 'McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr',
+        'nonce': 'asbsedwq',
+        'ts': 1560306258,
+        'version': 8,
+        'phoneNumber': '+8613185260282',  # 手机号 （优先检查）
+        'password': '12345678'  # 密码
+    }
+    message = json.dumps(data, sort_keys=True)
+    Sign = makeSign(key='OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c', message=message)
+    print(Sign)
+    # 9XZKuHRoR9eIwKwte0nemaOe8+2EW5Rb65XvqDzYtk4=
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+<p>由于签名内容字符顺序不同，得到的签名也会不同，这个是正常的。</p>
 
 <p>可以拿demo的参数放到自己的签名算法中，算出来的签名值和提供的签名值一致，表示签名算法通过。</p>
 
-<h2 id="access-token以及refresh-token说明即登录成功返回的at和rt">Access Token以及Refresh Token说明（即登录成功返回的at和rt）</h2>
+<p>其他编程语言Sha256加密计算示例：<a href="https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/">Examples of creating base64 hashes using HMAC SHA256 in different languages</a></p>
+
+<p>在线计算网址：<a href="https://1024tools.com/hmac">https://1024tools.com/hmac</a></p>
+
+<p><img src="img/hmac.png" alt="hmac" /></p>
+
+<h2 id="at和rt说明">AT和RT说明</h2>
+
 <p>登录后调用的接口都需要在Authorization头中增加access token，如下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Authorization: Bearer a527297584f1ca030579a90d2e800481e22e850a
+</code></pre></div></div>
+<p>（a527297584f1ca030579a90d2e800481e22e850a为登录返回的at）</p>
 
-<p>Authorization: Bearer 1832d4a0f5f5f5845cb1922c1091c8aa5dfe0041</p>
+<p>登录、注册、重置密码成功后会返回「access token」（返回的at，即access token）</p>
 
-<p>（1832d4a0f5f5f5845cb1922c1091c8aa5dfe0041为登录返回的at）</p>
+<p>access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，被挤下线.</p>
 
-<p>登录接口成功后会返回access token （登录成功后返回的at，即access token）</p>
-
-<p>access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，被挤下线</p>
-
-<p>refresh token有效期为二个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。<a href="token.html">请查看 refresh token刷新</a></p>
-
+<p>refresh token有效期为二个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 <a href="token.html">refresh token刷新</a></p>
 
 
 
@@ -689,7 +747,7 @@ var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-15<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

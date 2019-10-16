@@ -612,16 +612,62 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<p>Params：
-|参数名|类型|是否必须|备注|
-:-: | :-: | :-: | :-: | :-:
-|phoneNumber|string|-|登录手机（优先）|
-|email|string|-|登录邮箱|
-|password|string|是|登录密码|
-|appid|string|是|APPID|
-|nonce|string|是|8位字母数字随机数|
-|ts|int|是|时间戳精确到秒|
-|version|int|是|预设版本|</p>
+<p>Params：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">phoneNumber</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">登录手机（优先）</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">email</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">登录邮箱</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">password</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">登录密码</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">appid</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">nonce</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ts</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">version</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">预设版本</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>示例：</p>
 
@@ -1095,7 +1141,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>WebSocket测试工具：<a href="http://www.blue-zero.com/WebSocket/">http://www.blue-zero.com/WebSocket/</a></p>
 
-<p><img src="img/WebSocket_handshake.png" alt="创建WebSocket连接" /></p>
+<p><img src="img/WebSocket_wait.png" alt="创建WebSocket连接" /></p>
 
 <h2 id="第五步握手">第五步：握手</h2>
 

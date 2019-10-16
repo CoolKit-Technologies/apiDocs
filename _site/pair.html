@@ -559,128 +559,91 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>配对目的：
-1,获取设备数据
-2,让设备联网
-3,设备添加到用户帐号下
-</code></pre></div></div>
+   <h3 id="配对目的">配对目的</h3>
 
-<p><strong>说明：</strong></p>
+<ul>
+  <li>获取设备数据</li>
+  <li>让设备联网</li>
+  <li>将设备添加到用户帐号下</li>
+</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1,配对过程仅适用于不通过易微联APP配对添加设备的应用。比如：自主研发的APP配对添加设备。通过易微联APP配对添加设备的应用，不需要实现配对过程。
-2,文档中的 IP 以及各项数据仅是示例
-3,设备配对分为Touch和AP两种配对模式
-</code></pre></div></div>
+<p>说明：</p>
 
-<h2 id="touch配对过程">touch配对过程</h2>
+<ul>
+  <li>配对过程仅适用于不通过易微联APP配对添加设备的应用，比如：自主研发的APP配对添加设备。</li>
+  <li>通过易微联APP配对添加设备的应用，不需要实现配对过程。</li>
+  <li>文档中的 IP 以及各项数据仅是示例。</li>
+  <li>设备配对分为Touch和AP两种配对模式。</li>
+  <li>我们的Touch配对基于「<a href="https://www.espressif.com/zh-hans/products/software/esp-touch/resources">乐鑫 ESP-TOUCH SDK</a>」实现。</li>
+</ul>
 
-<p>① 设备进入配置模式：touch模式</p>
+<h3 id="配对过程">配对过程</h3>
 
-<p>② 设备等待APP广播 SSID &amp; password</p>
+<p><img src="img/pair.png" alt="配对过程" /></p>
 
-<p>③ 设备获取到 SSID &amp; password 后连上路由器，返回 touch UDP 确认包</p>
+<h4 id="touch配对过程">Touch配对过程</h4>
 
-<p>④ 设备建立 TCP server（http server）</p>
+<p><strong>说明：易微联Touch配对过程对密码做了加密，此部分内容需要询问对接市场。见文章最底部「<a href="#易微联配对加密规则">易微联配对加密规则</a>」</strong></p>
 
-<p>⑤ 手机发送：（请求配对）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /device HTTP/1.1
+<ol>
+  <li>设备进入配置模式：Touch模式</li>
+  <li>设备等待APP广播 SSID &amp; Password</li>
+  <li>设备获取到 SSID &amp; Password 后连上路由器，返回 touch UDP 确认包</li>
+  <li>设备建立 TCP Server（HTTP Server）</li>
+  <li>手机发送：（请求配对）
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /device HTTP/1.1
 Host: 192.168.1.1
 Connection: Keep-Alive
-</code></pre></div></div>
-
-<p>⑥ 设备回应： （回应 deviceID 、apikey）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
-Content-Type: application/json
+</code></pre></div>    </div>
+  </li>
+  <li>设备回应：（回应 deviceID 、apikey）
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK  
+Content-Type: application/json  
 Connection: keep-alive
 Content-Length: 99
-
-{
-   "deviceid":"100000788a",
-   "apikey":"4b21ebbe-8870-4d4a-93f2-7c6cfeff5fea",
-   "chipid":"sjljb",
-   "accept":"post"
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "deviceid":"100000788a",
+  "apikey":"4b21ebbe-8870-4d4a-93f2-******",
+  "chipid":"sjljb",
+  "accept":"post"
 }
-</code></pre></div></div>
-
-<p>⑦ 手机回应：（回应 分配服务器地址，端口号，wifi 热点 SSID、密码）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /ap HTTP/1.1
+</code></pre></div>    </div>
+  </li>
+  <li>APP请求添加设备接口，直接携带设备参数添加到用户账号下</li>
+  <li>APP发送：分配服务器地址、端口号、SSID、WiFi密码
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /ap HTTP/1.1
 User-Agent: Dalvik/1.6.0 (Linux; U; Android 4.4.2; SM705 Build/SANFRANCISCO)
 Host: 192.168.1.1
 Connection: Keep-Alive
 Accept-Encoding: gzip
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 76
-
-{"port":443,"serverName":"54.223.98.144","password":"12345678","ssid":"ITT"}
-</code></pre></div></div>
-
-<p>⑧ 设备回应：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"port":443,"serverName":"cn-disp.coolkit.cc","password":"12345678","ssid":"eWelink"}
+</code></pre></div>    </div>
+  </li>
+  <li>设备回应：
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 Connection: keep-alive
 Content-Length: 11
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"error":0}
+</code></pre></div>    </div>
+    <p>配对完成</p>
+  </li>
+</ol>
 
-{"error":0}
-</code></pre></div></div>
+<h4 id="ap配对过程">AP配对过程</h4>
 
-<p>⑨ 配对完成</p>
+<p>1-7步一致，第8步放到最后（先POST分配服务器地址，再添加），WiFi不加密传输。</p>
 
-<h2 id="ap配对过程">AP配对过程</h2>
+<p>配对过程略复杂，本文如有错误内容，请指正。</p>
 
-<p>① 设备进入配置模式：AP 热点，TCP server（http server）</p>
+<h4 id="易微联配对加密规则">易微联配对加密规则</h4>
 
-<p>② 手机连到 AP</p>
-
-<p>③ 手机发送：（请求配对）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /device HTTP/1.1
-Host: 192.168.1.1
-Connection: Keep-Alive
-</code></pre></div></div>
-
-<p>④ 设备回应： （回应 deviceID 、apikey）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Connection: keep-alive
-Content-Length: 99
-
-{
-   "deviceid":"100000788a",
-   "apikey":"4b21ebbe-8870-4d4a-93f2-7c6cfeff5fea",
-   "chipid":"sjljb",
-   "accept":"post"
-}
-</code></pre></div></div>
-
-<p>⑤ 手机回应：（回应 分配服务器地址，端口号，wifi 热点 SSID、密码）</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /ap HTTP/1.1
-User-Agent: Dalvik/1.6.0 (Linux; U; Android 4.4.2; SM705 Build/SANFRANCISCO)
-Host: 192.168.1.1
-Connection: Keep-Alive
-Accept-Encoding: gzip
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 76
-
-{"port":443,"serverName":"54.223.98.144","password":"12345678","ssid":"ITT"}
-</code></pre></div></div>
-
-<p>⑥ 设备回应：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Connection: keep-alive
-Content-Length: 11
-
-{"error":0}
-</code></pre></div></div>
-
-<p>⑦ 手机重新连接 wifi ，与服务器交互</p>
+<p>为保证易微联平台设备安全，易微联制定了加密规则，拒绝非法客户端连接我们的设备。酷宅合作伙伴开发客户端可以与对接市场沟通，我司会提供对应资料。</p>
 
 
 
@@ -692,7 +655,7 @@ Content-Length: 11
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-15<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

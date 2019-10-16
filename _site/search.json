@@ -609,11 +609,11 @@
 
 
 {
-"title": "开发通用说明",
+"title": "通用说明",
 "tags": "",
 "keywords": "",
 "url": "instruction.html",
-"summary": "请求云平台服务认证准备。包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明"
+"summary": "请求云平台服务认证准备，包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明。"
 }
 ,
 
