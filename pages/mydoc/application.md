@@ -249,7 +249,7 @@ Body:
 - sharedBy：分享方的信息（接收方查看设备列表才显示）
 - sharedTo：被分享方的信息（分享方查看设备列表才显示）
 - 不同设备的UIID会不同，UI决定显示的效果
-- 如果返回为[]，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
+- 如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
 
 
 ## 第三步：请求分配服务
@@ -317,7 +317,7 @@ Params：
 
 创建WebSocket连接和发送控制命令流程：
 
-![创建WebSocket连接](img/WebSocket.png)
+![创建WebSocket连接流程](img/WebSocket.png)
 
 通过第三步请求分配服务返回的IP或者domain+Port建立长连接。
 
@@ -325,11 +325,11 @@ Params：
 
 WebSocket测试工具：[http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
 
+![创建WebSocket连接](img/WebSocket_handshake.png)
 
 ## 第五步：握手
 
 如上图提示「Websocket连接已建立，正在等待数据...」，就表示连接成功了，可以开始握手。
-
 
 握手示例数据：
 

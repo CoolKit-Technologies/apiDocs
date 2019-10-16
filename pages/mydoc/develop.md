@@ -17,7 +17,9 @@ folder: mydoc
 
 购买链接：[淘宝店铺网址](https://m.tb.cn/h.eLJWsO8?sm=65148e)，[亚马逊店铺网址](https://www.amazon.cn/s?k=sonoff&__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&ref=nb_sb_noss_1)
 
-国内用户也可直接通过微信搜索「**易微联智选**」小程序，直接购买测试设备。
+国内用户也可直接通过微信搜索「**[易微联智选](https://shop43224371.youzan.com/v2/feature/2dA8GsGwmy?common%2Furl%2Fcreate=&kdt_id=43032203&scan=3&from=kdt)**」小程序，直接购买测试设备。
+
+![易微联智选](img/eWelink_shop.png)
 
 ## 注册测试帐号
 

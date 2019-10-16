@@ -930,7 +930,7 @@ $('#toc').on('click', 'a', function() {
   <li>sharedBy：分享方的信息（接收方查看设备列表才显示）</li>
   <li>sharedTo：被分享方的信息（分享方查看设备列表才显示）</li>
   <li>不同设备的UIID会不同，UI决定显示的效果</li>
-  <li>如果返回为[]，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）</li>
+  <li>如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）</li>
 </ul>
 
 <h2 id="第三步请求分配服务">第三步：请求分配服务</h2>
@@ -1087,13 +1087,15 @@ $('#toc').on('click', 'a', function() {
 
 <p>创建WebSocket连接和发送控制命令流程：</p>
 
-<p><img src="img/WebSocket.png" alt="创建WebSocket连接" /></p>
+<p><img src="img/WebSocket.png" alt="创建WebSocket连接流程" /></p>
 
 <p>通过第三步请求分配服务返回的IP或者domain+Port建立长连接。</p>
 
 <p>请求：wss://cn-pconnect2.coolkit.cc:8080/api/ws</p>
 
 <p>WebSocket测试工具：<a href="http://www.blue-zero.com/WebSocket/">http://www.blue-zero.com/WebSocket/</a></p>
+
+<p><img src="img/WebSocket_handshake.png" alt="创建WebSocket连接" /></p>
 
 <h2 id="第五步握手">第五步：握手</h2>
 
