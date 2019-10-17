@@ -88,7 +88,7 @@ let crypto = require('crypto');
 let appid="McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr";
 let appsecret="OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c";
 let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613123456789", "ts": 1560306258, "version": 8}
-let buffer = new Buffer(JSON.stringify(params),"utf-8");
+let buffer = Buffer.from(JSON.stringify(params),"utf-8");
 let theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 console.log(theSign)
 // XuOzGxtG50CiF4H3odUfZsvKVl5+qSPzhfLEuUd4eJw=
@@ -147,6 +147,6 @@ Authorization: Bearer a527297584f1ca030579a90d2e800481e22e850a
   
 登录、注册、重置密码成功后会返回「access token」（返回的at，即access token）
   
-access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，被挤下线.
+access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，使其被迫下线。
   
-refresh token有效期为二个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 [refresh token刷新](token.html)
+refresh token有效期为两个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 [Refresh token刷新](token.html)
