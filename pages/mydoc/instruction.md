@@ -9,10 +9,8 @@ folder: mydoc
 
    
 ## 通用说明
-
- 说明：
  
- 通用说明里的参数是所有接口的公用参数，请求接口时需要传递通用参数+接口参数。（开发通用说明仅适用于REST API接口，WebSocket接口[请查看](dispatch.html)）
+ 通用说明里的参数是所有接口的公用参数，请求接口时需要传递通用参数+接口参数。（开发通用说明仅适用于REST API接口，WebSocket接口，请查看[分配服务](dispatch.html)）
 
 - HTTP请求头需指定：**Content-Type:application/json**
 - 字符编码：utf-8
@@ -89,11 +87,11 @@ method:POST（GET方式查看签名规则）
 let crypto = require('crypto');
 let appid="McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr";
 let appsecret="OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c";
-let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613185260282", "ts": 1560306258, "version": 8}
+let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613123456789", "ts": 1560306258, "version": 8}
 let buffer = new Buffer(JSON.stringify(params),"utf-8");
 let theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 console.log(theSign)
-// WNHrI1ywr+DjpQ1Y0A6oZSqMGV4MJhtAPW0tPMlG9PQ=
+// XuOzGxtG50CiF4H3odUfZsvKVl5+qSPzhfLEuUd4eJw=
 ```
 
 签名算法Demo②：
@@ -116,13 +114,13 @@ def main():
         'nonce': 'asbsedwq',
         'ts': 1560306258,
         'version': 8,
-        'phoneNumber': '+8613185260282',  # 手机号 （优先检查）
+        'phoneNumber': '+8613123456789',  # 手机号 （优先检查）
         'password': '12345678'  # 密码
     }
     message = json.dumps(data, sort_keys=True)
     Sign = makeSign(key='OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c', message=message)
     print(Sign)
-    # 9XZKuHRoR9eIwKwte0nemaOe8+2EW5Rb65XvqDzYtk4=
+    # XfWcNURxPxpk6Z+6I+WR/j9wHURhvTEK1qa3sAJFNR0=
 
 if __name__ == "__main__":
     main()
