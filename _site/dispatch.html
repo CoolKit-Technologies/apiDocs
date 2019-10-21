@@ -561,31 +561,60 @@ $('#toc').on('click', 'a', function() {
 
    <p>说明：分配服务、查询设备状态和更新设备状态为HTTP接口，其它接口都基于websocket。</p>
 
-<p>客户端先通过分配服务接口获取长连接的ip、域名、端口号等信息，然后建立websocke长连接，并发送握手指令进行注册。然后就可以发送其他的控制指令对设备进行控制。
-客户端连接websocket服务成功后，需要每隔n秒发送一个websocket ping来保活连接，n由握手指令返回值决定。如果3秒内没有收到服务器的pong响应，则需要关闭连接，重建长连接。</p>
+<p>客户端先通过分配服务接口获取长连接的ip、域名、端口号等信息，然后建立websocke长连接，并发送握手指令进行注册。然后就可以发送其他的控制指令对设备进行控制。</p>
+
+<p>客户端连接websocket服务成功后，需要每隔n秒发送一个websocket ping来保活连接，n由握手指令返回值决定。如果3秒内没有收到服务器的pong响应，则需要关闭连接，重建长连接。</p>
 
 <p><strong>公共说明（重要）：</strong></p>
 
 <p>websocket接口地址格式：<code class="highlighter-rouge">wss://ip_address:port/api/ws</code></p>
 
-<p>ip_address:由分配服务接口返回（尽量使用ip，无法跳过证书检查则使用域名）</p>
+<p>ip_address：由分配服务接口返回（尽量使用ip，无法跳过证书检查则使用域名）</p>
 
-<p>port:由分配服务接口返回</p>
+<p>port：由分配服务接口返回</p>
 
-<p>/api/ws:固定的url，与前面的动态参数拼接成完整的url</p>
+<p>/api/ws：固定的url，与前面的动态参数拼接成完整的url</p>
 
 <p>注意：建立wss连接的时候，客户端会校验访问的域名与证书的域名是否一致，所以默认情况下如果用ip建立连接，会报错，导致建立连接失败。所以，如果可以的话，客户端必须跳过证书的域名校验（android和java都可以跳过）。 如果无法跳过证书校验，那么就只能用域名去建立wss连接了。</p>
 
-<p>应用端通过该接口查询websocket长连接服务器的信息（Ip、端口）,然后连接长连接服务。</p>
-<ul>
-  <li>注意：Authorization头要有access  token。</li>
-  <li>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-disp.coolkit.cn:8080/dispatch/app</code></li>
-  <li>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/dispatch/app</code></li>
-  <li>
-    <p>请求方法： POST</p>
-  </li>
-  <li>请求参数：</li>
-</ul>
+<p>应用端通过该接口查询websocket长连接服务器的信息（Ip、端口），然后连接长连接服务。</p>
+
+<hr />
+
+<p>接口地址： https://cn-api.coolkit.cn:8080/dispatch/app</p>
+
+<p>请求方法： post</p>
+
+<p><strong>请求参数：</strong></p>
+
+<p>Headers：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">名称</th>
+      <th style="text-align: center">参数值</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Authorization</td>
+      <td style="text-align: center">Bearer+空格+at</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Content-Type</td>
+      <td style="text-align: center">application/json</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Parmas：</p>
 
 <table>
   <thead>
@@ -683,13 +712,14 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>状态码
-0:成功
-400:客户端参数错误
-401:认证不通过（ 提示登录 ）
-402:过期 （ APP自动刷新access token）
-403:无权限 （ APP提示无权限，比如APP无权访问OTA接口）（401-403认证错误由内部认证系统给出）
-500:服务端内部错误
+<p>状态码：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0：成功
+400：客户端参数错误
+401：认证不通过（ 提示登录 ）
+402：过期 （ APP自动刷新access token）
+403：无权限 （ APP提示无权限，比如APP无权访问OTA接口）（401-403认证错误由内部认证系统给出）
+500：服务端内部错误
 </code></pre></div></div>
 
 
@@ -703,7 +733,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-21<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>
