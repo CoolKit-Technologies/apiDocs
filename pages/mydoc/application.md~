@@ -61,9 +61,10 @@ Content-Type:application/json
 |rt |否  |String | refresh token，rt有效期为两个月    |
 |user     |否  |String | 用户信息    |
 |region     |否  |String | 区域    |
+
   
 ```
-error错误码
+error状态码
 400: 缺少参数
 301：用户在其他大区，需要客户端结合region重定向,重新连接
 401:用户名密码错误
@@ -213,7 +214,7 @@ hbInterval为心跳时间，需要在145S内发送ping，保持心跳，服务�
 
 	{"action":"update","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","deviceid":"100000140e","userAgent":"app","sequence":"1545219251123","params":{"switch":"on"}}
 
-控制指令回复：回复error:0表示成功。更多错误码请查看[更新/上报状态](deviceStatus.html)
+控制指令回复：回复error:0表示成功。更多状态码请查看[更新/上报状态](deviceStatus.html)
 
 	{"error":0,"deviceid":"100000140e","apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00053240-e2b44b54e6e6afaa-e8a60ede"}
 

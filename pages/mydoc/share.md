@@ -83,14 +83,14 @@ permit= permit|xxx(具体的权限数值)
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int |错误码   |
+|error |是  |Int |状态码   |
 |result |否  |Int | 1:手机号不存在;2:用户接受分享;3:用户不接受分享;4:已分享    |
-|apikey     |否  |string | 分享方用户的apikey    |
-|deviceid     |否  |string | 设备id    |
-|sequence     |否  |string | 时间戳，精确到毫秒从请求参数中获取    |
+|apikey     |否  |String | 分享方用户的apikey    |
+|deviceid     |否  |String | 设备id    |
+|sequence     |否  |String | 时间戳，精确到毫秒从请求参数中获取    |
 
 ```
-错误码
+状态码
 0:ok(操作成功)
 400:Bad Request（参数错误）
 401:认证不通过

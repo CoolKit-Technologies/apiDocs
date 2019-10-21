@@ -24,7 +24,7 @@ Returns info of all devices in user account including devices shared by others.
 
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |
-|error |No  |string | Returned error message. error：0 Operation succeeded  |
+|error |No  |String | Returned error message. error：0 Operation succeeded  |
 |devicelist |Yes  |[Object] | List of Device info, returned when success  |
 
 - Device Info List

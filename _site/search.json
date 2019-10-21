@@ -151,7 +151,7 @@
 "tags": "",
 "keywords": "",
 "url": "application_en.html",
-"summary": "This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below."
+"summary": "This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are Interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the Interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below."
 }
 ,
 
@@ -624,7 +624,7 @@
 "tags": "",
 "keywords": "",
 "url": "instruction_en.html",
-"summary": "Preparation for accessing Cloud platform services,including descriptions for general parameters,introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token."
+"summary": "Preparation for accessing Cloud platform services,including descriptions for general parameters,Introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token."
 }
 ,
 
@@ -853,7 +853,7 @@
 
 
 {
-"title": "token刷新",
+"title": "at刷新",
 "tags": "",
 "keywords": "",
 "url": "token.html",

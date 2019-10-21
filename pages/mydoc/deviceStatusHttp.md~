@@ -29,12 +29,12 @@ https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int |错误码  |
+|error |是  |Int |状态码  |
 |errmsg |否  |String | 错误说明，error非0时返回 |
 |params |否  |Params | 参数  |
 
 ```
-错误码
+状态码
 0:操作成功
 400:参数错误
 401:认证失败

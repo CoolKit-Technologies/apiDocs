@@ -1,45 +1,112 @@
 ---
 title: 登录
-last_updated: 2019-03-20
+last_updated: 2019-10-21
 weight: 10
 sidebar: mydoc_sidebar
 permalink: login.html
 folder: mydoc
 ---
 
+基本的账号登录，后续可以实现基本的设备管理与控制。
 
-- 正式环境URL: ``` https://cn(区域)-api.coolkit.cn:8080/api/user/login``` 
+---
 
-- 测试环境URL: ``` https://testapi.coolkit.cn:8080/api/user/login``` 
+接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
 
-- 请求方法： POST
+请求方法： post
 
-- 请求参数：注意email和phoneNumber不会同时存在，邮箱登录只传email，电话号码登录只传phoneNumber
+**请求参数：**
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|email |否  |String |邮箱。登录时需要判断邮箱是否已经激活。 |
-|phoneNumber |否  |String | 手机号 （优先检查）    |
-|password     |是  |String | 密码 |
+Headers：
 
-**响应参数:**
+|名称|参数值|是否必须|示例|
+:-: | :-: | :-: | :-: | :-:
+|Authorization|Sign+空格+签名值|是|Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+|
+|Content-Type|application/json|是|application/json|
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|error |否  |String | 错误码,成功不返回error，失败返回error  |
-|user |是  |Object | 用户信息  |
-|at |是  |String | Access Token  |
-|rt |是  |String | Refresh Token  |
-|region |是  |String | 用户所属区域代码，如：中国:cn  |
+Params：
 
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|phoneNumber|String|-|登录手机（优先）|
+|email|String|-|登录邮箱|
+|password|String|是|登录密码|
+|appid|String|是|APPID|
+|nonce|String|是|8位字母数字随机数|
+|ts|Int|是|时间戳精确到秒|
+|version|Int|是|预设版本|
+
+示例：
+
+```Json
+{
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "phoneNumber":"+8613123456789",
+    "password":"12345678",
+    "ts": 1558004249,
+    "version":8,
+    "nonce":"q3wz95p6"
+}
 ```
-错误码：
-200:获取认证token失败
-301:用户在其他大区，需要客户端结合region重定向,重新连接
-400:缺少参数
-401:用户名密码错误
-402:邮件未激活
-404:用户不存在
-500:服务器错误
+
+备注：
+
+    接口路径中的cn代表服务器区域，可替换成eu、us、as
+    签名值计算规则请查看 [开发通用说明](instruction.html)
+
+**响应参数(基础):**
+
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|error|String|否|失败时返回，且只会返回error|
+|at|String|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
+|rt|String|否|Refresh Token，rt有效期为两个月，用于刷新at|
+|user|Object|否|用户信息|
+|region|String|否|注册区域|
+
+
+状态码（以实际为准）：
+
+    400：参数不完整或错误  
+    301：账号注册在其他区域，需要查询「区域接口」重定向  
+    401：账号密码错误  
+    402：账号未激活  
+    404：账号不存在  
+    406：认证失败（APPID错误或签名错误）  
+    500：服务器内部错误  
+
+返回示例(数据已脱敏)：
+
+```Json
+{
+    "at":"a527297584f1ca030579a90d2e800481e22e850a",
+    "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
+    "user":{
+        "_id":"5c984cd3dc8295fa0ef3e592",
+        "phoneNumber":"+8613123456789",
+        "appId":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+        "lang":"cn",
+        "online":false,
+        "onlineTime":"2019-05-16T10:48:42.091Z",
+        "ip":"113.87.160.95",
+        "location":"广东",
+        "offlineTime":"2019-05-16T10:51:22.090Z",
+        "appInfos":[
+            {
+                "appVersion":"3.13.0",
+                "os":"android"
+            }
+        ],
+        "nickname":"eWelink",
+        "createdAt":"2019-03-25T03:36:51.335Z",
+        "apikey":"95da0fea-5692-469a-c562-4dd5ee9a51f1"
+    },
+    "region":"cn"
+}
 ```
 
+备注：
+
+    at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
+    rt存在的目的是刷新at
+    region为账号注册所在区域

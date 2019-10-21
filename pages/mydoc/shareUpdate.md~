@@ -69,14 +69,14 @@ app向服务端发送指令，修改被分享方对定时器的控制权限。�
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int |错误码   |
+|error |是  |Int |状态码   |
 |result |否  |Int | 0:不是分享用户;1:用户不存在;2:修改成功;3 修改失败    |
-|apikey     |否  |string | 用户的apikey    |
-|deviceid     |否  |string | 设备id    |
-|sequence     |否  |string | 时间戳，精确到毫秒。从请求参数中获取    |
+|apikey     |否  |String | 用户的apikey    |
+|deviceid     |否  |String | 设备id    |
+|sequence     |否  |String | 时间戳，精确到毫秒。从请求参数中获取    |
 
 ```
-错误码
+状态码
 0: ok(操作成功)
 400: Bad Request（参数错误）
 401:认证不通过

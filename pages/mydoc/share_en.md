@@ -88,9 +88,9 @@ Note：sequence is a timestamp to millisecond.Sequence in response is obtained f
 |:----    |:---|:----- |-----   |
 |error |Yes  |Int |error code   |
 |result |No  |Int | 1:account does not exist;2:share accepted;3:share not accepted;4: already shared to this sharee   |
-|apikey     |No  |string | user apikey of the sharer    |
-|deviceid     |No  |string | 	device id    |
-|sequence     |No  |string | timestamp to millisecond obtained from request parameters   |
+|apikey     |No  |String | user apikey of the sharer    |
+|deviceid     |No  |String | 	device id    |
+|sequence     |No  |String | timestamp to millisecond obtained from request parameters   |
 
 ```
 error code
@@ -99,7 +99,7 @@ error code
 401:Authorization failed
 403:Forbidden（no permission）
 406:User has logined on another device
-500:Internal Server Error（internal server error）
+500:Internal Server Error（Internal server error）
 504:Sharing request timed out（No acceptance or refusal from sharee）
 ```
 

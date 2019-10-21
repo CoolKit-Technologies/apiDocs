@@ -18,7 +18,7 @@ layout: page_en
 
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |
-|email |No  |String |Email，interface will check whether phone number is passed.Phone number will be used for registration if there is any, otherwise email.If neither is passed, return error  |
+|email |No  |String |Email，Interface will check whether phone number is passed.Phone number will be used for registration if there is any, otherwise email.If neither is passed, return error  |
 |phoneNumber |No  |String | phone number （This will be checked first）    |
 |verificationCode     |Yes  |String | SMS verfication code  |
 |password     |Yes  |String | password |

@@ -10,7 +10,7 @@ layout: page_en
 ```
 Purposes for pairing：
 1,Get device data
-2,Connect device to internet
+2,Connect device to Internet
 3,Add device to user account
 ```
 
@@ -139,4 +139,4 @@ Content-Length: 11
 {"error":0}
 ```
 
-⑦ Smartphone reconnects wifi and interact with server
+⑦ Smartphone reconnects wifi and Interact with server

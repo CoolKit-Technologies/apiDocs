@@ -26,7 +26,7 @@ For example：User is in cn region, but account was created in eu region.Devices
 |:----    |:---|:----- |-----   |
 |country_code |No  |String |Country code   |
 |ts |Yes  |Int | Timestamp to second    |
-|nonce     |Yes  |String | 32-digit random integer in hexadecimal，say 8-digit random value of letters and numbers    |
+|nonce     |Yes  |String | 32-digit random Integer in hexadecimal，say 8-digit random value of letters and numbers    |
 
  **Return example**
 

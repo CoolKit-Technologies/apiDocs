@@ -31,8 +31,8 @@ After sharer cancels the share, device will be deleted from sharee’s account.S
 
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |
-|error |Yes  |Int |always return success except for internal error   |
-|sequence     |Yes  |string | obtained from request parameters   |
+|error |Yes  |Int |always return success except for Internal error   |
+|sequence     |Yes  |String | obtained from request parameters   |
 
 
 

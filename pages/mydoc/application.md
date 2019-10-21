@@ -1,6 +1,6 @@
 ---
 title: 创建第一个应用
-last_updated: 2019-10-15
+last_updated: 2019-10-21
 summary: "本节从账号登录、获取设备数据、建立长连接实现设备控制等方面讲解如何在酷宅云平台上面实现客户端与设备的数据交互。
 下面通过示例应用快速入门「如何开发自己的应用？」"
 sidebar: mydoc_sidebar
@@ -28,8 +28,9 @@ folder: mydoc
 接口测试工具：https://www.getpostman.com/  
 在线快速测试：https://getman.cn/
 
-- 接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
-- 请求方法： POST
+接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
+
+请求方法： post
 
 **请求参数：**
 
@@ -44,13 +45,13 @@ Params：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|phoneNumber|string|-|登录手机（优先）|
-|email|string|-|登录邮箱|
-|password|string|是|登录密码|
-|appid|string|是|APPID|
-|nonce|string|是|8位字母数字随机数|
-|ts|int|是|时间戳精确到秒|
-|version|int|是|预设版本|
+|phoneNumber|String|-|登录手机（优先）|
+|email|String|-|登录邮箱|
+|password|String|是|登录密码|
+|appid|String|是|APPID|
+|nonce|String|是|8位字母数字随机数|
+|ts|Int|是|时间戳精确到秒|
+|version|Int|是|预设版本|
 
 示例：
 
@@ -74,14 +75,14 @@ Params：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|string|否|失败时返回，且只会返回error|
-|at|string|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
-|rt|string|否|Refresh Token，rt有效期为两个月，用于刷新at|
+|error|String|否|失败时返回，且只会返回error|
+|at|String|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
+|rt|String|否|Refresh Token，rt有效期为两个月，用于刷新at|
 |user|Object|否|用户信息|
 |region|String|否|注册区域|
 
 
-错误码（以实际为准）：
+状态码（以实际为准）：
 
 400：参数不完整或错误  
 301：账号注册在其他区域，需要查询「区域接口」重定向  
@@ -123,14 +124,15 @@ Params：
 
 备注：
 
-- at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
-- rt存在的目的是刷新at
-- region为账号注册所在区域
+    at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
+    rt存在的目的是刷新at
+    region为账号注册所在区域
 
 ## 第二步：请求设备列表
 
-- 接口地址： https://cn-api.coolkit.cn:8080/api/user/device  
-- 请求方法： GET
+接口地址： https://cn-api.coolkit.cn:8080/api/user/device
+
+请求方法： get
 
 **请求参数：**
 
@@ -145,11 +147,11 @@ Body:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|lang|string|否|cn 响应返回中文信息；en 响应返回英文信息|
-|appid|string|是|APPID|
-|nonce|string|是|8位字母数字随机数|
-|ts|int|是|时间戳精确到秒|
-|version|int|是|预设版本|
+|lang|String|否|cn 响应返回中文信息；en 响应返回英文信息|
+|appid|String|是|APPID|
+|nonce|String|是|8位字母数字随机数|
+|ts|Int|是|时间戳精确到秒|
+|version|Int|是|预设版本|
 
 示例：
 
@@ -170,10 +172,10 @@ Body:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|string|否|失败时返回，且只会返回error|
+|error|String|否|失败时返回，且只会返回error|
 |devicelist|Object|否|设备信息列表|
 
-错误码：暂无
+状态码：暂无
 
 返回示例(数据已脱敏)：
 
@@ -246,16 +248,17 @@ Body:
 
 备注：
 
-- sharedBy：分享方的信息（接收方查看设备列表才显示）
-- sharedTo：被分享方的信息（分享方查看设备列表才显示）
-- 不同设备的UIID会不同，UI决定显示的效果
-- 如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
+    sharedBy：分享方的信息（接收方查看设备列表才显示）
+    sharedTo：被分享方的信息（分享方查看设备列表才显示）
+    不同设备的UIID会不同，UI决定显示的效果
+    如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
 
 
 ## 第三步：请求分配服务
 
-- 接口地址： https://cn-api.coolkit.cn:8080/dispatch/app
-- 请求方法： POST
+接口地址： https://cn-api.coolkit.cn:8080/dispatch/app
+
+请求方法： post
 
 **请求参数：**
 
@@ -270,11 +273,11 @@ Params：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|accept|string|是|默认填ws即可|
-|appid|string|是|APPID|
-|nonce|string|是|8位字母数字随机数|
-|ts|int|是|时间戳精确到秒|
-|version|int|是|预设版本|
+|accept|String|是|默认填ws即可|
+|appid|String|是|APPID|
+|nonce|String|是|8位字母数字随机数|
+|ts|Int|是|时间戳精确到秒|
+|version|Int|是|预设版本|
 
 
 示例：
@@ -293,13 +296,13 @@ Params：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|IP|string|是|长连接服务器外网IP|
-|port|int|是|长连接服务器外网端口|
-|domain|string|是|长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。|
-|error|string|是|成功返回error:0|
-|reason|string|是|成功返回ok|
+|IP|String|是|长连接服务器外网IP|
+|port|Int|是|长连接服务器外网端口|
+|domain|String|是|长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。|
+|error|String|是|成功返回error:0|
+|reason|String|是|成功返回ok|
 
-错误码：暂无
+状态码：暂无
 
 返回示例：
 
@@ -409,7 +412,7 @@ params的协议根据不同设备有所不同，商务合作后会根据对接�
 
 控制指令返回：
 
-返回「error:0」表示成功，更多错误码请查看「[更新/上报状态](deviceStatus.html)」
+返回「error:0」表示成功，更多状态码请查看「[更新/上报状态](deviceStatus.html)」
 
 示例：
 
@@ -424,6 +427,6 @@ params的协议根据不同设备有所不同，商务合作后会根据对接�
 
 注意：
 
-- 如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。
-- 设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。
-- 整个流程顺利完成，接下来在「[API中心](apiOverview.html)」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。
+    如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。
+    设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。
+    整个流程顺利完成，接下来在「[API中心](apiOverview.html)」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。

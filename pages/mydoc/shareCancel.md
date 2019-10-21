@@ -33,7 +33,7 @@ folder: mydoc
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |error |是  |Int |总可以成功，除非内部错误   |
-|sequence     |是  |string | 从请求参数中获取    |
+|sequence     |是  |String | 从请求参数中获取    |
 
 
 

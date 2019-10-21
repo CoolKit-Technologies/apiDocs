@@ -46,7 +46,7 @@ Introduction to developing your own application through the services of Coolkit 
 
 ```
 1,Required parameters for HTTP Requests.
-2,Signature rules and signature algorithm for Authentication. Tells you how to pass security authentication quickly and gain access to interfaces.
+2,Signature rules and signature algorithm for Authentication. Tells you how to pass security authentication quickly and gain access to Interfaces.
 3,Introduction to Access Token and Refresh Token rules.How to refresh Token.
 ```
 

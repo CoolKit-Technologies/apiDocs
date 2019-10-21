@@ -150,7 +150,7 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">酷宅开放平台 2.0</li>
+  <li class="sidebarTitle">酷宅开放平台 3.0</li>
   
   
   
@@ -269,13 +269,13 @@
                   
                   
                   
-                  <li><a href="code.html">验证码</a></li>
+                  <li><a href="code.html">发送验证码</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="register.html">注册</a></li>
+                  <li><a href="register.html">注册账号</a></li>
                   
                   
                   
@@ -293,13 +293,13 @@
                   
                   
                   
-                  <li><a href="login.html">登录</a></li>
+                  <li><a href="login.html">账号登录</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="token.html">token刷新</a></li>
+                  <li><a href="token.html">at刷新</a></li>
                   
                   
                   
@@ -738,7 +738,7 @@ permit= permit|xxx(具体的权限数值)
       <td style="text-align: left">error</td>
       <td style="text-align: left">是</td>
       <td style="text-align: left">Int</td>
-      <td>错误码</td>
+      <td>状态码</td>
     </tr>
     <tr>
       <td style="text-align: left">result</td>
@@ -749,25 +749,25 @@ permit= permit|xxx(具体的权限数值)
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">String</td>
       <td>分享方用户的apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">String</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">sequence</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">String</td>
       <td>时间戳，精确到毫秒从请求参数中获取</td>
     </tr>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>状态码
 0:ok(操作成功)
 400:Bad Request（参数错误）
 401:认证不通过

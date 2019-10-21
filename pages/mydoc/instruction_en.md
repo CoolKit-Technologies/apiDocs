@@ -1,7 +1,7 @@
 ---
 title: General Developer Instruction
 last_updated: 2019-03-20
-summary: Preparation for accessing Cloud platform services,including descriptions for general parameters,introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token.
+summary: Preparation for accessing Cloud platform services,including descriptions for general parameters,Introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token.
 sidebar: mydoc_en_sidebar
 permalink: instruction_en.html
 folder: mydoc
@@ -23,7 +23,7 @@ layout: page_en
 |:----    |:---|:----- |-----   |
 |ts |Yes  |Long |Timestamp of API calling,say current timestamp （Timestamp：current time in seconds from Epoch（Jan 1, 1970），say unix-timestamp）  |
 |appid |Yes  |String | appid provided by Coolkit    |
-|nonce     |Yes  |String | 8-digit random alphanumeric string    |
+|nonce     |Yes  |String | 8-digit random alphanumeric String    |
 |version     |Yes  |Int | version:8 Agreed Version    |
 |appVersion     |No  |String | when version>=8 appVersion is required    |
 
@@ -42,12 +42,12 @@ Order all parameters alphabetically based on the names of parameters and concate
 appid=I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF&deviceid=1000052354&nonce=2323dfgh&ts=1545219251
 ```
 
-Signature Calculation: Set ‘app secret’ as key，generate sigature string based on HMAC-SHA256.
+Signature Calculation: Set ‘app secret’ as key，generate sigature String based on HMAC-SHA256.
 
-Encode the signature string by Base64 and add to Authorization header.
+Encode the signature String by Base64 and add to Authorization header.
 
 - POST Request:
-Create json data with signature string and all other parameters(parameters in general instruction and API parameters)，Take example of Login API.For example:
+Create json data with signature String and all other parameters(parameters in general instruction and API parameters)，Take example of Login API.For example:
 ```{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"phoneNumber":"+86********","password":"****"}```
 Or
 ```{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"email":"dev@coolit.cc","password":"****"}```
@@ -67,7 +67,7 @@ var crypto = require('crypto');
 var appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF";
 var appsecret="S1fHFiMqzykNdxlSrk9Pjdczp7rsvt3M";
 var params={"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
-var buffer = new Buffer(JSON.stringify(params),"utf-8");
+var buffer = new Buffer(JSON.Stringify(params),"utf-8");
 var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 ```
 

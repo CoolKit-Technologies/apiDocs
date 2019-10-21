@@ -150,7 +150,7 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">酷宅开放平台 2.0</li>
+  <li class="sidebarTitle">酷宅开放平台 3.0</li>
   
   
   
@@ -269,13 +269,13 @@
                   
                   
                   
-                  <li><a href="code.html">验证码</a></li>
+                  <li><a href="code.html">发送验证码</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="register.html">注册</a></li>
+                  <li><a href="register.html">注册账号</a></li>
                   
                   
                   
@@ -293,13 +293,13 @@
                   
                   
                   
-                  <li><a href="login.html">登录</a></li>
+                  <li><a href="login.html">账号登录</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="token.html">token刷新</a></li>
+                  <li><a href="token.html">at刷新</a></li>
                   
                   
                   
@@ -586,25 +586,25 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">酷宅给第三方应用分配的appid</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位随机字符串，只由字母数字组成</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">协议版本，默认填8</td>
     </tr>
@@ -675,7 +675,7 @@ let crypto = require('crypto');
 let appid="McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr";
 let appsecret="OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c";
 let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613123456789", "ts": 1560306258, "version": 8}
-let buffer = Buffer.from(JSON.stringify(params),"utf-8");
+let buffer = Buffer.from(JSON.Stringify(params),"utf-8");
 let theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 console.log(theSign)
 // XuOzGxtG50CiF4H3odUfZsvKVl5+qSPzhfLEuUd4eJw=
@@ -705,7 +705,7 @@ def main():
     }
     message = json.dumps(data, sort_keys=True)
     Sign = makeSign(key='OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c', message=message)
-    print(Sign)
+    prInt(Sign)
     # XfWcNURxPxpk6Z+6I+WR/j9wHURhvTEK1qa3sAJFNR0=
 
 if __name__ == "__main__":
@@ -733,7 +733,7 @@ if __name__ == "__main__":
 
 <p>access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，使其被迫下线。</p>
 
-<p>refresh token有效期为两个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 <a href="token.html">Refresh token刷新</a></p>
+<p>refresh token有效期为两个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 <a href="token.html">at刷新</a></p>
 
 
 

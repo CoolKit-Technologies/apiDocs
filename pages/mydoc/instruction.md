@@ -21,10 +21,10 @@ folder: mydoc
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|appid|string|是|酷宅给第三方应用分配的appid|
-|nonce|string|是|8位随机字符串，只由字母数字组成|
-|ts|int|是|进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）|
-|version|string|是|协议版本，默认填8|
+|appid|String|是|酷宅给第三方应用分配的appid|
+|nonce|String|是|8位随机字符串，只由字母数字组成|
+|ts|Int|是|进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）|
+|version|String|是|协议版本，默认填8|
 
 备注：
 
@@ -88,7 +88,7 @@ let crypto = require('crypto');
 let appid="McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr";
 let appsecret="OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c";
 let params={"appid": appid, "nonce": "asbsedwq", "password": "12345678", "phoneNumber": "+8613123456789", "ts": 1560306258, "version": 8}
-let buffer = Buffer.from(JSON.stringify(params),"utf-8");
+let buffer = Buffer.from(JSON.Stringify(params),"utf-8");
 let theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 console.log(theSign)
 // XuOzGxtG50CiF4H3odUfZsvKVl5+qSPzhfLEuUd4eJw=
@@ -119,7 +119,7 @@ def main():
     }
     message = json.dumps(data, sort_keys=True)
     Sign = makeSign(key='OdPuCZ4PkPPi0rVKRVcGmll2NM6vVk0c', message=message)
-    print(Sign)
+    prInt(Sign)
     # XfWcNURxPxpk6Z+6I+WR/j9wHURhvTEK1qa3sAJFNR0=
 
 if __name__ == "__main__":
@@ -149,4 +149,4 @@ Authorization: Bearer a527297584f1ca030579a90d2e800481e22e850a
   
 access token有效期为一个月。同一个帐号在同一个应用下不能同时登录，每登录一次会重新刷新token，这样后面登录的用户会刷新token，让前面登录的用户token失效，使其被迫下线。
   
-refresh token有效期为两个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 [Refresh token刷新](token.html)
+refresh token有效期为两个月。access token失效后可通过refresh token请求refresh token刷新接口，重新获取新的access token和refresh token。请查看 [at刷新](token.html)

@@ -23,7 +23,7 @@ folder: mydoc
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |否  |string | 返回的异常信息。error：0 操作成功  |
+|error |否  |String | 返回的异常信息。error：0 操作成功  |
 |devicelist |是  |[Object] | 设备列表信息，成功才返回  |
 
 - 设备信息列表

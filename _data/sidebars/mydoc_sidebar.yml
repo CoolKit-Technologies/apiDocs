@@ -3,7 +3,7 @@
 entries:
 - title: sidebar
   product: 酷宅开放平台
-  version: 2.0
+  version: 3.0
   folders:
 
   - title: 平台概述
@@ -67,11 +67,11 @@ entries:
         output: web
         subfolderitems:
 
-        - title: 验证码
+        - title: 发送验证码
           url: /code.html
           output: web
 
-        - title: 注册
+        - title: 注册账号
           url: /register.html
           output: web
   
@@ -83,11 +83,11 @@ entries:
           url: /updatePassword.html
           output: web
 
-        - title: 登录
+        - title: 账号登录
           url: /login.html
           output: web
 
-        - title: token刷新
+        - title: at刷新
           url: /token.html
           output: web
 

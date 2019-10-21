@@ -1,6 +1,6 @@
 ---
 title: API总览
-last_updated: 2019-03-20
+last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: apiOverview.html
 folder: mydoc
@@ -10,7 +10,7 @@ API中心提供用户帐号信息管理，提供注册以及修改密码等服�
 
 设备管理包括设备的添加，设备分组等设备信息服务。
 
-设备控制提供对设备开关，颜色，色温，亮度的调整，设备的分享以及设备定时器的设置。
+设备控制提供对设备开关、颜色、色温、亮度的调整，设备的分享以及设备定时器的设置。
 
 ## 区域功能
 
@@ -27,7 +27,7 @@ API中心提供用户帐号信息管理，提供注册以及修改密码等服�
 |找回密码 |忘记密码的情况下，通过注册的帐号接收验证码，重新设置密码 |[/api/user/password/reset](findpassword.html)  |
 |修改密码 |出于帐号安全，通过原来的密码设置帐号新密码，不需要通过验证码方式校验 |[/api/user/password](updatePassword.html)  |
 |登录 |登录APP |[api/user/login](login.html)  |
-|token刷新 |aceess token失效时，可通过refresh token重新获取token |[api/user/refresh](token.html)  |
+|at刷新 |aceess token失效时，可通过refresh token重新获取token |[api/user/refresh](token.html)  |
 
 ## 设备管理功能
 

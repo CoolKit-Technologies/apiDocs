@@ -16,7 +16,7 @@ Device and app send this command to server to check device statuses or parameter
 |apikey |Yes  |String | user apikey    |
 |deviceid     |Yes  |String | device id    |
 |userAgent     |Yes  |String | device：device app: app    |
-|params     |Yes  |[String] | string array of specified parameters.when this parameter is empty, returns all parameters.    |
+|params     |Yes  |[String] | String array of specified parameters.when this parameter is empty, returns all parameters.    |
 
 ```
 params description：
@@ -37,7 +37,7 @@ error code
 0:ok(operation succeeded)
 400:Bad Request（wrong parameter）
 403:Forbidden（no permission）
-500:Internal Server Error（internal server error）
+500:Internal Server Error（Internal server error）
 
 PARAM description：
 Returns specified json value.When no parameter is found, returns 0 (for device) or empty object( for app).For example:：

@@ -26,7 +26,7 @@ layout: page_en
 
 ```
 1：Incorrect signature algorithm causes incorrect signature value. 
-2：Signature algorithm is correct, but the order of parameters for signature algorithm disagrees with the order of interface parameter,causing authorization failure.
+2：Signature algorithm is correct, but the order of parameters for signature algorithm disagrees with the order of Interface parameter,causing authorization failure.
 ```
  
  For details, please click [common reference](instruction_en.html).

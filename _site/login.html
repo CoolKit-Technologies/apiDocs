@@ -150,7 +150,7 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">酷宅开放平台 2.0</li>
+  <li class="sidebarTitle">酷宅开放平台 3.0</li>
   
   
   
@@ -269,13 +269,13 @@
                   
                   
                   
-                  <li><a href="code.html">验证码</a></li>
+                  <li><a href="code.html">发送验证码</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="register.html">注册</a></li>
+                  <li><a href="register.html">注册账号</a></li>
                   
                   
                   
@@ -293,13 +293,13 @@
                   
                   
                   
-                  <li class="active"><a href="login.html">登录</a></li>
+                  <li class="active"><a href="login.html">账号登录</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="token.html">token刷新</a></li>
+                  <li><a href="token.html">at刷新</a></li>
                   
                   
                   
@@ -559,107 +559,209 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <ul>
-  <li>
-    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/user/login</code></p>
-  </li>
-  <li>
-    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/login</code></p>
-  </li>
-  <li>
-    <p>请求方法： POST</p>
-  </li>
-  <li>
-    <p>请求参数：注意email和phoneNumber不会同时存在，邮箱登录只传email，电话号码登录只传phoneNumber</p>
-  </li>
-</ul>
+   <p>基本的账号登录，后续可以实现基本的设备管理与控制。</p>
+
+<hr />
+
+<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/login</p>
+
+<p>请求方法： post</p>
+
+<p><strong>请求参数：</strong></p>
+
+<p>Headers：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">名称</th>
+      <th style="text-align: center">参数值</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">email</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>邮箱。登录时需要判断邮箱是否已经激活。</td>
+      <td style="text-align: center">Authorization</td>
+      <td style="text-align: center">Sign+空格+签名值</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+</td>
     </tr>
     <tr>
-      <td style="text-align: left">phoneNumber</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>手机号 （优先检查）</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">password</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>密码</td>
+      <td style="text-align: center">Content-Type</td>
+      <td style="text-align: center">application/json</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">application/json</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>响应参数:</strong></p>
+<p>Params：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">error</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>错误码,成功不返回error，失败返回error</td>
+      <td style="text-align: center">phoneNumber</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">登录手机（优先）</td>
     </tr>
     <tr>
-      <td style="text-align: left">user</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
-      <td>用户信息</td>
+      <td style="text-align: center">email</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">登录邮箱</td>
     </tr>
     <tr>
-      <td style="text-align: left">at</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>Access Token</td>
+      <td style="text-align: center">password</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">登录密码</td>
     </tr>
     <tr>
-      <td style="text-align: left">rt</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>Refresh Token</td>
+      <td style="text-align: center">appid</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">APPID</td>
     </tr>
     <tr>
-      <td style="text-align: left">region</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>用户所属区域代码，如：中国:cn</td>
+      <td style="text-align: center">nonce</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ts</td>
+      <td style="text-align: center">Int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">version</td>
+      <td style="text-align: center">Int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">预设版本</td>
     </tr>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>错误码：
-200:获取认证token失败
-301:用户在其他大区，需要客户端结合region重定向,重新连接
-400:缺少参数
-401:用户名密码错误
-402:邮件未激活
-404:用户不存在
-500:服务器错误
+<p>示例：</p>
+
+<pre><code class="language-Json">{
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "phoneNumber":"+8613123456789",
+    "password":"12345678",
+    "ts": 1558004249,
+    "version":8,
+    "nonce":"q3wz95p6"
+}
+</code></pre>
+
+<p>备注：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>接口路径中的cn代表服务器区域，可替换成eu、us、as
+签名值计算规则请查看 [开发通用说明](instruction.html)
 </code></pre></div></div>
 
+<p><strong>响应参数(基础):</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">error</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">失败时返回，且只会返回error</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">at</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">rt</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">Refresh Token，rt有效期为两个月，用于刷新at</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">user</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">用户信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">region</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">注册区域</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>状态码（以实际为准）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>400：参数不完整或错误  
+301：账号注册在其他区域，需要查询「区域接口」重定向  
+401：账号密码错误  
+402：账号未激活  
+404：账号不存在  
+406：认证失败（APPID错误或签名错误）  
+500：服务器内部错误  
+</code></pre></div></div>
+
+<p>返回示例(数据已脱敏)：</p>
+
+<pre><code class="language-Json">{
+    "at":"a527297584f1ca030579a90d2e800481e22e850a",
+    "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
+    "user":{
+        "_id":"5c984cd3dc8295fa0ef3e592",
+        "phoneNumber":"+8613123456789",
+        "appId":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+        "lang":"cn",
+        "online":false,
+        "onlineTime":"2019-05-16T10:48:42.091Z",
+        "ip":"113.87.160.95",
+        "location":"广东",
+        "offlineTime":"2019-05-16T10:51:22.090Z",
+        "appInfos":[
+            {
+                "appVersion":"3.13.0",
+                "os":"android"
+            }
+        ],
+        "nickname":"eWelink",
+        "createdAt":"2019-03-25T03:36:51.335Z",
+        "apikey":"95da0fea-5692-469a-c562-4dd5ee9a51f1"
+    },
+    "region":"cn"
+}
+</code></pre>
+
+<p>备注：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
+rt存在的目的是刷新at
+region为账号注册所在区域
+</code></pre></div></div>
 
 
 
@@ -671,7 +773,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-21<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

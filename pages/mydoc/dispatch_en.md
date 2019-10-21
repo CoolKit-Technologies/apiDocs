@@ -39,7 +39,7 @@ App accesses this API to check the info(ip,port) of persistent connection for we
 |version | Yes |Int | version:8    |
 |appid     |Yes  |String | app id provided by Coolkit   |
 |ts     |Yes  |Int | timestamp to second(from 1970)    |
-|nonce     |Yes  |String | 32-digit random integer in hexadecimal，say 8-digit random value of letters and numbers   |
+|nonce     |Yes  |String | 32-digit random Integer in hexadecimal，say 8-digit random value of letters and numbers   |
 
 - Response parameters：
 
@@ -58,7 +58,7 @@ error code
 400:wrong parameter
 401:authorization failed(remind to login)
 402:expired(app auto refreshes access token)
-403:no permission(app prompts no permission,e.g.app no access to OTA)(401-403 are authorization errors sent by internal authorization system)
+403:no permission(app prompts no permission,e.g.app no access to OTA)(401-403 are authorization errors sent by Internal authorization system)
 500:server error
 ```
 

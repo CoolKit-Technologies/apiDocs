@@ -1,7 +1,7 @@
 ---
 title: Create Your First Application
 last_updated: 2019-03-20
-summary: This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below.
+summary: This article explains in details on Login, Accessing device data, Building persistent connection and many other topics, for you to understand how device data are Interchanged on Coolkit Cloud platform.You will be able to develop your application faster with it.It helps you understand the Interaction between users and devices and the process of controlling devices and the response from devices.Quick start to learn how to develop your own application by referring to the example below.
 sidebar: mydoc_en_sidebar
 permalink: application_en.html
 folder: mydoc
@@ -79,7 +79,7 @@ error code
 
 ``` 
 {
-    "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //signature value to access other interfaces.Valid for a month
+    "at": "b1d576f797ae86d276d366e7b8772ecbacecc18d",  //signature value to access other Interfaces.Valid for a month
     "rt": "436adf6b1f1e5e6fdc6061317b3aca6bcefa45c1",  //when token expires，use this to refresh token.Valid for two months
     "user": {
         "_id": "5bf3b28e9ac7c1788fc27f1b",
@@ -205,7 +205,7 @@ Response of Handshake success：
 
 	{"error":0,"apikey":"a4e77f7e-2116-4215-b961-6f3fc5982667","config":{"hb":1,"hbInterval":145},"sequence":"1545219251123","socketid":"0298c7fffec9eeca-0000602f-00052b04-c10ec99a40f6e6d4-6739904a"}
 
-hbInterval is hearbeat interval.ping needs to be sent in 145S.Server will respond pong when ping is received.
+hbInterval is hearbeat Interval.ping needs to be sent in 145S.Server will respond pong when ping is received.
 
 <img src="{{ "images/ping.jpg" }}" alt="hearbeat"/>
 

@@ -138,15 +138,15 @@ Countdown timer（Activates after specified time, which fires once only.A qucik 
 |error |Yes  |Int |error code   |
 |apikey |Yes  |String | user apikey    |
 |deviceid     |Yes  |String | device id    |
-|sequence     |Yes  |String | sent to device by app, device returns it intactly    |
-|d_seq     |No  |String | uploaded by device, server passes it intactly to app    |
+|sequence     |Yes  |String | sent to device by app, device returns it Intactly    |
+|d_seq     |No  |String | uploaded by device, server passes it Intactly to app    |
 
 ```
 error code
 0:ok(operation succeeded)
 400:Bad Request（wrong parameter）
 403:Forbidden（no permission）
-500:Internal Server Error（internal server error）
+500:Internal Server Error（Internal server error）
 error codes returned from app only a:
 503:Device Offline(Device is offline)
 504:Request Timeout（Request timed out）

@@ -62,7 +62,7 @@ var crypto = require('crypto');
 var appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF";
 var appsecret="S1fHFiMqzykNdxlSrk9Pjdczp7rsvt3M";
 var params={"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
-var buffer = new Buffer(JSON.stringify(params),"utf-8");
+var buffer = new Buffer(JSON.Stringify(params),"utf-8");
 var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 ```
 

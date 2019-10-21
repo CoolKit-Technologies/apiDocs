@@ -83,9 +83,9 @@ app send command to server to update the timer permissions given to sharee. This
 |:----    |:---|:----- |-----   |
 |error |Yes  |Int |error code   |
 |result |No  |Int | 0:not sharer;1:user does not exist;2:update succeeded;3 update failed    |
-|apikey     |No  |string | user apikey    |
-|deviceid     |No  |string | device id    |
-|sequence     |No  |string | timestamp to millisecond obtained from request parameters    |
+|apikey     |No  |String | user apikey    |
+|deviceid     |No  |String | device id    |
+|sequence     |No  |String | timestamp to millisecond obtained from request parameters    |
 
 ```
 error code
@@ -94,7 +94,7 @@ error code
 401:Authorization failed
 403:Forbidden（no permission）
 406:User has logined on another device
-500:Internal Server Error（internal server error）
+500:Internal Server Error（Internal server error）
 ```
 
 

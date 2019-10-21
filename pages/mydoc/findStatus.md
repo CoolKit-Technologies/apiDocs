@@ -26,13 +26,13 @@ params说明：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int |错误码   |
+|error |是  |Int |状态码   |
 |apikey |是  |String | 绑定用户的apikey    |
 |deviceid     |是  |String | 设备id    |
 |params     |是  |Params | 键值对    |
 
 ```
-错误码
+状态码
 0:ok(操作成功)
 400:Bad Request（参数错误）
 403:Forbidden（无权限）

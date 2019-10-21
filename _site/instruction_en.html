@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Preparation for accessing Cloud platform services,including descriptions for general parameters,introduction to signature rule for authorization,Example for ...">
+<meta name="description" content="Preparation for accessing Cloud platform services,including descriptions for general parameters,Introduction to signature rule for authorization,Example for ...">
 <meta name="keywords" content=" ">
 <title>General Developer Instruction | Jekyll theme for documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
@@ -533,7 +533,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Preparation for accessing Cloud platform services,including descriptions for general parameters,introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token.</div>
+    <div class="summary">Preparation for accessing Cloud platform services,including descriptions for general parameters,Introduction to signature rule for authorization,Example for signature calculation, and expanation for Access Token and Refresh Token.</div>
    
 
     
@@ -599,7 +599,7 @@ $('#toc').on('click', 'a', function() {
       <td style="text-align: left">nonce</td>
       <td style="text-align: left">Yes</td>
       <td style="text-align: left">String</td>
-      <td>8-digit random alphanumeric string</td>
+      <td>8-digit random alphanumeric String</td>
     </tr>
     <tr>
       <td style="text-align: left">version</td>
@@ -633,13 +633,13 @@ Order all parameters alphabetically based on the names of parameters and concate
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>appid=I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF&amp;deviceid=1000052354&amp;nonce=2323dfgh&amp;ts=1545219251
 </code></pre></div></div>
 
-<p>Signature Calculation: Set ‘app secret’ as key，generate sigature string based on HMAC-SHA256.</p>
+<p>Signature Calculation: Set ‘app secret’ as key，generate sigature String based on HMAC-SHA256.</p>
 
-<p>Encode the signature string by Base64 and add to Authorization header.</p>
+<p>Encode the signature String by Base64 and add to Authorization header.</p>
 
 <ul>
   <li>POST Request:
-Create json data with signature string and all other parameters(parameters in general instruction and API parameters)，Take example of Login API.For example:
+Create json data with signature String and all other parameters(parameters in general instruction and API parameters)，Take example of Login API.For example:
 <code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"phoneNumber":"+86********","password":"****"}</code>
 Or
 <code class="highlighter-rouge">{"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","nonce":"232323df","ts":1545219251,"version":8,"email":"dev@coolit.cc","password":"****"}</code>
@@ -658,7 +658,7 @@ Note：Country code must be added to phoneNumber,such as：+86</li>
 var appid="I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF";
 var appsecret="S1fHFiMqzykNdxlSrk9Pjdczp7rsvt3M";
 var params={"appid":"I25m0KljbFfGsTjRc3eTwTEPVwKzsvCF","phoneNumber":"+8613570211955","password":"lybywl163","ts":1545219251123,"version":8,"nonce":"asbsedwq"}
-var buffer = new Buffer(JSON.stringify(params),"utf-8");
+var buffer = new Buffer(JSON.Stringify(params),"utf-8");
 var theSign = crypto.createHmac('sha256', appsecret).update(buffer).digest('base64')
 </code></pre></div></div>
 

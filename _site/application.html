@@ -150,7 +150,7 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">酷宅开放平台 2.0</li>
+  <li class="sidebarTitle">酷宅开放平台 3.0</li>
   
   
   
@@ -269,13 +269,13 @@
                   
                   
                   
-                  <li><a href="code.html">验证码</a></li>
+                  <li><a href="code.html">发送验证码</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="register.html">注册</a></li>
+                  <li><a href="register.html">注册账号</a></li>
                   
                   
                   
@@ -293,13 +293,13 @@
                   
                   
                   
-                  <li><a href="login.html">登录</a></li>
+                  <li><a href="login.html">账号登录</a></li>
                   
                   
                   
                   
                   
-                  <li><a href="token.html">token刷新</a></li>
+                  <li><a href="token.html">at刷新</a></li>
                   
                   
                   
@@ -578,10 +578,9 @@ $('#toc').on('click', 'a', function() {
 <p>接口测试工具：https://www.getpostman.com/<br />
 在线快速测试：https://getman.cn/</p>
 
-<ul>
-  <li>接口地址： https://cn-api.coolkit.cn:8080/api/user/login</li>
-  <li>请求方法： POST</li>
-</ul>
+<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/login</p>
+
+<p>请求方法： post</p>
 
 <p><strong>请求参数：</strong></p>
 
@@ -626,43 +625,43 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">phoneNumber</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录手机（优先）</td>
     </tr>
     <tr>
       <td style="text-align: center">email</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录邮箱</td>
     </tr>
     <tr>
       <td style="text-align: center">password</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">登录密码</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">预设版本</td>
     </tr>
@@ -700,19 +699,19 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">at</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
     </tr>
     <tr>
       <td style="text-align: center">rt</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Refresh Token，rt有效期为两个月，用于刷新at</td>
     </tr>
@@ -731,7 +730,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<p>错误码（以实际为准）：</p>
+<p>状态码（以实际为准）：</p>
 
 <p>400：参数不完整或错误<br />
 301：账号注册在其他区域，需要查询「区域接口」重定向<br />
@@ -772,18 +771,16 @@ $('#toc').on('click', 'a', function() {
 
 <p>备注：</p>
 
-<ul>
-  <li>at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）</li>
-  <li>rt存在的目的是刷新at</li>
-  <li>region为账号注册所在区域</li>
-</ul>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
+rt存在的目的是刷新at
+region为账号注册所在区域
+</code></pre></div></div>
 
 <h2 id="第二步请求设备列表">第二步：请求设备列表</h2>
 
-<ul>
-  <li>接口地址： https://cn-api.coolkit.cn:8080/api/user/device</li>
-  <li>请求方法： GET</li>
-</ul>
+<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device</p>
+
+<p>请求方法： get</p>
 
 <p><strong>请求参数：</strong></p>
 
@@ -828,31 +825,31 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">lang</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">cn 响应返回中文信息；en 响应返回英文信息</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">预设版本</td>
     </tr>
@@ -887,7 +884,7 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
@@ -900,7 +897,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<p>错误码：暂无</p>
+<p>状态码：暂无</p>
 
 <p>返回示例(数据已脱敏)：</p>
 
@@ -972,19 +969,17 @@ $('#toc').on('click', 'a', function() {
 
 <p>备注：</p>
 
-<ul>
-  <li>sharedBy：分享方的信息（接收方查看设备列表才显示）</li>
-  <li>sharedTo：被分享方的信息（分享方查看设备列表才显示）</li>
-  <li>不同设备的UIID会不同，UI决定显示的效果</li>
-  <li>如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）</li>
-</ul>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sharedBy：分享方的信息（接收方查看设备列表才显示）
+sharedTo：被分享方的信息（分享方查看设备列表才显示）
+不同设备的UIID会不同，UI决定显示的效果
+如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
+</code></pre></div></div>
 
 <h2 id="第三步请求分配服务">第三步：请求分配服务</h2>
 
-<ul>
-  <li>接口地址： https://cn-api.coolkit.cn:8080/dispatch/app</li>
-  <li>请求方法： POST</li>
-</ul>
+<p>接口地址： https://cn-api.coolkit.cn:8080/dispatch/app</p>
+
+<p>请求方法： post</p>
 
 <p><strong>请求参数：</strong></p>
 
@@ -1029,31 +1024,31 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">accept</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">默认填ws即可</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">预设版本</td>
     </tr>
@@ -1085,38 +1080,38 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">IP</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器外网IP</td>
     </tr>
     <tr>
       <td style="text-align: center">port</td>
-      <td style="text-align: center">int</td>
+      <td style="text-align: center">Int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器外网端口</td>
     </tr>
     <tr>
       <td style="text-align: center">domain</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。</td>
     </tr>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">成功返回error:0</td>
     </tr>
     <tr>
       <td style="text-align: center">reason</td>
-      <td style="text-align: center">string</td>
+      <td style="text-align: center">String</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">成功返回ok</td>
     </tr>
   </tbody>
 </table>
 
-<p>错误码：暂无</p>
+<p>状态码：暂无</p>
 
 <p>返回示例：</p>
 
@@ -1221,7 +1216,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>控制指令返回：</p>
 
-<p>返回「error:0」表示成功，更多错误码请查看「<a href="deviceStatus.html">更新/上报状态</a>」</p>
+<p>返回「error:0」表示成功，更多状态码请查看「<a href="deviceStatus.html">更新/上报状态</a>」</p>
 
 <p>示例：</p>
 
@@ -1235,11 +1230,10 @@ $('#toc').on('click', 'a', function() {
 
 <p>注意：</p>
 
-<ul>
-  <li>如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。</li>
-  <li>设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。</li>
-  <li>整个流程顺利完成，接下来在「<a href="apiOverview.html">API中心</a>」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。</li>
-</ul>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。
+设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。
+整个流程顺利完成，接下来在「[API中心](apiOverview.html)」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。
+</code></pre></div></div>
 
 
 
@@ -1251,7 +1245,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-10-15<br/>
+<span>最后更新时间:</span> 2019-10-21<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

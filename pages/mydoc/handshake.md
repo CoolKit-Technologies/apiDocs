@@ -36,7 +36,7 @@ folder: mydoc
 |action |是  |String |register   |
 |version |是  |Int | IOT协议版本，当前为8,最新版为8。如果设备被删除了并且version>=7，会返回三次415的错误代码，如果超过3次还是返回404；之前的版本只要没配对信息就返回404    |
 |deviceid     |是  |String | 设备id    |
-|ts |是  |Int | uint32 变量转为10进制字符串   |
+|ts |是  |Int | uInt32 变量转为10进制字符串   |
 |userAgent |是  |String | device  |
 |apikey |是  |String | 设备出厂apikey  |
 |mac |是  |String | 设备真实的mac地址  |
