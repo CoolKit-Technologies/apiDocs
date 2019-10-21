@@ -299,7 +299,7 @@
                   
                   
                   
-                  <li><a href="token.html">at刷新</a></li>
+                  <li><a href="token.html">认证刷新</a></li>
                   
                   
                   
@@ -559,21 +559,44 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>设备分组，同时支持分组排序</p>
-<ul>
-  <li>
-    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/group</code></p>
-  </li>
-  <li>
-    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/group</code></p>
-  </li>
-  <li>
-    <p>请求方法： POST</p>
-  </li>
-  <li>
-    <p>请求参数：</p>
-  </li>
-</ul>
+   <p>设备分组，同时支持分组排序。</p>
+
+<hr />
+
+<p>接口地址： https://cn-api.coolkit.cn:8080/api/group</p>
+
+<p>请求方法： post</p>
+
+<p><strong>请求参数：</strong></p>
+
+<p>Headers：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">名称</th>
+      <th style="text-align: center">参数值</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Authorization</td>
+      <td style="text-align: center">Bearer+空格+at</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Content-Type</td>
+      <td style="text-align: center">application/json</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Parmas：</p>
 
 <table>
   <thead>
@@ -596,6 +619,18 @@ $('#toc').on('click', 'a', function() {
       <td style="text-align: left">否</td>
       <td style="text-align: left">Int</td>
       <td>添加的时候可以指定分组排在什么位置，如果不指定,那么新增的分组就排在最后</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apikey</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>用户apikey</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">groupType</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">Int</td>
+      <td>分组：0</td>
     </tr>
   </tbody>
 </table>
@@ -657,7 +692,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-21<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

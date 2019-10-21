@@ -87,7 +87,7 @@ entries:
           url: /login.html
           output: web
 
-        - title: at刷新
+        - title: 认证刷新
           url: /token.html
           output: web
 

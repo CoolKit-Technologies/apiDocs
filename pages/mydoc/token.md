@@ -1,5 +1,5 @@
 ---
-title: at刷新
+title: 认证刷新
 last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: token.html

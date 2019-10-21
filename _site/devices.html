@@ -299,7 +299,7 @@
                   
                   
                   
-                  <li><a href="token.html">at刷新</a></li>
+                  <li><a href="token.html">认证刷新</a></li>
                   
                   
                   
@@ -560,203 +560,319 @@ $('#toc').on('click', 'a', function() {
     
 
    <p>返回用户帐号下，添加的所有设备，包括分享设备。</p>
-<ul>
-  <li>
-    <p>正式环境URL: <code class="highlighter-rouge">https://cn(区域)-api.coolkit.cn:8080/api/user/device</code></p>
-  </li>
-  <li>
-    <p>测试环境URL: <code class="highlighter-rouge">https://testapi.coolkit.cn:8080/api/user/device</code></p>
-  </li>
-  <li>
-    <p>请求方法： GET</p>
-  </li>
-  <li>
-    <p>请求参数：</p>
-  </li>
-</ul>
+
+<hr />
+
+<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device</p>
+
+<p>请求方法： get</p>
+
+<p><strong>请求参数：</strong></p>
+
+<p>Headers：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">名称</th>
+      <th style="text-align: center">参数值</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">lang</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>cn 响应返回中文信息。en 响应返回英文信息</td>
+      <td style="text-align: center">Authorization</td>
+      <td style="text-align: center">Bearer+空格+at</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Content-Type</td>
+      <td style="text-align: center">application/json</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">application/json</td>
     </tr>
   </tbody>
 </table>
+
+<p>Parmas：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">lang</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">cn响应返回中文信息；en 响应返回英文信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">appid</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">nonce</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ts</td>
+      <td style="text-align: center">Int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">version</td>
+      <td style="text-align: center">Int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">预设版本</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例：</p>
+
+<pre><code class="language-Json">https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
+</code></pre>
 
 <p><strong>响应参数:</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">error</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>返回的异常信息。error：0 操作成功</td>
+      <td style="text-align: center">error</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
-      <td style="text-align: left">devicelist</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">[Object]</td>
-      <td>设备列表信息，成功才返回</td>
+      <td style="text-align: center">devicelist</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">设备信息列表</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>设备信息列表</li>
-</ul>
+<p>设备信息列表：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
-      <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: center">参数名</th>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">是否必须</th>
+      <th style="text-align: center">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">name</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备名称</td>
+      <td style="text-align: center">name</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备名称</td>
     </tr>
     <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>类型</td>
+      <td style="text-align: center">type</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备类型</td>
     </tr>
     <tr>
-      <td style="text-align: left">deviceid</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备id</td>
+      <td style="text-align: center">deviceid</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备id</td>
     </tr>
     <tr>
-      <td style="text-align: left">apikey</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>用户apikey</td>
+      <td style="text-align: center">apikey</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">用户apikey</td>
     </tr>
     <tr>
-      <td style="text-align: left">extra</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
-      <td>关联表引用信息</td>
+      <td style="text-align: center">extra</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">关联表引用信息</td>
     </tr>
     <tr>
-      <td style="text-align: left">onlineTime</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备最后上线时间</td>
+      <td style="text-align: center">onlineTime</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备最后上线时间</td>
     </tr>
     <tr>
-      <td style="text-align: left">ip</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备上线的ip地址</td>
+      <td style="text-align: center">ip</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备上线的ip地址</td>
     </tr>
     <tr>
-      <td style="text-align: left">location</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备上线的地方</td>
+      <td style="text-align: center">location</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备上线的地方</td>
     </tr>
     <tr>
-      <td style="text-align: left">settings</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
-      <td>设备配置信息</td>
+      <td style="text-align: center">settings</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备配置信息</td>
     </tr>
     <tr>
-      <td style="text-align: left">groups</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">[String]</td>
-      <td>设备所属的分组ID，设备可以属于多个分组。如果不属于任何分组，则返回空数组[]</td>
+      <td style="text-align: center">groups</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备所属的分组ID</td>
     </tr>
     <tr>
-      <td style="text-align: left">params</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
-      <td>设备参数</td>
+      <td style="text-align: center">params</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备参数</td>
     </tr>
     <tr>
-      <td style="text-align: left">online</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Boolean</td>
-      <td>设备是否在线</td>
+      <td style="text-align: center">online</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备是否在线</td>
     </tr>
     <tr>
-      <td style="text-align: left">createdAt</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Date</td>
-      <td>设备添加时间</td>
+      <td style="text-align: center">createdAt</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备添加时间</td>
     </tr>
     <tr>
-      <td style="text-align: left">sharedBy</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">Object</td>
-      <td>分享列表</td>
+      <td style="text-align: center">sharedBy</td>
+      <td style="text-align: center">Object</td>
+      <td style="text-align: center">否</td>
+      <td style="text-align: center">分享列表</td>
     </tr>
     <tr>
-      <td style="text-align: left">devicekey</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备apikey</td>
+      <td style="text-align: center">devicekey</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备apikey</td>
     </tr>
     <tr>
-      <td style="text-align: left">deviceUrl</td>
-      <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
-      <td>设备详情界面url</td>
+      <td style="text-align: center">deviceUrl</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备详情界面url</td>
     </tr>
     <tr>
-      <td style="text-align: left">brandName</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>品牌</td>
+      <td style="text-align: center">brandName</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">品牌名称</td>
     </tr>
     <tr>
-      <td style="text-align: left">productModel</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>产品型号</td>
+      <td style="text-align: center">productModel</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">产品型号</td>
     </tr>
     <tr>
-      <td style="text-align: left">showBrand</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Boolean</td>
-      <td>是否展示品牌和产品型号</td>
+      <td style="text-align: center">showBrand</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">是否展示品牌和产品型号</td>
     </tr>
     <tr>
-      <td style="text-align: left">uiid</td>
-      <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
-      <td>设备ui的id</td>
+      <td style="text-align: center">uiid</td>
+      <td style="text-align: center">Int</td>
+      <td style="text-align: center">是</td>
+      <td style="text-align: center">设备ui的id</td>
     </tr>
   </tbody>
 </table>
+
+<pre><code class="language-Json">[
+    {
+        "_id": "***************",
+        "name": "我的设备213ac8",
+        "type": "10",
+        "deviceid": "1000213ac8",
+        "apikey": "3541f7af-*ec5-4502-9bf3-eb4b09e9e12*",
+        "extra": {
+            "_id": "***************",
+            "extra": {
+                "model": "PSA-B11-GL",
+                "ui": "单通道开关",
+                "description": "WWJG001111",
+                "manufacturer": "深圳创易智能系统有限公司",
+                "mac": "**:**:**:**:**:**",
+                "apmac": "**:**:**:**:**:**",
+                "modelInfo": "***************",
+                "brandId": "***************",
+                "uiid": 6,
+                "staMac": "**:**:**:**:**:**",
+                "chipid": "********"
+            }
+        },
+        "__v": 0,
+        "onlineTime": "2019-10-15T07:22:14.361Z",
+        "ip": "110.110.110.110",
+        "location": "广东",
+        "settings": {
+            "opsNotify": 0,
+            "opsHistory": 1,
+            "alarmNotify": 1,
+            "wxAlarmNotify": 0,
+            "wxOpsNotify": 0,
+            "wxDoorbellNotify": 0,
+            "appDoorbellNotify": 1
+        },
+        "devGroups": [],
+        "groups": [],
+        "params": {
+            "pulseWidth": 500,
+            "pulse": "off",
+            "init": 1,
+            "startup": "off",
+            "staMac": "**:**:**:**:**:**",
+            "rssi": -50,
+            "fwVersion": "3.0.1",
+            "switch": "off",
+            "sledOnline": "on",
+            "version": 8
+        },
+        "online": true,
+        "createdAt": "2019-10-15T07:22:11.700Z",
+        "group": "",
+        "sharedTo": [],
+        "devicekey": "***************",
+        "deviceUrl": "",
+        "brandName": "Maker",
+        "showBrand": true,
+        "brandLogoUrl": "",
+        "productModel": "Sonoff basic R2",
+        "devConfig": {},
+        "uiid": 6
+    }
+]
+</code></pre>
 
 
 
@@ -769,7 +885,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-21<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

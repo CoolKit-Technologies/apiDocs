@@ -1,20 +1,29 @@
 ---
 title: 删除设备
-last_updated: 2019-03-20
+last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: deleteDevice.html
 folder: mydoc
 ---
 
 删除帐号下的设备，设备进入离线状态
-- 正式环境URL: ``` https://cn(区域)-api.coolkit.cn:8080/api/user/device/:deviceid``` 
-- 注意(:deviceid是参数)
-- 请求示例：``` https://cn-api.coolkit.cn:8080/api/user/device/100070b402``` 
-- 测试环境URL: ``` https://testapi.coolkit.cn:8080/api/user/device/:deviceid``` 
 
-- 请求方法： DELETE
+---
 
-- 请求参数：
+接口地址： https://cn-api.coolkit.cn:8080/api/user/device/{deviceid}
+
+请求方法： delete
+
+**请求参数：**
+
+Headers：
+
+|名称|参数值|是否必须|示例|
+:-: | :-: | :-: | :-: | :-:
+|Authorization|Bearer+空格+at|是|Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172|
+|Content-Type|application/json|是|application/json|
+
+Body：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
