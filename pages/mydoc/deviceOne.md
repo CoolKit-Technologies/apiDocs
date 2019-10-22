@@ -1,6 +1,6 @@
 ---
 title: 单个设备查询
-last_updated: 2019-10-21
+last_updated: 2019-10-22
 sidebar: mydoc_sidebar
 permalink: device.html
 ---
@@ -26,7 +26,8 @@ Parmas：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|deviceid     |是  |String | 设备id |
+|deviceid|是  |String | 设备id |
+|apikey |是  |String |设备apikey|
 |lang |否  |String | 语言(cn,eu,us) |
 
 **响应参数:**

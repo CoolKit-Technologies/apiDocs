@@ -615,17 +615,23 @@ $('#toc').on('click', 'a', function() {
       <td>设备id</td>
     </tr>
     <tr>
+      <td style="text-align: left">apikey</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>设备apikey</td>
+    </tr>
+    <tr>
       <td style="text-align: left">params</td>
       <td style="text-align: left">否</td>
       <td style="text-align: left">String</td>
-      <td>参数列表，指定要查询的参数，用符号分隔（需要做URI encode）。如果为空，表示查询所有参数</td>
+      <td>参数列表，指定要查询的参数，用xx符号分隔（需要做URI encode）。如果为空，表示查询所有参数</td>
     </tr>
   </tbody>
 </table>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>params举例说明：
 需要查询switch和timers，请求url为:
-https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd
+https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&amp;params=switch
 </code></pre></div></div>
 
 <ul>
