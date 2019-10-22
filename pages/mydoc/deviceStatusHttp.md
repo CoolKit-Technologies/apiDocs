@@ -29,7 +29,7 @@ Params：
 |:----    |:---|:----- |-----   |
 |deviceid |是  |String |设备id  |
 |apikey |是  |String |设备apikey|
-|params |否  |String | 参数列表，指定要查询的参数，用xx符号分隔（需要做URI encode）。如果为空，表示查询所有参数    |
+|params |否  |String | 参数列表，指定要查询的参数，用\|符号分隔（需要做URI encode）。如果为空，表示查询所有参数    |
 
 ```
 params举例说明：
