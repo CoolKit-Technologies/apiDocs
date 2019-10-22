@@ -36,13 +36,7 @@ Params：
 示例：
 
 ```Json
-{
-    "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
-    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
-    "ts": 1558004249,
-    "version":8,
-    "nonce":"asbsedwq"
-}
+https://cn-api.coolkit.cn:8080/api/user/refresh?rt=24670a9e493ba18cf5d9750f14505705824fcfd9&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
 ```
 
 **响应参数:**
