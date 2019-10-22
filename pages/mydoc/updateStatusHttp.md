@@ -23,7 +23,7 @@ Headers：
 |Authorization|Bearer+空格+at|是|Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172|
 |Content-Type|application/json|是|application/json|
 
-Parmas：
+Body：
 
 
 |参数名|必选|类型|说明|

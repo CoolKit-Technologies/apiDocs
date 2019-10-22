@@ -12,7 +12,7 @@ Acesss Token默认30天失效（安全原因），此时不用用户重新登录
 
 接口地址： https://cn-api.coolkit.cn:8080/api/user/refresh  
 
-请求方法： post
+请求方法： get
 
 **请求参数：**
 

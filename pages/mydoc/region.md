@@ -26,7 +26,7 @@ Headers：
 |Authorization|Sign+空格+签名值|是|Sign RRyShsd7/ZjfxMZY7qe5M3v99ix2izyBHZGCiHgghIk=|
 |Content-Type|application/json|是|application/json|
 
-Body:
+Params:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:

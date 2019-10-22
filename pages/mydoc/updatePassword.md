@@ -23,7 +23,7 @@ Headers：
 |Authorization|Sign+空格+签名值|是|Bearer 074e8af6f5f10183647a6a4f5b51fdc6788f617a|
 |Content-Type|application/json|是|application/json|
 
-Params：
+Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:

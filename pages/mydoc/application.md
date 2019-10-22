@@ -41,7 +41,7 @@ Headers：
 |Authorization|Sign+空格+签名值|是|Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+|
 |Content-Type|application/json|是|application/json|
 
-Params：
+Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
@@ -99,13 +99,13 @@ Params：
     "at":"a527297584f1ca030579a90d2e800481e22e850a",
     "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
     "user":{
-        "_id":"5c984cd3dc8295fa0ef3e592",
+        "_id":"*******************",
         "phoneNumber":"+8613123456789",
         "appId":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
         "lang":"cn",
         "online":false,
         "onlineTime":"2019-05-16T10:48:42.091Z",
-        "ip":"113.87.160.95",
+        "ip":"110.110.110.110",
         "location":"广东",
         "offlineTime":"2019-05-16T10:51:22.090Z",
         "appInfos":[
@@ -143,7 +143,7 @@ Headers：
 |Authorization|Bearer+空格+at|是|Bearer a527297584f1ca030579a90d2e800481e22e850a|
 |Content-Type|application/json|是|application/json|
 
-Body:
+Params:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
@@ -269,7 +269,7 @@ Headers：
 |Authorization|Bearer+空格+at|是|Bearer a527297584f1ca030579a90d2e800481e22e850a|
 |Content-Type|application/json|是|application/json|
 
-Params：
+Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
