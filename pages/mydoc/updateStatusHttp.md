@@ -1,6 +1,6 @@
 ---
 title: 更新设备状态
-last_updated: 2019-10-21
+last_updated: 2019-10-26
 sidebar: mydoc_sidebar
 permalink: updateStatusHttp.html
 folder: mydoc
@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/device/status
+接口地址： https://cn-api.coolkit.cn:8080/api/user/device/status
 
 请求方法： post
 

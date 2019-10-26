@@ -31,10 +31,13 @@ Params：
 |apikey |是  |String |设备apikey|
 |params |否  |String | 参数列表，指定要查询的参数，用\|符号分隔（需要做URI encode）。如果为空，表示查询所有参数    |
 
-```
-params举例说明：
+
+举例说明：
+
 需要查询switch和timers，请求url为:
-https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&params=switch
+
+```Json
+https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&params=switch|timers
 ```
 
 - 响应参数
@@ -53,13 +56,18 @@ https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&params=s
     403：无权限
     500：服务器内部错误
 
-```
+
 Params说明：
+
 返回对应参数的json值，如果没有查询到任何参数值，则返回空对象，例如：
 
+```Json
 { "error": 0,"params": { "switch": "on" } }
+```
 没有查询到任何参数：
-{ "error": 0,"params": { } }
+
+```Json
+{ "error": 0,"params": {} }
 ```
 
 

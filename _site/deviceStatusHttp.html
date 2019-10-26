@@ -629,10 +629,12 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>params举例说明：
-需要查询switch和timers，请求url为:
-https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&amp;params=switch
-</code></pre></div></div>
+<p>举例说明：</p>
+
+<p>需要查询switch和timers，请求url为:</p>
+
+<pre><code class="language-Json">https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&amp;params=switch|timers
+</code></pre>
 
 <ul>
   <li>响应参数</li>
@@ -678,13 +680,16 @@ https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&amp;para
 500：服务器内部错误
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Params说明：
-返回对应参数的json值，如果没有查询到任何参数值，则返回空对象，例如：
+<p>Params说明：</p>
 
-{ "error": 0,"params": { "switch": "on" } }
-没有查询到任何参数：
-{ "error": 0,"params": { } }
-</code></pre></div></div>
+<p>返回对应参数的json值，如果没有查询到任何参数值，则返回空对象，例如：</p>
+
+<pre><code class="language-Json">{ "error": 0,"params": { "switch": "on" } }
+</code></pre>
+<p>没有查询到任何参数：</p>
+
+<pre><code class="language-Json">{ "error": 0,"params": {} }
+</code></pre>
 
 
 
