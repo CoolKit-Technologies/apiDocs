@@ -29,7 +29,7 @@ Body：
 |:----    |:---|:----- |-----   |
 |id     |是  |String | id编码，公式：MD5(deviceid+apikey)注意顺序 |
 |apikey     |是  |String | 设备apikey |
-|name |否  |String | 设备名称 |
+|name |是  |String | 设备名称 |
 
 **响应参数:**
 - 成功返回
