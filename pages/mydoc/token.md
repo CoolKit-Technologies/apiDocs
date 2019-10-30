@@ -28,6 +28,7 @@ Params：
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
 |rt|String|是|Refresh Token|
+|grantType|String|是|固定参数：refresh|
 |appid|String|是|APPID|
 |nonce|String|是|8位字母数字随机数|
 |ts|Int|是|时间戳精确到秒|

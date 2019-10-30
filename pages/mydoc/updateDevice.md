@@ -25,8 +25,10 @@ Body：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
+|deviceid     |是  |String | 设备id |
+|apikey     |是  |String | 设备APIKEY |
 |name     |是  |String | 设备名称 |
-|group |是  |String | 传递空字符 |
+|group |是  |String | 默认传递空字符 |
 
 **响应参数:**
 

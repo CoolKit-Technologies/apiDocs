@@ -23,11 +23,12 @@ Headers：
 |Authorization|Bearer+空格+at|是|Bearer 174e8af6f5f10183647a6a4f5b51fdc6788f6172|
 |Content-Type|application/json|是|application/json|
 
-Body：
+Params：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |deviceid     |是  |String | 设备id |
+|apikey     |是  |String | 设备APIKEY |
 |subDeviceId |否  |String | 如果isSub:1， subDeviceId必填 |
 |isSub |否  |String | 是否子设备0：不是   1：是 |
 
