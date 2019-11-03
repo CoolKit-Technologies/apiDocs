@@ -578,7 +578,7 @@ $('#toc').on('click', 'a', function() {
 <p>接口测试工具：https://www.getpostman.com/<br />
 在线快速测试：https://getman.cn/</p>
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/login</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login</p>
 
 <p>请求方法： post</p>
 
@@ -625,45 +625,45 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">phoneNumber</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录手机（优先）</td>
     </tr>
     <tr>
       <td style="text-align: center">email</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录邮箱</td>
     </tr>
     <tr>
       <td style="text-align: center">password</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">登录密码</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -682,8 +682,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>备注：</p>
 
-<p>接口路径中的cn代表服务器区域，可替换成eu、us、as
-签名值计算规则请查看 <a href="instruction.html">开发通用说明</a></p>
+<p>接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us</p>
+
+<p>中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cn域名后缀
+其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cc域名后缀</p>
+
+<p>签名值计算规则请查看 <a href="instruction.html">开发通用说明</a></p>
 
 <p><strong>响应参数(基础):</strong></p>
 
@@ -699,31 +703,31 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">at</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
     </tr>
     <tr>
       <td style="text-align: center">rt</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Refresh Token，rt有效期为两个月，用于刷新at</td>
     </tr>
     <tr>
       <td style="text-align: center">user</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">用户信息</td>
     </tr>
     <tr>
       <td style="text-align: center">region</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">注册区域</td>
     </tr>
@@ -732,13 +736,14 @@ $('#toc').on('click', 'a', function() {
 
 <p>状态码（以实际为准）：</p>
 
-<p>400：参数不完整或错误<br />
-301：账号注册在其他区域，需要查询「区域接口」重定向<br />
-401：账号密码错误<br />
-402：账号未激活<br />
-404：账号不存在<br />
-406：认证失败（APPID错误或签名错误）<br />
-500：服务器内部错误</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>400：参数不完整或错误  
+301：账号注册在其他区域，需要查询「区域接口」重定向  
+401：账号密码错误  
+402：账号未激活  
+404：账号不存在  
+406：认证失败（APPID错误或签名错误）  
+500：服务器内部错误  
+</code></pre></div></div>
 
 <p>返回示例(数据已脱敏)：</p>
 
@@ -778,7 +783,7 @@ region为账号注册所在区域
 
 <h2 id="第二步请求设备列表">第二步：请求设备列表</h2>
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device</p>
 
 <p>请求方法： get</p>
 
@@ -825,33 +830,33 @@ region为账号注册所在区域
   <tbody>
     <tr>
       <td style="text-align: center">lang</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">cn 响应返回中文信息；en 响应返回英文信息</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -865,7 +870,7 @@ region为账号注册所在区域
     "ts": 1558004249,
     "version":8
 }
-// 最终结构：https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;nonce=q3wz95p6&amp;ts=1558004249&amp;version=8
+// 最终结构：https://cn-api.coolkit.cc:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;nonce=q3wz95p6&amp;ts=1558004249&amp;version=8
 </code></pre>
 
 <p>备注：GET请求会将Json格式数据转为特定字符，放到URL中。</p>
@@ -884,13 +889,13 @@ region为账号注册所在区域
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">devicelist</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">设备信息列表</td>
     </tr>
@@ -977,7 +982,7 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 
 <h2 id="第三步请求分配服务">第三步：请求分配服务</h2>
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/dispatch/app</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/dispatch/app</p>
 
 <p>请求方法： post</p>
 
@@ -1024,33 +1029,33 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
   <tbody>
     <tr>
       <td style="text-align: center">accept</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">默认填ws即可</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -1080,31 +1085,31 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
   <tbody>
     <tr>
       <td style="text-align: center">IP</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器外网IP</td>
     </tr>
     <tr>
       <td style="text-align: center">port</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器外网端口</td>
     </tr>
     <tr>
       <td style="text-align: center">domain</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。</td>
     </tr>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">成功返回error:0</td>
     </tr>
     <tr>
       <td style="text-align: center">reason</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">成功返回ok</td>
     </tr>
@@ -1169,7 +1174,7 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
     "apikey":"登录接口获取的用户APIKEY",
     "config":{
         "hb":1,
-        "hbInterval":145
+        "hbinterval":145
     },
     "sequence":"毫秒级时间戳，举例：1571141259100"
 }
@@ -1177,9 +1182,9 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 
 <p>心跳时间：</p>
 
-<p>「hbInterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。</p>
+<p>「hbinterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。</p>
 
-<p><img src="img/WebSocket_hbInterval.png" alt="WebSocket心跳时间" /></p>
+<p><img src="img/WebSocket_hbinterval.png" alt="WebSocket心跳时间" /></p>
 
 <h2 id="第六步控制设备">第六步：控制设备</h2>
 
@@ -1245,7 +1250,7 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-10-21<br/>
+<span>最后更新时间:</span> 2019-11-03<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

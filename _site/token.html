@@ -563,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/refresh</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/refresh</p>
 
 <p>请求方法： get</p>
 
@@ -610,49 +610,49 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">rt</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">Refresh Token</td>
     </tr>
     <tr>
       <td style="text-align: center">grantType</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">固定参数：refresh</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
 
-<pre><code class="language-Json">https://cn-api.coolkit.cn:8080/api/user/refresh?rt=24670a9e493ba18cf5d9750f14505705824fcfd9&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
+<pre><code class="language-Json">https://{区域}-api.coolkit.cc:8080/api/user/refresh?rt=24670a9e493ba18cf5d9750f14505705824fcfd9&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
 </code></pre>
 
-<p><strong>响应参数:</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -666,31 +666,31 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">at</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Access Token</td>
     </tr>
     <tr>
       <td style="text-align: center">rt</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Refresh Token</td>
     </tr>
     <tr>
       <td style="text-align: center">user</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">用户信息</td>
     </tr>
     <tr>
       <td style="text-align: center">region</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">注册区域</td>
     </tr>

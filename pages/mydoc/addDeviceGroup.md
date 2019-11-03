@@ -2,7 +2,7 @@
 title: 添加设备分组
 sidebar: mydoc_sidebar
 permalink: addDeviceGroup.html
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 folder: mydoc
 ---
 
@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/group 
+接口地址： https://{区域}-api.coolkit.cc:8080/api/group 
 
 请求方法： post
 
@@ -25,12 +25,18 @@ Headers：
 
 Body：
 
-|参数名|必选|类型|说明|
+|名称|类型|是否必须|示例|
 |:----    |:---|:----- |-----   |
-|name |是  |String | 分组名称 |
-|index |否  |Int | 添加的时候可以指定分组排在什么位置，如果不指定,那么新增的分组就排在最后 |
-|apikey |是  |String | 用户apikey  |
-|groupType |否  |Int | 分组：0  |
+|name |string|是 | 分组名称 |
+|index |int|否   | 添加的时候可以指定分组排在什么位置，如果不指定,那么新增的分组就排在最后 |
+|apikey |string|是| 用户apikey  |
+|groupType |int|否| 固定参数：0  |
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
+
+index说明：
 
 ```
 index例子，比如有个用户有如下分组信息：
@@ -45,20 +51,42 @@ index例子，比如有个用户有如下分组信息：
 如果新增的分组index为空，或者等于0，那么index就取最大值加1
 ```
 
-**响应参数:**
+举例：
+
+```Json
+{
+    "index":0,
+    "apikey":"xxxx-xxxx-xxx",
+    "name":"我的分组-1L",
+    "groupType":0,
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+```
+
+**响应参数：**
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int | 状态码  |
-|groupid |是  |Sting | 返回数组id  |
+|error |是  |int | 状态码  |
+|groupid |是  |string | 返回数组id  |
 
-```
-状态码
-0:操作成功
-400:参数错误
-401:认证失败
-500:服务器错误
-```
+状态码：
 
+    0：操作成功
+    400：参数错误
+    401：认证失败
+    500：服务器错误
+
+返回示例：
+
+```Json
+{
+   "error": 0,
+   "groupid":"a51z1z523a123"
+}
+```
 
 

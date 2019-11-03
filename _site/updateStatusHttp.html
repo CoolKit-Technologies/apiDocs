@@ -563,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device/status</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device/status</p>
 
 <p>请求方法： post</p>
 
@@ -611,20 +611,44 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">params</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">JSON</td>
+      <td style="text-align: left">object</td>
       <td>服务端对于params参数采用透传方式，可能是对象也可能是对象数组。只需要发送期望改变的状态参数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -679,7 +703,7 @@ $('#toc').on('click', 'a', function() {
 }
 
 
-重复定时：（请根据各自的开发语言转换成jsonString）
+重复定时：（请根据各自的开发语言转换成jsonstring）
 "params":{
    "timers":[
       {
@@ -695,7 +719,7 @@ $('#toc').on('click', 'a', function() {
    ]
 }
 
-循环定时（请根据各自的开发语言转换成jsonString）
+循环定时（请根据各自的开发语言转换成jsonstring）
 "params":{
    "timers":[
       {
@@ -732,6 +756,21 @@ $('#toc').on('click', 'a', function() {
 }
 </code></pre></div></div>
 
+<p>举例：</p>
+
+<pre><code class="language-Json">{
+    "deviceid":"100000001",
+    "apikey":"xxxx-xxxx-xxx",
+    "params":{
+        "switch":"on"
+    },
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+</code></pre>
+
 <p><strong>响应参数：</strong></p>
 
 <table>
@@ -753,7 +792,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
   </tbody>
@@ -761,13 +800,25 @@ $('#toc').on('click', 'a', function() {
 
 <p>状态码：</p>
 
-<p>0：操作成功
-   400：参数错误
-   401：认证失败
-   403：无权限
-   500：服务器内部错误
-   503：设备不在线</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0：操作成功
+400：参数错误
+401：认证失败
+403：无权限
+500：服务器内部错误
+503：设备不在线
+</code></pre></div></div>
 
+<p>返回示例：</p>
+
+<pre><code class="language-Json">{
+    "error":0,
+    "deviceid":"1000000001"
+}
+</code></pre>
+
+<p>此参数内容来自于协议文档，不同设备不同协议内容，比如 单通道开关只有一个switch，但多通道设备肯定不止一个switch，灯类设备还能调色调光，参数也有所不同。</p>
+
+<p>协议文档需要向对接销售索要，公版易微联APP未对接设备（无UI）的，如果定制需要额外付费，具体内容咨询对接销售。</p>
 
 
 

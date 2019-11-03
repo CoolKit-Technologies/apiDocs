@@ -1,6 +1,6 @@
 ---
 title: 创建第一个应用
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 summary: "本节从账号登录、获取设备数据、建立长连接实现设备控制等方面讲解如何在酷宅云平台上面实现客户端与设备的数据交互。
 下面通过示例应用快速入门「如何开发自己的应用？」"
 sidebar: mydoc_sidebar
@@ -28,7 +28,7 @@ folder: mydoc
 接口测试工具：https://www.getpostman.com/  
 在线快速测试：https://getman.cn/
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login  
 
 请求方法： post
 
@@ -45,13 +45,13 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|phoneNumber|String|-|登录手机（优先）|
-|email|String|-|登录邮箱|
-|password|String|是|登录密码|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|phoneNumber|string|-|登录手机（优先）|
+|email|string|-|登录邮箱|
+|password|string|是|登录密码|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -68,29 +68,33 @@ Body：
 
 备注：
 
-接口路径中的cn代表服务器区域，可替换成eu、us、as
+接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us
+
+中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -> .cn域名后缀
+其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -> .cc域名后缀
+
 签名值计算规则请查看 [开发通用说明](instruction.html)
 
 **响应参数(基础):**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|at|String|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
-|rt|String|否|Refresh Token，rt有效期为两个月，用于刷新at|
-|user|Object|否|用户信息|
-|region|String|否|注册区域|
+|error|string|否|失败时返回，且只会返回error|
+|at|string|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
+|rt|string|否|Refresh Token，rt有效期为两个月，用于刷新at|
+|user|object|否|用户信息|
+|region|string|否|注册区域|
 
 
 状态码（以实际为准）：
 
-400：参数不完整或错误  
-301：账号注册在其他区域，需要查询「区域接口」重定向  
-401：账号密码错误  
-402：账号未激活  
-404：账号不存在  
-406：认证失败（APPID错误或签名错误）  
-500：服务器内部错误  
+    400：参数不完整或错误  
+    301：账号注册在其他区域，需要查询「区域接口」重定向  
+    401：账号密码错误  
+    402：账号未激活  
+    404：账号不存在  
+    406：认证失败（APPID错误或签名错误）  
+    500：服务器内部错误  
 
 返回示例(数据已脱敏)：
 
@@ -130,7 +134,7 @@ Body：
 
 ## 第二步：请求设备列表
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/device
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device
 
 请求方法： get
 
@@ -147,11 +151,11 @@ Params:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|lang|String|否|cn 响应返回中文信息；en 响应返回英文信息|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|lang|string|否|cn 响应返回中文信息；en 响应返回英文信息|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -163,7 +167,7 @@ Params:
     "ts": 1558004249,
     "version":8
 }
-// 最终结构：https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&nonce=q3wz95p6&ts=1558004249&version=8
+// 最终结构：https://cn-api.coolkit.cc:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&nonce=q3wz95p6&ts=1558004249&version=8
 ```
 
 备注：GET请求会将Json格式数据转为特定字符，放到URL中。
@@ -172,8 +176,8 @@ Params:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|devicelist|Object|否|设备信息列表|
+|error|string|否|失败时返回，且只会返回error|
+|devicelist|object|否|设备信息列表|
 
 状态码：暂无
 
@@ -256,7 +260,7 @@ Params:
 
 ## 第三步：请求分配服务
 
-接口地址： https://cn-api.coolkit.cn:8080/dispatch/app
+接口地址： https://{区域}-api.coolkit.cc:8080/dispatch/app
 
 请求方法： post
 
@@ -273,11 +277,11 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|accept|String|是|默认填ws即可|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|accept|string|是|默认填ws即可|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 
 示例：
@@ -296,11 +300,11 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|IP|String|是|长连接服务器外网IP|
-|port|Int|是|长连接服务器外网端口|
-|domain|String|是|长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。|
-|error|String|是|成功返回error:0|
-|reason|String|是|成功返回ok|
+|IP|string|是|长连接服务器外网IP|
+|port|int|是|长连接服务器外网端口|
+|domain|string|是|长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。|
+|error|string|是|成功返回error:0|
+|reason|string|是|成功返回ok|
 
 状态码：暂无
 
@@ -363,7 +367,7 @@ WebSocket测试工具：[http://www.blue-zero.com/WebSocket/](http://www.blue-ze
     "apikey":"登录接口获取的用户APIKEY",
     "config":{
         "hb":1,
-        "hbInterval":145
+        "hbinterval":145
     },
     "sequence":"毫秒级时间戳，举例：1571141259100"
 }
@@ -371,9 +375,9 @@ WebSocket测试工具：[http://www.blue-zero.com/WebSocket/](http://www.blue-ze
 
 心跳时间：
 
-「hbInterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。
+「hbinterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。
 
-![WebSocket心跳时间](img/WebSocket_hbInterval.png)
+![WebSocket心跳时间](img/WebSocket_hbinterval.png)
 
 
 ## 第六步：控制设备

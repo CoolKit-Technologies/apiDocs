@@ -1,12 +1,14 @@
 ---
 title: 撤销分享
 sidebar: mydoc_sidebar
-last_updated: 2019-03-20
+last_updated: 2019-10-31
 permalink: shareCancel.html
 folder: mydoc
 ---
 
-分享方撤销分享后，设备会在被分享用户app上的设备列表中删除，失去控制设备的权限。
+客户端向服务端发送指令，撤销设备分享，分享方撤销分享后，设备会在接收用户app上的设备列表中被删除，失去控制设备的权限。
+
+---
 
 说明：撤销分享时，可能已经被撤销过了，此处响应参数不做区分。
 

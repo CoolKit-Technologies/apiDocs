@@ -422,7 +422,7 @@
 
 
 {
-"title": "帐号",
+"title": "帐号问题",
 "tags": "",
 "keywords": "",
 "url": "faqAccount.html",
@@ -444,7 +444,7 @@
 
 
 {
-"title": "验证码",
+"title": "验证码问题",
 "tags": "",
 "keywords": "",
 "url": "faqCode.html",
@@ -466,7 +466,7 @@
 
 
 {
-"title": "设备问题",
+"title": "设备列表",
 "tags": "",
 "keywords": "",
 "url": "faqDevice.html",
@@ -488,7 +488,7 @@
 
 
 {
-"title": "认证",
+"title": "认证问题",
 "tags": "",
 "keywords": "",
 "url": "faqOauth.html",
@@ -787,7 +787,7 @@
 
 
 {
-"title": "分享",
+"title": "设备分享",
 "tags": "",
 "keywords": "",
 "url": "share.html",

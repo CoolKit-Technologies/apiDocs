@@ -559,11 +559,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>支持修改分组顺序以及分组名称。</p>
+   <p>支持修改分组顺序以及分组名称</p>
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/group</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/group</p>
 
 <p>请求方法： post</p>
 
@@ -601,47 +601,86 @@ $('#toc').on('click', 'a', function() {
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">参数名</th>
-      <th style="text-align: left">必选</th>
+      <th style="text-align: left">名称</th>
       <th style="text-align: left">类型</th>
-      <th>说明</th>
+      <th style="text-align: left">是否必须</th>
+      <th>示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">id</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
       <td>分组id</td>
     </tr>
     <tr>
       <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
       <td>分组名称</td>
     </tr>
     <tr>
       <td style="text-align: left">index</td>
+      <td style="text-align: left">int</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">Int</td>
       <td>用户可以修改分组顺序</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
       <td>用户apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">groupType</td>
+      <td style="text-align: left">int</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
-      <td>分组：0</td>
+      <td>固定参数：0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">是</td>
+      <td>APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">是</td>
+      <td>8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">是</td>
+      <td>时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">是</td>
+      <td>接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>响应参数:</strong></p>
+<p>举例：</p>
+
+<pre><code class="language-Json">{
+    "id":"123456789123",
+    "index":0,
+    "apikey":"xxxx-xxxx-xxx",
+    "name":"我的分组-1L",
+    "groupType":0,
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+</code></pre>
+
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -656,7 +695,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">error</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
+      <td style="text-align: left">int</td>
       <td>状态码</td>
     </tr>
   </tbody>
@@ -670,6 +709,13 @@ $('#toc').on('click', 'a', function() {
 500：服务器错误
 </code></pre></div></div>
 
+<p>返回示例：</p>
+
+<pre><code class="language-Json">{
+    "error": 0
+}
+</code></pre>
+
 
 
 </div>
@@ -680,7 +726,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-10-21<br/>
+<span>最后更新时间:</span> 2019-11-03<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

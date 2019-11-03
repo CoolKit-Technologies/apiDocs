@@ -563,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/group</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/group</p>
 
 <p>请求方法： get</p>
 
@@ -609,19 +609,48 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td>apikey</td>
       <td>是</td>
-      <td>String</td>
+      <td>string</td>
       <td>用户apikey</td>
     </tr>
     <tr>
       <td>groupType</td>
       <td>是</td>
-      <td>Int</td>
+      <td>int</td>
       <td>分组：0</td>
+    </tr>
+    <tr>
+      <td>appid</td>
+      <td>是</td>
+      <td>string</td>
+      <td>APPID</td>
+    </tr>
+    <tr>
+      <td>nonce</td>
+      <td>是</td>
+      <td>string</td>
+      <td>8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td>ts</td>
+      <td>是</td>
+      <td>int</td>
+      <td>时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>是</td>
+      <td>int</td>
+      <td>接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>响应参数:</strong></p>
+<p>举例：</p>
+
+<pre><code class="language-Json">https://cn-api.coolkit.cc:8080/api/group?groupType=0&amp;apikey=xxxx-xxxx-xxx&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=15452192511&amp;version=8&amp;nonce=asbsedwq
+</code></pre>
+
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -636,7 +665,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">error</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">Int</td>
+      <td style="text-align: left">int</td>
       <td>返回的异常信息,成功不返回error</td>
     </tr>
     <tr>
@@ -648,9 +677,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<ul>
-  <li>GroupInfos说明：</li>
-</ul>
+<p>GroupInfos说明：</p>
 
 <table>
   <thead>
@@ -671,13 +698,13 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">name</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>分组名称</td>
     </tr>
     <tr>
       <td style="text-align: left">index</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
+      <td style="text-align: left">int</td>
       <td>排序编号，客户端根据它决定显示顺序</td>
     </tr>
     <tr>
@@ -689,6 +716,23 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
+<p>状态码：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0：操作成功
+400：参数错误
+401：认证失败
+500：服务器错误
+</code></pre></div></div>
+
+<p>返回示例：</p>
+
+<pre><code class="language-Json">{
+    "groupinfos":[
+
+    ],
+    "error":0
+}
+</code></pre>
 
 
 

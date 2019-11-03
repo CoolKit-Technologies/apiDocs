@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/device/status
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device/status
 
 请求方法： post
 
@@ -27,9 +27,14 @@ Body：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|deviceid |是  |String |设备id   |
-|apikey |是  |String |设备apikey|
-|params |是  |JSON | 服务端对于params参数采用透传方式，可能是对象也可能是对象数组。只需要发送期望改变的状态参数    |
+|deviceid |是  |string |设备id   |
+|apikey |是  |string |设备apikey|
+|params |是  |object | 服务端对于params参数采用透传方式，可能是对象也可能是对象数组。只需要发送期望改变的状态参数    |
+|appid|是|string|APPID|
+|nonce|是|string|8位字母数字随机数|
+|ts|是|int|时间戳精确到秒|
+|version|是|int|接口版本：8|
+
 
 因为该参数值根据不同设备而不同（每种新设备都可能有自己的内容），所以不管是设备端还是app端发送的指令，服务端都直接转发或者存储params参数，不会做任何逻辑检查或者操作。例如：
 
@@ -83,7 +88,7 @@ Body：
 }
 
 
-重复定时：（请根据各自的开发语言转换成jsonString）
+重复定时：（请根据各自的开发语言转换成jsonstring）
 "params":{
    "timers":[
       {
@@ -99,7 +104,7 @@ Body：
    ]
 }
 
-循环定时（请根据各自的开发语言转换成jsonString）
+循环定时（请根据各自的开发语言转换成jsonstring）
 "params":{
    "timers":[
       {
@@ -136,19 +141,47 @@ Body：
 }
 ```
 
+举例：
+
+```Json
+{
+    "deviceid":"100000001",
+    "apikey":"xxxx-xxxx-xxx",
+    "params":{
+        "switch":"on"
+    },
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+```
+
 **响应参数：**
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |error |是  |Int |状态码   |
-|deviceid |是  |String | 设备id    |
+|deviceid |是  |string | 设备id    |
 
 状态码：
 
-   0：操作成功
-   400：参数错误
-   401：认证失败
-   403：无权限
-   500：服务器内部错误
-   503：设备不在线
+    0：操作成功
+    400：参数错误
+    401：认证失败
+    403：无权限
+    500：服务器内部错误
+    503：设备不在线
 
+返回示例：
+
+```Json
+{
+    "error":0,
+    "deviceid":"1000000001"
+}
+```
+
+此参数内容来自于协议文档，不同设备不同协议内容，比如 单通道开关只有一个switch，但多通道设备肯定不止一个switch，灯类设备还能调色调光，参数也有所不同。
+
+协议文档需要向对接销售索要，公版易微联APP未对接设备（无UI）的，如果定制需要额外付费，具体内容咨询对接销售。

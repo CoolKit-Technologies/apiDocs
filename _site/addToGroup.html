@@ -559,11 +559,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>给设备进行分组，支持设备在多个分组内。默认是新增分组，也可以选择覆盖分组。如果目标分组id为空，则表示把设备从分组中移出。</p>
+   <p>给设备进行分组，支持设备在多个分组内。如果目标分组id为空，则表示把设备从分组中移出。</p>
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/group/addDevice</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/group/addDevice</p>
 
 <p>请求方法： post</p>
 
@@ -617,21 +617,43 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>用户apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">groupType</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
-      <td>分组：0</td>
+      <td style="text-align: left">int</td>
+      <td>固定参数：0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>device说明：</li>
-</ul>
+<p>device说明：</p>
 
 <table>
   <thead>
@@ -646,64 +668,49 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">source_id</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>原分组id，可以为空””</td>
+      <td style="text-align: left">string</td>
+      <td>原分组ID，可以为空</td>
     </tr>
     <tr>
       <td style="text-align: left">target_id</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>目标分组的id，可以为空””。为空“”则把设备从分组中移除</td>
+      <td style="text-align: left">string</td>
+      <td>目标分组ID，可以为空</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>设备id</td>
+      <td style="text-align: left">string</td>
+      <td>设备ID</td>
     </tr>
     <tr>
       <td style="text-align: left">type</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">Int</td>
-      <td>0:    新增分组（默认）  1：覆盖分组</td>
+      <td style="text-align: left">int</td>
+      <td>固定参数：1</td>
     </tr>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>本接口支持多个不同分组的设备，移动到不同的分组，采用数组对象的方式实现，json例子：
-[
-   {
-      "source_id":"分组1",
-      "target_id":"分组2",
-      "deviceid":"1000000b01",
-      "type":0
-   },
-   {
-      "source_id":"分组1",
-      "target_id":"分组2",
-      "deviceid":"1000000b02",
-      "type":0
-   },
-   {
-      "source_id":"分组3",
-      "target_id":"分组2",
-      "deviceid":"1000000b03",
-      "type":1
-   }
-]
-type字段说明：
-比如设备1000000b01 原本有2个分组，在devices表字段如下：
-"groups":["111","222"]          实际上分组id应该是36位uuid，这里为了清晰简化了
-接口收到请求数据中，源分组id是111 ，目标分组id是333，
+<p>举例：</p>
 
-如果type=0，那么数据库结果就是：
-"groups":["333","222"]     也就是说将原来的组111改成333，222保留
+<pre><code class="language-Json">{
+    "deviceinfos":{
+        "source_id":"10001",
+        "target_id":"10002",
+        "deviceid":"10000000001",
+        "type":1
+    },
+    "groupType":0,
+    "apikey":"xxxx-xxxx-xxx",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+</code></pre>
 
-如果type=1 , 那么数据库结果就是：
-"groups":["333"]   也就是说不管原来设备有几个分组，现在只保留最新这一个
-</code></pre></div></div>
-
-<p><strong>响应参数:</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -718,7 +725,7 @@ type字段说明：
     <tr>
       <td style="text-align: left">error</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
+      <td style="text-align: left">int</td>
       <td>状态码</td>
     </tr>
   </tbody>
@@ -731,6 +738,15 @@ type字段说明：
 401：认证失败
 500：服务器错误
 </code></pre></div></div>
+
+<p>返回示例：</p>
+
+<pre><code class="language-Json">{
+
+   "error": 0
+
+}
+</code></pre>
 
 
 

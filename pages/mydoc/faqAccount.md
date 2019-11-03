@@ -1,5 +1,5 @@
 ---
-title: 帐号
+title: 帐号问题
 last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: faqAccount.html
@@ -16,8 +16,5 @@ folder: mydoc
 
 可能情况：
 
-- 请确认帐号是否在同一区域，不同区域间的帐号不能分享
-- 被分享帐号是否在线
-
-
-
+- 请确认帐号是否在同一区域，不同区域间的帐号不能分享。
+- 被分享帐号是否在线。

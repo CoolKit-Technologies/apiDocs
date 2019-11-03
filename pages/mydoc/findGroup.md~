@@ -1,7 +1,7 @@
 ---
 title: 查询设备分组
 sidebar: mydoc_sidebar
-last_updated: 2019-03-20
+last_updated: 2019-11-03
 permalink: findGroup.html
 folder: mydoc
 ---
@@ -16,7 +16,7 @@ folder: mydoc
 - 请求参数：无
 
 
- **响应参数:**
+ **响应参数：**
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |

@@ -1,6 +1,6 @@
 ---
 title: 查询设备状态
-last_updated: 2019-10-21
+last_updated: 2019-10-31
 sidebar: mydoc_sidebar
 permalink: deviceStatusHttp.html
 folder: mydoc
@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/device/status
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device/status
 
 请求方法： get
 
@@ -30,17 +30,20 @@ Params：
 |deviceid |是  |String |设备id  |
 |apikey |是  |String |设备apikey|
 |params |否  |String | 参数列表，指定要查询的参数，用\|符号分隔（需要做URI encode）。如果为空，表示查询所有参数    |
-
+|appid|是|string|APPID|
+|nonce|是|string|8位字母数字随机数|
+|ts|是|int|时间戳精确到秒|
+|version|是|int|接口版本：8|
 
 举例说明：
 
 需要查询switch和timers，请求url为:
 
 ```Json
-https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&params=switch|timers
+https://cn-api.coolkit.cc:8080/api/user/device/status?deviceid=1234abcd&params=switch|timers&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
 ```
 
-- 响应参数
+响应参数
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
@@ -69,5 +72,3 @@ Params说明：
 ```Json
 { "error": 0,"params": {} }
 ```
-
-

@@ -1,5 +1,5 @@
 ---
-title: 设备问题
+title: 设备列表
 last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: faqDevice.html

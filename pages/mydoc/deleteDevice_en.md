@@ -10,7 +10,7 @@ layout: page_en
 Delete device in account.Device will be offline thereafter.
 - Production environment URL: ``` https://cn(region)-api.coolkit.cn:8080/api/user/device/:deviceid``` 
 - Note:( :deviceid is a parameter)
-- Request example：``` https://cn-api.coolkit.cn:8080/api/user/device/100070b402``` 
+- Request example：``` https://{区域}-api.coolkit.cc:8080/api/user/device/100070b402``` 
 - Test environment URL: ``` https://testapi.coolkit.cn:8080/api/user/device/:deviceid``` 
 
 - Request method：DELETE

@@ -559,12 +559,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>设备控制以及各类定时设置</p>
+   <p>更改设备的状态，比如：定时器、分享、开关状态等。</p>
 
-<ul>
-  <li>说明：设备端状态发生变化、设备端上报历史数据、APP修改设备状态，都应该发送该指令到服务器。</li>
-  <li>请求参数：</li>
-</ul>
+<hr />
+
+<p>请求参数：</p>
 
 <table>
   <thead>
@@ -579,49 +578,49 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">action</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>action:update</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>绑定用户的apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">userAgent</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>device:设备端;app:app端</td>
+      <td style="text-align: left">string</td>
+      <td>app或device</td>
     </tr>
     <tr>
       <td style="text-align: left">selfApiKey</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>App专用参数:当app操作分享设备时，要发送自己的apikey给服务器</td>
     </tr>
     <tr>
       <td style="text-align: left">sequence</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
-      <td>发送给服务器的时间戳，精确到毫秒</td>
+      <td style="text-align: left">string</td>
+      <td>时间戳精确到毫秒</td>
     </tr>
     <tr>
       <td style="text-align: left">params</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Params</td>
+      <td style="text-align: left">object</td>
       <td>服务端对于params参数采用透传方式，可能是对象也可能是对象数组。</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Params说明</strong></p>
+<p>params说明:</p>
 
 <p>因为该参数值会因为设备的不同而不同（每种新设备都可能有自己的内容），所以不管是设备端还是app端发送的指令，服务端都直接转发或者存储params参数，不会做任何逻辑检查或者操作。例如：
 单通道开关格式例子：</p>
@@ -724,9 +723,7 @@ $('#toc').on('click', 'a', function() {
     }
 </code></pre></div></div>
 
-<ul>
-  <li>返回参数</li>
-</ul>
+<p>返回参数：</p>
 
 <table>
   <thead>
@@ -741,44 +738,45 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">error</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Int</td>
+      <td style="text-align: left">int</td>
       <td>状态码</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>绑定用户的apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">sequence</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>由app下发给设备，设备端原样返回</td>
     </tr>
     <tr>
       <td style="text-align: left">d_seq</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备端上传，服务端原样转发给app</td>
     </tr>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>状态码
-0:ok(操作成功)
-400:Bad Request（参数错误）
-403:Forbidden（无权限）
-500:Internal Server Error（服务器内部错误）
+<p>状态码：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0：操作成功
+400：Bad Request（参数错误）
+403：Forbidden（无权限）
+500：internal Server Error（服务器内部错误）
 以下是app端专用的返回：
-503:Device Offline(设备不在线)
-504:Request Timeout（响应超时）
+503：Device Offline(设备不在线)
+504：Request Timeout（响应超时）
 </code></pre></div></div>
 
 
@@ -792,7 +790,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-11-03<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

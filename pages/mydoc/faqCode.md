@@ -1,5 +1,5 @@
 ---
-title: 验证码
+title: 验证码问题
 last_updated: 2019-10-21
 sidebar: mydoc_sidebar
 permalink: faqCode.html

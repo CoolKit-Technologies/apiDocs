@@ -1,6 +1,6 @@
 ---
 title: 通用说明
-last_updated: 2019-10-15
+last_updated: 2019-11-03
 summary: "请求云平台服务认证准备，包括通用参数说明，认证所需的签名规则介绍，签名计算示例以及Access Token以及Refresh Token说明。"
 sidebar: mydoc_sidebar
 permalink: instruction.html
@@ -21,10 +21,10 @@ folder: mydoc
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|appid|String|是|酷宅给第三方应用分配的appid|
-|nonce|String|是|8位随机字符串，只由字母数字组成|
-|ts|Int|是|进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）|
-|version|String|是|协议版本，默认填8|
+|appid|string|是|酷宅给第三方应用分配的appid|
+|nonce|string|是|8位随机字符串，只由字母数字组成|
+|ts|int|是|进行接口调用时的时间戳，即当前时间戳 （时间戳：当前距离Epoch（1970年1月1日） 以秒计算的时间，即unix-timestamp）|
+|version|string|是|接口版本：8|
 
 备注：
 

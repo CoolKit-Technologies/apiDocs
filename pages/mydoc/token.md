@@ -10,7 +10,7 @@ Acesss Token默认30天失效（安全原因），此时不用用户重新登录
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/refresh  
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/refresh  
 
 请求方法： get
 
@@ -27,28 +27,28 @@ Params：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|rt|String|是|Refresh Token|
-|grantType|String|是|固定参数：refresh|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|rt|string|是|Refresh Token|
+|grantType|string|是|固定参数：refresh|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
 ```Json
-https://cn-api.coolkit.cn:8080/api/user/refresh?rt=24670a9e493ba18cf5d9750f14505705824fcfd9&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
+https://{区域}-api.coolkit.cc:8080/api/user/refresh?rt=24670a9e493ba18cf5d9750f14505705824fcfd9&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
 ```
 
-**响应参数:**
+**响应参数：**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|at|String|否|Access Token|
-|rt|String|否|Refresh Token|
-|user|Object|否|用户信息|
-|region|String|否|注册区域|
+|error|string|否|失败时返回，且只会返回error|
+|at|string|否|Access Token|
+|rt|string|否|Refresh Token|
+|user|object|否|用户信息|
+|region|string|否|注册区域|
 
 状态码：
 

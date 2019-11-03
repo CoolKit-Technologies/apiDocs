@@ -567,7 +567,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/region<br />
+<p>接口地址： https://api.coolkit.cn:8080/api/user/region<br />
 请求方法： get</p>
 
 <p><strong>请求参数：</strong></p>
@@ -613,40 +613,40 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">country_code</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center"><a href="http://www.yadexp.com/yadexp/209/d.htm">国家或地区码</a></td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://cn-api.coolkit.cn:8080/api/user/region?country_code=86&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;nonce=q3wz95p6&amp;ts=1558004249&amp;version=8
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.coolkit.cn:8080/api/user/region?country_code=86&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;nonce=q3wz95p6&amp;ts=1558004249&amp;version=8
 </code></pre></div></div>
 
 <p><strong>响应参数(基础):</strong></p>
@@ -663,13 +663,13 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">正常返回0</td>
     </tr>
     <tr>
       <td style="text-align: center">region</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">注册区域</td>
     </tr>
@@ -681,8 +681,8 @@ $('#toc').on('click', 'a', function() {
 <p>返回示例：</p>
 
 <pre><code class="language-Json">{
-    "region": "cn",   //cn,eu,us,as四个区域
-    "error": 0
+    "error": 0,
+    "region": "cn"   //cn,eu,us,as四个区域
 }
 </code></pre>
 

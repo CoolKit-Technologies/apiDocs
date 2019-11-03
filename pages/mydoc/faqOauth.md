@@ -1,6 +1,6 @@
 ---
-title: 认证
-last_updated: 2019-10-21
+title: 认证问题
+last_updated: 2019-11.01
 sidebar: mydoc_sidebar
 permalink: faqOauth.html
 folder: mydoc
@@ -17,11 +17,10 @@ folder: mydoc
 - 参数传递方式不对
 - 签名值不对
 
-
 可能情况：
 
 - 算法不对导致签名值不对。
-- 签名算法正确的，但是算签名的参数和传递给接口的参数，顺序不一致，导致认证失败
+- 签名算法正确的，但是算签名的参数和传递给接口的参数，顺序不一致，导致认证失败。
  
 详情请点击「[通用说明](instruction.html)」查看。
 

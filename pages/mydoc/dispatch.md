@@ -26,10 +26,9 @@ port：由分配服务接口返回
 
 应用端通过该接口查询websocket长连接服务器的信息（Ip、端口），然后连接长连接服务。
 
-
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/dispatch/app
+接口地址： https://{区域}-api.coolkit.cc:8080/dispatch/app
 
 请求方法： post
 
@@ -46,22 +45,34 @@ Body：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|accept |是  |String |当前只支持 ws   |
-|version |是  |Int | version:8    |
-|appid     |是  |String | 酷宅给第三方应用分配的appid    |
-|ts     |是  |Int | 到秒的unix时间戳（1970开始）    |
-|nonce     |是  |String | 32位随机整型16进制字符表示，即8位字母数字随机值    |
+|accept |是  |string |固定参数：ws|
+|version |是  |int |接口版本：8|
+|appid     |是  |string | APPID|
+|ts     |是  |int | 时间戳精确到秒    |
+|nonce     |是  |string | 8位字母数字随机数|
 
-- 响应参数：
+举例：
+
+```Json
+{
+    "accept":"ws",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+```
+
+响应参数：
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|error |是  |Int |状态码   |
-|reason |是  |String | 错误说明    |
-|requestid     |是  |String | ts+”-”+nonce    |
-|IP     |是  |String | 长连接服务器外网IP    |
-|port     |是  |Int | 长连接服务器外网端口    |
-|domain     |是  |String | 长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。    |
+|error |是  |int |状态码   |
+|reason |是  |string | 错误说明    |
+|requestid     |是  |string | ts+”-”+nonce    |
+|IP     |是  |string | 长连接服务器外网IP    |
+|port     |是  |int | 长连接服务器外网端口    |
+|domain     |是  |string | 长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。    |
 
 
 状态码：
@@ -73,5 +84,14 @@ Body：
     403：无权限 （ APP提示无权限，比如APP无权访问OTA接口）（401-403认证错误由内部认证系统给出）
     500：服务端内部错误
 
+返回示例：
 
-
+```Json
+{
+    "port":8080,
+    "IP":"52.80.19.131",
+    "reason":"ok",
+    "domain":"cn-pconnect2.coolkit.cc",
+    "error":0
+}
+```

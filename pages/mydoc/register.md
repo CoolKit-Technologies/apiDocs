@@ -1,6 +1,6 @@
 ---
 title: 注册
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 sidebar: mydoc_sidebar
 permalink: register.html
 folder: mydoc
@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/register
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/register
 
 请求方法： post
 
@@ -27,14 +27,14 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|verificationCode|String|是|验证码|
-|email|String|-|注册邮件|
-|phoneNumber|String|-|注册手机|
-|password|String|是|注册密码|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|verificationCode|string|是|验证码|
+|email|string|-|注册邮件|
+|phoneNumber|string|-|注册手机|
+|password|string|是|注册密码|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -51,15 +51,24 @@ Body：
 }
 ```
 
-**响应参数:**
+**响应参数：**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|at|String|否|Access Token|
-|rt|String|否|Refresh Token|
-|user|Object|否|用户信息|
-|region|String|否|注册区域|
+|error|string|否|失败时返回，且只会返回error|
+|at|string|否|Access Token|
+|rt|string|否|Refresh Token|
+|user|object|否|用户信息|
+|region|string|否|注册区域|
+
+User说明：
+
+|参数名|类型|是否必须|备注|
+:-: | :-: | :-: | :-: | :-:
+|apikey|string|是|用户apikey|
+|phoneNumberat|string|是|用户账号|
+|email|string|是|用户邮箱|
+|createdAt|date|是|注册时间|
 
 状态码：
 
@@ -96,4 +105,3 @@ Body：
     "region":"cn"
 }
 ```
-

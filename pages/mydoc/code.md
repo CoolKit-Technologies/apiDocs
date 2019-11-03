@@ -1,6 +1,6 @@
 ---
 title: 验证码
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 sidebar: mydoc_sidebar
 permalink: code.html
 folder: mydoc
@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/sms
+接口地址： https://{区域}-api.coolkit.cc:8080/api/sms
 
 请求方法： post
 
@@ -27,13 +27,13 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|sendType|String|是|"0"注册；"1"重置密码；2；"3"申请注销账号；"4"微信验证码注册登录|
-|email|String|-|邮箱账号|
-|to|String|-|手机账号，带国家或地区码。格式: +8615815725225 (+86中国)|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|sendType|string|是|"0"注册；"1"重置密码；2；"3"申请注销账号；"4"微信验证码注册登录|
+|email|string|-|邮箱账号|
+|to|string|-|手机账号，带国家或地区码。格式: +8615815725225 (+86中国)|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -50,18 +50,24 @@ Body：
 
 备注：
 
-    接口路径中的cn代表服务器区域，可替换成eu、us、as
-    签名值计算规则请查看「[开发通用说明](instruction.html)」
-    注意email和to不会同时存在，邮箱接收验证码只传email，电话号码接收验证码只传to
-    注册：只要手机号或者email格式合法并且未注册的用户就可以发送，已注册的用户再请求，不会发送验证码。
+接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us
+
+中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -> .cn域名后缀
+其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -> .cc域名后缀
+
+签名值计算规则请查看「[开发通用说明](instruction.html)」
+
+注意email和to不会同时存在，邮箱接收验证码只传email，电话号码接收验证码只传to
+
+注册：只要手机号或者email格式合法并且是未注册的用户就可以发送，已注册的用户再请求，不会发送验证码。
 
 **响应参数：**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|是|状态码|
-|region|String|否|error：301的情况下用户所属区域代码，如：中国(cn)|
-|msg|String|否|错误原因|
+|error|string|是|状态码|
+|region|string|否|error：301的情况下用户所属区域代码，如：中国(cn)|
+|msg|string|否|错误原因|
 
 状态码：
 

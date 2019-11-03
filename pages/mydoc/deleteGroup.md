@@ -1,16 +1,16 @@
 ---
 title: 删除设备分组
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 sidebar: mydoc_sidebar
 permalink: deleteGroup.html
 folder: mydoc
 ---
 
-删除分组后分组下的设备会进入未分组状态。
+删除分组后分组下的设备会进入未分组状态
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/group
+接口地址： https://{区域}-api.coolkit.cc:8080/api/group
 
 请求方法： delete
 
@@ -25,16 +25,26 @@ Headers：
 
 Body：
 
+|参数名|类型|是否必须|备注|
+|:----    |:---|:----- |-----   |
+|id|string|是|分组id|
+|type|int|是|默认为0|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
+
+举例：
+
+```
+https://cn-api.coolkit.cc:8080/api/group?id=123456789123&type=0&apikey=xxxx-xxxx-xxx&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=15452192511&version=8&nonce=asbsedwq
+```
+
+**响应参数：**
+
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|id |是  |String | 分组id |
-|type |是  |Int | 默认为0 |
-
-**响应参数:**
-
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|error |是  |Int | 状态码  |
+|error |是  |int | 状态码  |
 
 状态码：
 
@@ -42,3 +52,11 @@ Body：
     400：参数错误
     401：认证失败
     500：服务器错误
+
+返回示例：
+
+```Json
+{
+    "error": 0
+}
+```

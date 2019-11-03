@@ -1,6 +1,6 @@
 ---
 title: 登录
-last_updated: 2019-10-21
+last_updated: 2019-11-03
 weight: 10
 sidebar: mydoc_sidebar
 permalink: login.html
@@ -11,7 +11,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/login  
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login  
 
 请求方法： post
 
@@ -28,13 +28,13 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|phoneNumber|String|-|登录手机（优先）|
-|email|String|-|登录邮箱|
-|password|String|是|登录密码|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|phoneNumber|string|-|登录手机（优先）|
+|email|string|-|登录邮箱|
+|password|string|是|登录密码|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -51,18 +51,22 @@ Body：
 
 备注：
 
-    接口路径中的cn代表服务器区域，可替换成eu、us、as
-    签名值计算规则请查看 [开发通用说明](instruction.html)
+接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us
+
+中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -> .cn域名后缀
+其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -> .cc域名后缀
+
+签名值计算规则请查看 [开发通用说明](instruction.html)
 
 **响应参数(基础):**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|at|String|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
-|rt|String|否|Refresh Token，rt有效期为两个月，用于刷新at|
-|user|Object|否|用户信息|
-|region|String|否|注册区域|
+|error|string|否|失败时返回，且只会返回error|
+|at|string|否|Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）|
+|rt|string|否|Refresh Token，rt有效期为两个月，用于刷新at|
+|user|object|否|用户信息|
+|region|string|否|注册区域|
 
 
 状态码（以实际为准）：

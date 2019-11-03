@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/device  
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device  
 
 请求方法： get
 
@@ -27,49 +27,51 @@ Parmas：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|lang|String|是|cn响应返回中文信息；en 响应返回英文信息|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|lang|string|是|cn响应返回中文信息；en 响应返回英文信息|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
-示例：
+举例：
 
 ```Json
-https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
+https://{区域}-api.coolkit.cc:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
 ```
 
-**响应参数:**
+**响应参数：**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|失败时返回，且只会返回error|
-|devicelist|Object|否|设备信息列表|
+|error|string|否|失败时返回，且只会返回error|
+|devicelist|object|否|设备信息列表|
 
 设备信息列表：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|name|String|是|设备名称|
-|type|String|是|设备类型|
-|deviceid|String|是|设备id|
-|apikey|String|是|用户apikey|
-|extra|Object|是|关联表引用信息|
-|onlineTime|String|是|设备最后上线时间|
-|ip|String|是|设备上线的ip地址|
-|location|String|是|设备上线的地方|
-|settings|Object|是|设备配置信息|
-|groups|Object|是|设备所属的分组ID|
-|params|Object|是|设备参数|
+|name|string|是|设备名称|
+|type|string|是|设备类型|
+|deviceid|string|是|设备id|
+|apikey|string|是|用户apikey|
+|extra|object|是|关联表引用信息|
+|onlineTime|string|是|设备最后上线时间|
+|ip|string|是|设备上线的ip地址|
+|location|string|是|设备上线的地方|
+|settings|object|是|设备配置信息|
+|groups|object|是|设备所属的分组ID|
+|params|object|是|设备参数|
 |online|Boolean|是|设备是否在线|
-|createdAt|String|是|设备添加时间|
-|sharedBy|Object|否|分享列表|
-|devicekey|String|是|设备apikey|
-|deviceUrl|String|是|设备详情界面url|
-|brandName|String|是|品牌名称|
-|productModel|String|是|产品型号|
+|createdAt|string|是|设备添加时间|
+|sharedBy|object|否|分享列表|
+|devicekey|string|是|设备apikey|
+|deviceUrl|string|是|设备详情界面url|
+|brandName|string|是|品牌名称|
+|productModel|string|是|产品型号|
 |showBrand|Boolean|是|是否展示品牌和产品型号|
-|uiid|Int|是|设备ui的id|
+|uiid|int|是|设备ui的id|
+
+返回示例：
 
 ```Json
 [

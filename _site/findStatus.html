@@ -560,9 +560,10 @@ $('#toc').on('click', 'a', function() {
     
 
    <p>设备端和app向服务器发送该指令，查询设备状态或者参数。</p>
-<ul>
-  <li>请求参数：</li>
-</ul>
+
+<hr />
+
+<p>请求参数：</p>
 
 <table>
   <thead>
@@ -601,7 +602,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">params</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">[String]</td>
+      <td style="text-align: left">[string]</td>
       <td>字符串数组，指定要查询的参数。如果为空表示查询所有参数</td>
     </tr>
   </tbody>
@@ -611,9 +612,7 @@ $('#toc').on('click', 'a', function() {
 ["switch"," timers"]
 </code></pre></div></div>
 
-<ul>
-  <li>响应参数</li>
-</ul>
+<p>响应参数：</p>
 
 <table>
   <thead>
@@ -652,17 +651,12 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>状态码
-0:ok(操作成功)
-400:Bad Request（参数错误）
-403:Forbidden（无权限）
-500:Internal Server Error（服务器内部错误）
+<p>状态码：</p>
 
-PARAM说明：
-直接返回对应参数的json值，如果没有查询到任何参数值，则返回0（设备端）或者空对象（app端），例如：
-{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { "switch": "on" } }
-App端query，没有查询到任何参数
-{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { } }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0：操作成功
+400：Bad Request（参数错误）
+403：Forbidden（无权限）
+500：internal Server Error（服务器内部错误）
 </code></pre></div></div>
 
 
@@ -676,7 +670,7 @@ App端query，没有查询到任何参数
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-31<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

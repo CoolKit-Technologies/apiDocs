@@ -10,7 +10,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/password
+接口地址： https://{区域}-api.coolkit.cc:8080/api/user/password
 
 请求方法： post
 
@@ -27,12 +27,12 @@ Body：
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|oldPassword|String|是|旧的密码|
-|newPassword|String|是|新的密码|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|oldPassword|string|是|旧的密码|
+|newPassword|string|是|新的密码|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
@@ -47,12 +47,12 @@ Body：
 }
 ```
 
-**响应参数:**
+**响应参数：**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|否|错误信息，只要返回有error表示失败|
-|message|String|否|返回message表示修改密码成功|
+|error|string|否|错误信息，只要返回有error表示失败|
+|message|string|否|返回message表示修改密码成功|
 
 状态码：暂无
 

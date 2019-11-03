@@ -14,7 +14,7 @@ folder: mydoc
 
 ---
 
-接口地址： https://cn-api.coolkit.cn:8080/api/user/region  
+接口地址： https://api.coolkit.cn:8080/api/user/region  
 请求方法： get
 
 **请求参数：**
@@ -30,24 +30,24 @@ Params:
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|country_code|String|否|[国家或地区码](http://www.yadexp.com/yadexp/209/d.htm)|
-|appid|String|是|APPID|
-|nonce|String|是|8位字母数字随机数|
-|ts|Int|是|时间戳精确到秒|
-|version|Int|是|预设版本|
+|country_code|string|否|[国家或地区码](http://www.yadexp.com/yadexp/209/d.htm)|
+|appid|string|是|APPID|
+|nonce|string|是|8位字母数字随机数|
+|ts|int|是|时间戳精确到秒|
+|version|int|是|接口版本：8|
 
 示例：
 
 ```
-https://cn-api.coolkit.cn:8080/api/user/region?country_code=86&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&nonce=q3wz95p6&ts=1558004249&version=8
+https://api.coolkit.cn:8080/api/user/region?country_code=86&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&nonce=q3wz95p6&ts=1558004249&version=8
 ```
 
 **响应参数(基础):**
 
 |参数名|类型|是否必须|备注|
 :-: | :-: | :-: | :-: | :-:
-|error|String|是|正常返回0|
-|region|String|是|注册区域|
+|error|string|是|正常返回0|
+|region|string|是|注册区域|
 
 状态码：暂无
 
@@ -55,7 +55,7 @@ https://cn-api.coolkit.cn:8080/api/user/region?country_code=86&appid=McFJj4Noke1
 
 ```Json
 {
-    "region": "cn",   //cn,eu,us,as四个区域
-    "error": 0
+    "error": 0,
+    "region": "cn"   //cn,eu,us,as四个区域
 }
 ```

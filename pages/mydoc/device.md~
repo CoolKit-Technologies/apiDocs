@@ -10,7 +10,7 @@ permalink: device.html
 - 正式环境URL: ` https://cn(区域)-api.coolkit.cn:8080/api/user/device/:deviceid` 
 
 - 注意:( :deviceid是参数)
-- 请求示例：` https://cn-api.coolkit.cn:8080/api/user/device/100070b402` 
+- 请求示例：` https://{区域}-api.coolkit.cc:8080/api/user/device/100070b402` 
 
 - 测试环境URL: ` https://testapi.coolkit.cn:8080/api/user/device/:deviceid` 
 
@@ -23,7 +23,7 @@ permalink: device.html
 |deviceid     |是  |String | 设备id |
 |lang |否  |String | 语言(cn,eu,us) |
 
-**响应参数:**
+**响应参数：**
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |

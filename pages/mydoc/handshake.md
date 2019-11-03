@@ -15,7 +15,7 @@ folder: mydoc
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |action |是  |String |userOnline   |
-|version |是  |Int | IOT协议版本，当前为8,最新版为8。如果设备被删除了并且version>=7，会返回三次415的错误代码，如果超过3次还是返回404；之前的版本只要没配对信息就返回404    |
+|version |是  |Int | 接口版本：8    |
 |imei |否  |String | App端特有属性：手机的imei号   |
 |ts |是  |Int | APP端为到秒时间戳   |
 |os |否  |String | 手机APP才上报，值为：android/ios   |
@@ -34,7 +34,7 @@ folder: mydoc
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |action |是  |String |register   |
-|version |是  |Int | IOT协议版本，当前为8,最新版为8。如果设备被删除了并且version>=7，会返回三次415的错误代码，如果超过3次还是返回404；之前的版本只要没配对信息就返回404    |
+|version |是  |Int | 接口版本：8    |
 |deviceid     |是  |String | 设备id    |
 |ts |是  |Int | uInt32 变量转为10进制字符串   |
 |userAgent |是  |String | device  |

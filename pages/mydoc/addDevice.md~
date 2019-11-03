@@ -23,7 +23,7 @@ folder: mydoc
 |subDeviceId |否  |String | 如果isSub:1， subDeviceId必填 |
 |isSub |否  |String | 是否为子设备0：不是   1：是 |
 
-**响应参数:**
+**响应参数：**
 
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |

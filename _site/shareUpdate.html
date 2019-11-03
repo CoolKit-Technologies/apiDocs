@@ -559,7 +559,7 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>app向服务端发送指令，修改被分享方对定时器的控制权限。将来也可以扩展修改其他属性，比如uid、deviceName等</p>
+   <p>app向服务端发送指令，修改被分享方对定时器的控制权限。</p>
 
 <ul>
   <li>请求参数：</li>
@@ -614,9 +614,7 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<ul>
-  <li>ShareParam定义</li>
-</ul>
+<p>ShareParam定义</p>
 
 <table>
   <thead>
@@ -641,10 +639,22 @@ $('#toc').on('click', 'a', function() {
       <td>设备名称</td>
     </tr>
     <tr>
+      <td style="text-align: left">userName</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">String</td>
+      <td>用户名称</td>
+    </tr>
+    <tr>
       <td style="text-align: left">permit</td>
       <td style="text-align: left">否</td>
       <td style="text-align: left">Int</td>
       <td>权限值之和，采用位移操作计算，权限值定义如下：1:新增定时器;2:修改定时器;4:删除定时器;8:启用定时器</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">shareTime</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">Long</td>
+      <td>GMT标准时间，毫秒数，主要用来在客户端显示排序</td>
     </tr>
     <tr>
       <td style="text-align: left">note</td>
@@ -655,45 +665,29 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1、permit计算规则：
-     新增权限，例如要给用户赋予 新增、修改、启用定时器的权限
-     permit=1 | 2 | 8  结果等于11
+<p>permit计算规则：1：新增定时器；2：修改定时器；4:删除定时器；8:启用定时器；四者之和为15</p>
 
-     在当前权限的基础上再新增权限
-     permit= permit|xxx(具体的权限数值)
+<p>示例：</p>
 
-2、删除某一个权限，比如当前权限是11（新增、修改、启用定时器），现在删除“修改权限”
-     当前permit=11
-     permit= permit ^ ( permit &amp; 2)    2代表的是“修改定时器”， 结果等于 9
+<p>示例：</p>
 
-3、删除多个权限，还是以当前权限值11为例，要删除新增、修改权限
-     先计算出要删除的权限的和是多少
-     delPermit= 1|2   结果等于3
-     然后计算删除后的权限值
-     当前permit=11
-     permit= permit ^ ( permit &amp; delPermit)
-	
-4、查询是否有某个权限，比如当前权限是11（新增、修改、启用定时器）
-     当前permit=11
-     查询“修改权限”
-     boolean isPermit=((permit &amp; 2) == 2)   结果为true
-     查询“删除权限”
-     boolean isPermit=((permit&amp; 4) == 4)    结果为false
+<pre><code class="language-Json">{
+    "action":"updateShare",
+    "apikey":"用户APIKEY",
+    "deviceid":"1000000001",
+    "sequence":15452192511000,
+    "userAgent":"app",
+    "params":{
+        "uid":"+86127123456789",
+        "deviceName":"我的设备00001",
+        "userName":"朋友",
+        "permit":11,
+        "note":"这是一次修改分享"
+    }
+}
+</code></pre>
 
-5、查询多个权限，类似删除多个权限，先计算要查询的权限之和，再查询
-     当前permit=11
-     查询是否有“修改权限”、“启用权限”
-     queryPermit = 2|8   结果等于10
-     boolean isPermit=((permit &amp; queryPermit) == queryPermit)   结果为true
-
-     查询是否有“修改权限”、“删除权限”
-     queryPermit= 2|4   结果等于6
-     boolean isPermit=((permit &amp; queryPermit) == queryPermit)   结果为false
-</code></pre></div></div>
-
-<ul>
-  <li>响应参数</li>
-</ul>
+<p>响应参数</p>
 
 <table>
   <thead>
@@ -715,13 +709,13 @@ $('#toc').on('click', 'a', function() {
       <td style="text-align: left">result</td>
       <td style="text-align: left">否</td>
       <td style="text-align: left">Int</td>
-      <td>0:不是分享用户;1:用户不存在;2:修改成功;3 修改失败</td>
+      <td>1：手机号不存在；2：用户接受分享；3：用户不接受分享；4：已分享</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">否</td>
       <td style="text-align: left">String</td>
-      <td>用户的apikey</td>
+      <td>分享方用户的apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
@@ -733,19 +727,10 @@ $('#toc').on('click', 'a', function() {
       <td style="text-align: left">sequence</td>
       <td style="text-align: left">否</td>
       <td style="text-align: left">String</td>
-      <td>时间戳，精确到毫秒。从请求参数中获取</td>
+      <td>时间戳，精确到毫秒从请求参数中获取</td>
     </tr>
   </tbody>
 </table>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>状态码
-0: ok(操作成功)
-400: Bad Request（参数错误）
-401:认证不通过
-403:Forbidden（无权限）
-406:用户在其他设备登录
-500:Internal Server Error（服务器内部错误）
-</code></pre></div></div>
 
 
 
@@ -758,7 +743,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-03-20<br/>
+<span>最后更新时间:</span> 2019-10-31<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

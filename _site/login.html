@@ -563,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/login</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login</p>
 
 <p>请求方法： post</p>
 
@@ -610,45 +610,45 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">phoneNumber</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录手机（优先）</td>
     </tr>
     <tr>
       <td style="text-align: center">email</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">-</td>
       <td style="text-align: center">登录邮箱</td>
     </tr>
     <tr>
       <td style="text-align: center">password</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">登录密码</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -667,9 +667,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>备注：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>接口路径中的cn代表服务器区域，可替换成eu、us、as
-签名值计算规则请查看 [开发通用说明](instruction.html)
-</code></pre></div></div>
+<p>接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us</p>
+
+<p>中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cn域名后缀
+其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cc域名后缀</p>
+
+<p>签名值计算规则请查看 <a href="instruction.html">开发通用说明</a></p>
 
 <p><strong>响应参数(基础):</strong></p>
 
@@ -685,31 +688,31 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">at</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
     </tr>
     <tr>
       <td style="text-align: center">rt</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">Refresh Token，rt有效期为两个月，用于刷新at</td>
     </tr>
     <tr>
       <td style="text-align: center">user</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">用户信息</td>
     </tr>
     <tr>
       <td style="text-align: center">region</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">注册区域</td>
     </tr>
@@ -773,7 +776,7 @@ region为账号注册所在区域
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-10-21<br/>
+<span>最后更新时间:</span> 2019-11-03<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

@@ -563,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 
 <hr />
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device</p>
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device</p>
 
 <p>请求方法： get</p>
 
@@ -610,43 +610,43 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">lang</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">cn响应返回中文信息；en 响应返回英文信息</td>
     </tr>
     <tr>
       <td style="text-align: center">appid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">APPID</td>
     </tr>
     <tr>
       <td style="text-align: center">nonce</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">8位字母数字随机数</td>
     </tr>
     <tr>
       <td style="text-align: center">ts</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">时间戳精确到秒</td>
     </tr>
     <tr>
       <td style="text-align: center">version</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
-      <td style="text-align: center">预设版本</td>
+      <td style="text-align: center">接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
-<p>示例：</p>
+<p>举例：</p>
 
-<pre><code class="language-Json">https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
+<pre><code class="language-Json">https://{区域}-api.coolkit.cc:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
 </code></pre>
 
-<p><strong>响应参数:</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -660,13 +660,13 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">error</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">失败时返回，且只会返回error</td>
     </tr>
     <tr>
       <td style="text-align: center">devicelist</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">设备信息列表</td>
     </tr>
@@ -687,67 +687,67 @@ $('#toc').on('click', 'a', function() {
   <tbody>
     <tr>
       <td style="text-align: center">name</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备名称</td>
     </tr>
     <tr>
       <td style="text-align: center">type</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备类型</td>
     </tr>
     <tr>
       <td style="text-align: center">deviceid</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备id</td>
     </tr>
     <tr>
       <td style="text-align: center">apikey</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">用户apikey</td>
     </tr>
     <tr>
       <td style="text-align: center">extra</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">关联表引用信息</td>
     </tr>
     <tr>
       <td style="text-align: center">onlineTime</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备最后上线时间</td>
     </tr>
     <tr>
       <td style="text-align: center">ip</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备上线的ip地址</td>
     </tr>
     <tr>
       <td style="text-align: center">location</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备上线的地方</td>
     </tr>
     <tr>
       <td style="text-align: center">settings</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备配置信息</td>
     </tr>
     <tr>
       <td style="text-align: center">groups</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备所属的分组ID</td>
     </tr>
     <tr>
       <td style="text-align: center">params</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备参数</td>
     </tr>
@@ -759,37 +759,37 @@ $('#toc').on('click', 'a', function() {
     </tr>
     <tr>
       <td style="text-align: center">createdAt</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备添加时间</td>
     </tr>
     <tr>
       <td style="text-align: center">sharedBy</td>
-      <td style="text-align: center">Object</td>
+      <td style="text-align: center">object</td>
       <td style="text-align: center">否</td>
       <td style="text-align: center">分享列表</td>
     </tr>
     <tr>
       <td style="text-align: center">devicekey</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备apikey</td>
     </tr>
     <tr>
       <td style="text-align: center">deviceUrl</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备详情界面url</td>
     </tr>
     <tr>
       <td style="text-align: center">brandName</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">品牌名称</td>
     </tr>
     <tr>
       <td style="text-align: center">productModel</td>
-      <td style="text-align: center">String</td>
+      <td style="text-align: center">string</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">产品型号</td>
     </tr>
@@ -801,12 +801,14 @@ $('#toc').on('click', 'a', function() {
     </tr>
     <tr>
       <td style="text-align: center">uiid</td>
-      <td style="text-align: center">Int</td>
+      <td style="text-align: center">int</td>
       <td style="text-align: center">是</td>
       <td style="text-align: center">设备ui的id</td>
     </tr>
   </tbody>
 </table>
+
+<p>返回示例：</p>
 
 <pre><code class="language-Json">[
     {

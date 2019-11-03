@@ -22,7 +22,7 @@ Change group order and group name.
 |name |No  |String | Group name |
 |index |No  |Int | User can change group order |
 
-**响应参数:**
+**响应参数：**
 
 |Parameter|Required|Type|Description|
 |:----    |:---|:----- |-----   |

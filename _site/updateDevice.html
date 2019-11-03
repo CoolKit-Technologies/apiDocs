@@ -559,9 +559,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <hr />
+   <p>修改单通道设备的名称</p>
 
-<p>接口地址： https://cn-api.coolkit.cn:8080/api/user/device/{deviceid}</p>
+<hr />
+
+<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device/{deviceid}</p>
 
 <p>请求方法： post</p>
 
@@ -609,31 +611,69 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备APIKEY</td>
     </tr>
     <tr>
       <td style="text-align: left">name</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备名称</td>
     </tr>
     <tr>
       <td style="text-align: left">group</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>默认传递空字符</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>APPID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">string</td>
+      <td>8位字母数字随机数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>时间戳精确到秒</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">是</td>
+      <td style="text-align: left">int</td>
+      <td>接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>响应参数:</strong></p>
+<p>举例：</p>
+
+<pre><code class="language-Json">{
+    "deviceid":"100000001",
+    "apikey":"xxxx-xxxx-xxx",
+    "name":"我的设备0002",
+    "group":"",
+    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "ts":15452192511,
+    "version":8,
+    "nonce":"asbsedwq"
+}
+</code></pre>
+
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
@@ -648,21 +688,19 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">error</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>返回的异常信息。error：0 操作成功</td>
     </tr>
     <tr>
       <td style="text-align: left">device</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>设备信息，成功才返回</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>设备信息</li>
-</ul>
+<p>设备信息：</p>
 
 <table>
   <thead>
@@ -677,67 +715,67 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">name</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备名称</td>
     </tr>
     <tr>
       <td style="text-align: left">type</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>类型</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceid</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备id</td>
     </tr>
     <tr>
       <td style="text-align: left">apikey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>用户apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">extra</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>关联表引用信息</td>
     </tr>
     <tr>
       <td style="text-align: left">onlineTime</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备最后上线时间</td>
     </tr>
     <tr>
       <td style="text-align: left">ip</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备上线的ip地址</td>
     </tr>
     <tr>
       <td style="text-align: left">location</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备上线的地方</td>
     </tr>
     <tr>
       <td style="text-align: left">settings</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>设备配置信息</td>
     </tr>
     <tr>
       <td style="text-align: left">groups</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">[String]</td>
+      <td style="text-align: left">[string]</td>
       <td>设备所属的分组ID，设备可以属于多个分组。如果不属于任何分组，则返回空数组[]</td>
     </tr>
     <tr>
       <td style="text-align: left">params</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>设备参数</td>
     </tr>
     <tr>
@@ -755,37 +793,37 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: left">sharedBy</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>分享列表,分享方返回</td>
     </tr>
     <tr>
       <td style="text-align: left">sharedTo</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">object</td>
       <td>分享列表，被分享方返回</td>
     </tr>
     <tr>
       <td style="text-align: left">devicekey</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备apikey</td>
     </tr>
     <tr>
       <td style="text-align: left">deviceUrl</td>
       <td style="text-align: left">否</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>设备详情界面url</td>
     </tr>
     <tr>
       <td style="text-align: left">brandName</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>品牌</td>
     </tr>
     <tr>
       <td style="text-align: left">productModel</td>
       <td style="text-align: left">是</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">string</td>
       <td>产品型号</td>
     </tr>
     <tr>
@@ -803,6 +841,14 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
+<p>返回示例：</p>
+
+<pre><code class="language-Json">{
+   "name": "我的设备00001",
+   "deviceid"" "100000001"
+   ...
+}
+</code></pre>
 
 
 
@@ -814,7 +860,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2019 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-10-21<br/>
+<span>最后更新时间:</span> 2019-11-03<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>
