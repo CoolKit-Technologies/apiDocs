@@ -10,9 +10,9 @@ layout: page_en
 
 ## Open platform APPID charging standard
 
-**China regional annual fee (after deducting the handling fee): ￥2000**
+**China regional annual fee: ￥2000**
 
-**Annual fee for overseas regions (after deducting the handling fee): $299**
+**Annual fee for overseas regions: $299**
 
 &emsp;
 
