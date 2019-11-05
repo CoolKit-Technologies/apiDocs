@@ -12,11 +12,11 @@ layout: page_en
 
 **China regional annual fee (after deducting the handling fee): ￥2000**
 
-**nnual fee for overseas regions (after deducting the handling fee): $299**
+**Annual fee for overseas regions (after deducting the handling fee): $299**
 
 &emsp;
 
-Responsible for collecting docking sales Fee And provide an APPID within one working day. Only a valid APPID can request the Yi Wei Lian cloud platform service.
+Responsible for collecting docking sales Fee And provide an APPID within one working day. Only a valid APPID can request the eWelink cloud platform service.
 
 The validity period of the APPID is one year. If The APPID is expired but not renewed, it will automatically expire. You can contact Docking sales .
 
