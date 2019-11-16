@@ -10,9 +10,7 @@ layout: page_en
 
 ## Open platform APPID charging standard
 
-**China regional annual fee: ￥2000**
-
-**Annual fee for overseas regions: $299**
+**API fee: $299**
 
 &emsp;
 
