@@ -6,8 +6,6 @@ permalink: faqCode_en.html
 folder: mydoc
 layout: page_en
 ---
-    
-**Brief description：** 
 
 Not receiving verification code：
 
