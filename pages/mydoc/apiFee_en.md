@@ -1,22 +1,16 @@
 ---
 title: API Fee
-last_updated: 2019-11-03
+last_updated: 2020-02-10
 sidebar: mydoc_en_sidebar
 permalink: apiFee_en.html
 folder: mydoc
 layout: page_en
 ---
 
-
 ## Open platform APPID charging standard
 
-**API fee: $299**
+**API Fee: $299**
 
-&emsp;
+You salesperson will walk you through paying the fee and help you get your APPID in one working day. Only valid APPID has access to eWeLink cloud platform service. 
 
-Responsible for collecting docking sales Fee And provide an APPID within one working day. Only a valid APPID can request the eWelink cloud platform service.
-
-The validity period of the APPID is one year. If The APPID is expired but not renewed, it will automatically expire. You can contact Docking sales .
-
-
-
+APPID remains valid for a year. It will expire automatically without renewal.To restore your appid, please contact your salesperson.

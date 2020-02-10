@@ -559,27 +559,25 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>Brief Descripion：</strong></p>
-
-<p>Response status 406</p>
-
-<p>406 Failed to pass authorization.</p>
+   <p>Response status 406： Failed to pass authorization.</p>
 
 <p>Please check for any problem below:</p>
 
-<p>a：General parameter is not passed</p>
+<ul>
+  <li>General parameter is not passed</li>
+  <li>Authentication header is not set</li>
+  <li>Incorrect method to pass parameter</li>
+  <li>Incorrect signature value</li>
+</ul>
 
-<p>b：Authentication header is not set</p>
+<p>Potential Cause：</p>
 
-<p>c：Incorrect method to pass parameter</p>
+<ul>
+  <li>Incorrect signature algorithm causes incorrect signature value.</li>
+  <li>Signature algorithm is correct, but the order of parameters for signature algorithm disagrees with the order of Interface parameter,causing authorization failure.</li>
+</ul>
 
-<p>d：Incorrect signature value</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1：Incorrect signature algorithm causes incorrect signature value. 
-2：Signature algorithm is correct, but the order of parameters for signature algorithm disagrees with the order of Interface parameter,causing authorization failure.
-</code></pre></div></div>
-
-<p>For details, please click <a href="instruction_en.html">common reference</a>.</p>
+<p>For details, please click ‘general reference’ to check.</p>
 
 
 
@@ -591,8 +589,8 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2019 Coolkit Technology Co.,Ltd. All rights reserved. <br />
-<span>Page last updated:</span> 2019-03-20<br/>
+               &copy;2020 Coolkit Technology Co.,Ltd. All rights reserved. <br />
+<span>Page last updated:</span> 2020-02-10<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>
