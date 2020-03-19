@@ -9,7 +9,7 @@ layout: page_en
 
 ## Open platform APPID charging standard
 
-**API Fee: $299**
+**API Fee: $699**
 
 You salesperson will walk you through paying the fee and help you get your APPID in one working day. Only valid APPID has access to eWeLink cloud platform service. 
 
