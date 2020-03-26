@@ -1,12 +1,11 @@
 ---
 title: 成为开发者
-last_updated: 2019-10-15
+last_updated: 2020-03-25
 summary: "通过分配的APPID才能拥有请求平台服务的权限，并得到易微联专业人员的技术支持，缩短开发时间。"
 sidebar: mydoc_sidebar
 permalink: developer.html
 folder: mydoc
 ---
-
 
 ## APPID
 

@@ -561,26 +561,30 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <h1 id="示例">示例</h1>
+   <h3 id="示例">示例</h3>
 
 <p>示例数值仅供参考，具体开发过程，请替换成自己的参数。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。
-第二步：设备列表，获取帐号下添加的所有设备。设备控制时需要提供相关设备数据以及用户数据。
-第三步：访问分配服务，获取连接信息。
-第四步：建立长连接，通过第三步获取的长连接信息，建立连接。
-第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手，握手成功后，表示认证通过，允许进行设备控制。
-第六步：控制设备，通过第二步获取的设备信息，发送update指令进行设备控制。
-</code></pre></div></div>
+<h3 id="基本流程">基本流程</h3>
 
-<h2 id="第一步登录">第一步：登录</h2>
+<ul>
+  <li>第一步：登录，认证帐号获取认证token，通过认证后才能获取访问服务的权限。</li>
+  <li>第二步：设备列表，获取帐号下添加的所有设备。设备控制时需要提供相关设备数据以及用户数据。</li>
+  <li>第三步：访问分配服务，获取连接信息。</li>
+  <li>第四步：建立长连接，通过第三步获取的长连接信息，建立连接。</li>
+  <li>第五步：握手，通过第一步获取的认证信息(at即access token)，进行握手，握手成功后，表示认证通过，允许进行设备控制。</li>
+  <li>第六步：控制设备，通过第二步获取的设备信息，发送update指令进行设备控制。</li>
+</ul>
 
-<p>接口测试工具：https://www.getpostman.com/<br />
-在线快速测试：https://getman.cn/</p>
+<h4 id="第一步登录">第一步：登录</h4>
 
-<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login</p>
+<p>接口测试工具：<a href="https://www.getpostman.com/">https://www.getpostman.com/</a>
+在线快速测试：<a href="https://getman.cn/">https://getman.cn/</a></p>
 
-<p>请求方法： post</p>
+<ul>
+  <li>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/login</li>
+  <li>请求方法： post</li>
+</ul>
 
 <p><strong>请求参数：</strong></p>
 
@@ -589,24 +593,24 @@ $('#toc').on('click', 'a', function() {
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">名称</th>
-      <th style="text-align: center">参数值</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">示例</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">参数值</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Authorization</td>
-      <td style="text-align: center">Sign+空格+签名值</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+</td>
+      <td style="text-align: left">Authorization</td>
+      <td style="text-align: left">Sign+空格+签名值</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">Sign Qbd+knKCUb8LAP6yMv1SSqYwmm1vDIxG3rHeq1Ul+</td>
     </tr>
     <tr>
-      <td style="text-align: center">Content-Type</td>
-      <td style="text-align: center">application/json</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">application/json</td>
+      <td style="text-align: left">Content-Type</td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">application/json</td>
     </tr>
   </tbody>
 </table>
@@ -616,54 +620,54 @@ $('#toc').on('click', 'a', function() {
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">phoneNumber</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: center">登录手机（优先）</td>
+      <td style="text-align: left">phoneNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">登录手机（优先）</td>
     </tr>
     <tr>
-      <td style="text-align: center">email</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">-</td>
-      <td style="text-align: center">登录邮箱</td>
+      <td style="text-align: left">email</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">登录邮箱</td>
     </tr>
     <tr>
-      <td style="text-align: center">password</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">登录密码</td>
+      <td style="text-align: left">password</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">登录密码</td>
     </tr>
     <tr>
-      <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">APPID</td>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">APPID</td>
     </tr>
     <tr>
-      <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">8位字母数字随机数</td>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">8位字母数字随机数</td>
     </tr>
     <tr>
-      <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">时间戳精确到秒</td>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">时间戳精确到秒</td>
     </tr>
     <tr>
-      <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">接口版本：8</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -672,103 +676,103 @@ $('#toc').on('click', 'a', function() {
 
 <pre><code class="language-Json">{
     "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
-    "phoneNumber":"+8613123456789",
+    "phoneNumber":"+8613185260282",
     "password":"12345678",
     "ts": 1558004249,
     "version":8,
-    "nonce":"q3wz95p6"
+    "nonce":"asbsedwq"
 }
 </code></pre>
 
 <p>备注：</p>
 
-<p>接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us</p>
+<ul>
+  <li>接口地址中的区域可根据实际用户所属地区更改，目前已有区域：cn、as、eu、us</li>
+  <li>中国内陆区域建议使用：https://cn-api.coolkit.cn:8080 -&gt; .cn域名后缀</li>
+  <li>其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cc域名后缀</li>
+  <li>签名值计算规则请查看 「<a href="https://www.yuque.com/nocmt/oadlgi/zcuit1#5Iu8I">开发通用说明</a>」。</li>
+</ul>
 
-<p>中国内陆区域建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cn域名后缀
-其他地区建议使用：https://{区域}-api.coolkit.cc:8080 -&gt; .cc域名后缀</p>
-
-<p>签名值计算规则请查看 <a href="instruction.html">开发通用说明</a></p>
-
-<p><strong>响应参数(基础):</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">失败时返回，且只会返回error</td>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">失败时返回，且只会返回error</td>
     </tr>
     <tr>
-      <td style="text-align: center">at</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">Access Token，at有效期为一个月（注意：每登录一次，at会重新生成，不支持同帐号多处使用）</td>
+      <td style="text-align: left">at</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">Access Token</td>
     </tr>
     <tr>
-      <td style="text-align: center">rt</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">Refresh Token，rt有效期为两个月，用于刷新at</td>
+      <td style="text-align: left">rt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">Refresh Token</td>
     </tr>
     <tr>
-      <td style="text-align: center">user</td>
-      <td style="text-align: center">object</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">用户信息</td>
+      <td style="text-align: left">user</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">用户信息</td>
     </tr>
     <tr>
-      <td style="text-align: center">region</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">注册区域</td>
+      <td style="text-align: left">region</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">注册区域</td>
     </tr>
   </tbody>
 </table>
 
-<p>状态码（以实际为准）：</p>
+<p>User说明：见注册接口</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>400：参数不完整或错误  
-301：账号注册在其他区域，需要查询「区域接口」重定向  
-401：账号密码错误  
-402：账号未激活  
-404：账号不存在  
-406：认证失败（APPID错误或签名错误）  
-500：服务器内部错误  
-</code></pre></div></div>
+<p>错误码：</p>
 
-<p>返回示例(数据已脱敏)：</p>
+<p>400：缺少参数<br />
+301：用户在其他大区，需要客户端查询区域接口重定向<br />
+401：用户名密码错误<br />
+402：邮箱未激活<br />
+404：用户不存在<br />
+406：认证失败（APPID错误或参数不完整）</p>
+
+<p><strong>返回示例：</strong></p>
 
 <pre><code class="language-Json">{
     "at":"a527297584f1ca030579a90d2e800481e22e850a",
     "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
     "user":{
-        "_id":"*******************",
-        "phoneNumber":"+8613123456789",
-        "appId":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+        "_id":"5c984cd3dc8295fa0ef3e592",
+        "phoneNumber":"+8613185260282",
+        "appId":"1xMdjbmOBYctEJfye4EjFLR2M6YpYyyJ",
         "lang":"cn",
         "online":false,
         "onlineTime":"2019-05-16T10:48:42.091Z",
-        "ip":"110.110.110.110",
+        "ip":"113.87.160.95",
         "location":"广东",
         "offlineTime":"2019-05-16T10:51:22.090Z",
         "appInfos":[
             {
-                "appVersion":"3.13.0",
+                "appVersion":"3.6.1",
                 "os":"android"
             }
         ],
-        "nickname":"eWelink",
+        "nickname":"coco",
         "createdAt":"2019-03-25T03:36:51.335Z",
-        "apikey":"95da0fea-5692-469a-c562-4dd5ee9a51f1"
+        "apikey":"95da0fea-6834-469a-b247-4dd5ee9a51f1"
     },
     "region":"cn"
 }
@@ -776,16 +780,18 @@ $('#toc').on('click', 'a', function() {
 
 <p>备注：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）
-rt存在的目的是刷新at
-region为账号注册所在区域
-</code></pre></div></div>
+<ul>
+  <li>at为其他请求必须携带的参数，代替Authorization的值（Authorization：Bearer+空格+at）。</li>
+  <li>rt存在的目的是刷新at。</li>
+  <li>region为账号注册所在区域。</li>
+</ul>
 
-<h2 id="第二步请求设备列表">第二步：请求设备列表</h2>
+<h4 id="第二步请求设备列表">第二步：请求设备列表</h4>
 
-<p>接口地址： https://{区域}-api.coolkit.cc:8080/api/user/device</p>
-
-<p>请求方法： get</p>
+<ul>
+  <li>接口路径： https://{区域}-api.coolkit.cc:8080/api/user/device</li>
+  <li>请求方法： get</li>
+</ul>
 
 <p><strong>请求参数：</strong></p>
 
@@ -794,117 +800,243 @@ region为账号注册所在区域
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">名称</th>
-      <th style="text-align: center">参数值</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">示例</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">参数值</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Authorization</td>
-      <td style="text-align: center">Bearer+空格+at</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">Bearer a527297584f1ca030579a90d2e800481e22e850a</td>
+      <td style="text-align: left">Authorization</td>
+      <td style="text-align: left">Bearer+空格+at</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">Bearer 074e8af6f5f10183647a6a4f5b51fdc6788f617a</td>
     </tr>
     <tr>
-      <td style="text-align: center">Content-Type</td>
-      <td style="text-align: center">application/json</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">application/json</td>
+      <td style="text-align: left">Content-Type</td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">application/json</td>
     </tr>
   </tbody>
 </table>
 
-<p>Params:</p>
+<p>Params：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">lang</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">cn 响应返回中文信息；en 响应返回英文信息</td>
+      <td style="text-align: left">lang</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">cn 响应返回中文信息；en 响应返回英文信息</td>
     </tr>
     <tr>
-      <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">APPID</td>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">APPID</td>
     </tr>
     <tr>
-      <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">8位字母数字随机数</td>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">8位字母数字随机数</td>
     </tr>
     <tr>
-      <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">时间戳精确到秒</td>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">时间戳精确到秒</td>
     </tr>
     <tr>
-      <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">接口版本：8</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">接口版本：8</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
 
-<pre><code class="language-Json">{
-    "lang":"cn",
-    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
-    "nonce":"q3wz95p6",
-    "ts": 1558004249,
-    "version":8
-}
-// 最终结构：https://cn-api.coolkit.cc:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;nonce=q3wz95p6&amp;ts=1558004249&amp;version=8
+<pre><code class="language-Json">https://cn-api.coolkit.cn:8080/api/user/device?lang=cn&amp;appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&amp;ts=1558004249&amp;version=8&amp;nonce=asbsedwq
 </code></pre>
 
-<p>备注：GET请求会将Json格式数据转为特定字符，放到URL中。</p>
-
-<p><strong>响应参数(基础):</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">失败时返回，且只会返回error</td>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">状态码，error：0 操作成功</td>
     </tr>
     <tr>
-      <td style="text-align: center">devicelist</td>
-      <td style="text-align: center">object</td>
-      <td style="text-align: center">否</td>
-      <td style="text-align: center">设备信息列表</td>
+      <td style="text-align: left">devicelist</td>
+      <td style="text-align: left">array</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">设备列表信息，成功才返回</td>
     </tr>
   </tbody>
 </table>
 
-<p>状态码：暂无</p>
+<p><strong>备注：如果返回为空列表：[]，说明账号下没有设备或者该设备品牌没有关联到您的APPID，需要联系对接销售，获得临时测试授权，后期正式授权接入事项可咨询对接销售。</strong></p>
 
-<p>返回示例(数据已脱敏)：</p>
+<p>device说明：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备名称</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">类型</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deviceid</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apikey</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">绑定的用户apikey</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extra</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">关联表引用信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">onlineTime</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备最后上线时间</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ip</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备上线的ip地址</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备上线的地方</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">settings</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">设备配置信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">groups</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">list</td>
+      <td style="text-align: left">设备所属的分组ID，设备可以属于多个分组。如果不属于任何分组，则返回空数组[]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">params</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">设备参数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">online</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">设备是否在线</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">createdAt</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">date</td>
+      <td style="text-align: left">设备添加时间</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sharedTo</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">分享列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">devicekey</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备apikey（重要）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deviceUrl</td>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">设备详情界面url</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">brandName</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">品牌</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">productModel</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">产品型号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">showBrand</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">是否展示品牌和产品型号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">uiid</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">设备ui的id（重要）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>返回示例：</strong></p>
 
 <pre><code class="language-Json">[
     {
@@ -968,23 +1100,29 @@ region为账号注册所在区域
         "productModel": "Sonoff basic R2",
         "devConfig": {},
         "uiid": 6
-    }
+    },
 ]
 </code></pre>
 
+<p><img src="img2/getDevices.png" alt="image.png" /></p>
+
 <p>备注：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sharedBy：分享方的信息（接收方查看设备列表才显示）
-sharedTo：被分享方的信息（分享方查看设备列表才显示）
-不同设备的UIID会不同，UI决定显示的效果
-如果返回为 []，则可能意外着账号下没有设备或者该设备品牌没- 有关联到你的APPID（解决办法是找对接销售授权）
-</code></pre></div></div>
+<ul>
+  <li>sharedBy：分享方的信息（接收方查看设备列表才显示）</li>
+  <li>sharedTo：被分享方的信息（分享方查看设备列表才显示）</li>
+  <li>不同设备的UIID会不同，UI决定显示的效果</li>
+  <li>如果返回为[]，则可能意外着账号下没有设备或者该设备品牌没有关联到你的APPID（解决办法是找对接销售人员授权</li>
+</ul>
 
-<h2 id="第三步请求分配服务">第三步：请求分配服务</h2>
+<h4 id="第三步请求分配服务">第三步：请求分配服务</h4>
 
-<p>接口地址： https://{区域}-api.coolkit.cc:8080/dispatch/app</p>
+<p>获得长连接地址和端口以后，才能建立长连接。</p>
 
-<p>请求方法： post</p>
+<ul>
+  <li>接口路径： https://{区域}-api.coolkit.cc:8080/dispatch/app</li>
+  <li>请求方法： post</li>
+</ul>
 
 <p><strong>请求参数：</strong></p>
 
@@ -993,24 +1131,24 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">名称</th>
-      <th style="text-align: center">参数值</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">示例</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">参数值</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">示例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Authorization</td>
-      <td style="text-align: center">Bearer+空格+at</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">Bearer a527297584f1ca030579a90d2e800481e22e850a</td>
+      <td style="text-align: left">Authorization</td>
+      <td style="text-align: left">Bearer+空格+at</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">Bearer 074e8af6f5f10183647a6a4f5b51fdc6788f617a</td>
     </tr>
     <tr>
-      <td style="text-align: center">Content-Type</td>
-      <td style="text-align: center">application/json</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">application/json</td>
+      <td style="text-align: left">Content-Type</td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">application/json</td>
     </tr>
   </tbody>
 </table>
@@ -1020,42 +1158,42 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">accept</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">默认填ws即可</td>
+      <td style="text-align: left">accept</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">固定参数：ws</td>
     </tr>
     <tr>
-      <td style="text-align: center">appid</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">APPID</td>
+      <td style="text-align: left">appid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">APPID</td>
     </tr>
     <tr>
-      <td style="text-align: center">nonce</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">8位字母数字随机数</td>
+      <td style="text-align: left">nonce</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">8位字母数字随机数</td>
     </tr>
     <tr>
-      <td style="text-align: center">ts</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">时间戳精确到秒</td>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">时间戳精确到秒</td>
     </tr>
     <tr>
-      <td style="text-align: center">version</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">接口版本：8</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">接口版本：8</td>
     </tr>
   </tbody>
 </table>
@@ -1065,60 +1203,66 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 <pre><code class="language-Json">{
     "accept":"ws",
     "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
-    "ts": 1571139270,
+    "ts":15452192511,
     "version":8,
-    "nonce":"po89ks8z"
+    "nonce":"asbsedwq"
 }
 </code></pre>
 
-<p><strong>响应参数(基础):</strong></p>
+<p><strong>响应参数：</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">参数名</th>
-      <th style="text-align: center">类型</th>
-      <th style="text-align: center">是否必须</th>
-      <th style="text-align: center">备注</th>
+      <th style="text-align: left">名称</th>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">允许为空</th>
+      <th style="text-align: left">说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">IP</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">长连接服务器外网IP</td>
+      <td style="text-align: left">IP</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">长连接服务器外网IP</td>
     </tr>
     <tr>
-      <td style="text-align: center">port</td>
-      <td style="text-align: center">int</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">长连接服务器外网端口</td>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">长连接服务器外网端口</td>
     </tr>
     <tr>
-      <td style="text-align: center">domain</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用域名了。</td>
+      <td style="text-align: left">domain</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">长连接服务器域名。目前只有app端才会返回域名。android客户端尽量选择用ip建立长连接，这样可以减少dns解析带来的问题，js版客户端无法跳过证书检查，那么就只能用IP了。</td>
     </tr>
     <tr>
-      <td style="text-align: center">error</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">成功返回error:0</td>
+      <td style="text-align: left">error</td>
+      <td style="text-align: left">number</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">成功返回error:0</td>
     </tr>
     <tr>
-      <td style="text-align: center">reason</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">是</td>
-      <td style="text-align: center">成功返回ok</td>
+      <td style="text-align: left">reason</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">成功返回ok</td>
     </tr>
   </tbody>
 </table>
 
-<p>状态码：暂无</p>
+<p>错误码：</p>
 
-<p>返回示例：</p>
+<p>0：成功
+400：客户端参数错误
+401：认证不通过（ 提示登录 ）
+402：at过期（ APP会自动刷新access token）
+403：无权限（ APP提示无权限，比如APP无权访问OTA接口）（401-403认证错误由内部认证系统给出）</p>
+
+<p><strong>返回示例：</strong></p>
 
 <pre><code class="language-Json">{
     "port": 8080,
@@ -1129,21 +1273,23 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 }
 </code></pre>
 
-<h2 id="第四步建立长连接">第四步：建立长连接</h2>
+<h4 id="第四步建立长连接">第四步：建立长连接</h4>
 
-<p>创建WebSocket连接和发送控制命令流程：</p>
+<p><strong>创建websocket连接和发送控制命令流程：</strong></p>
 
-<p><img src="img/WebSocket.png" alt="创建WebSocket连接流程" /></p>
+<p><img src="./img2/controlDeviceProcess.jpeg" alt="controlDeviceProcess" /></p>
 
 <p>通过第三步请求分配服务返回的IP或者domain+Port建立长连接。</p>
 
 <p>请求：wss://cn-pconnect2.coolkit.cc:8080/api/ws</p>
 
-<p>WebSocket测试工具：<a href="http://www.blue-zero.com/WebSocket/">http://www.blue-zero.com/WebSocket/</a></p>
+<p>WebSocket测试工具： <a href="http://www.blue-zero.com/WebSocket/">http://www.blue-zero.com/WebSocket/</a></p>
 
-<p><img src="img/WebSocket_wait.png" alt="创建WebSocket连接" /></p>
+<p>通过分配服务返回的IP或者domain建立握手。</p>
 
-<h2 id="第五步握手">第五步：握手</h2>
+<h4 id="第五步握手">第五步：握手</h4>
+
+<p><img src="./img2/userOnline.png" alt="userOnline" /></p>
 
 <p>如上图提示「Websocket连接已建立，正在等待数据…」，就表示连接成功了，可以开始握手。</p>
 
@@ -1156,51 +1302,35 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
     "at":"登录接口获取的AT",
     "userAgent":"app",
     "apikey":"登录接口获取的用户APIKEY",
-    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
     "nonce":"2plz69ax",
-    "sequence":"毫秒级时间戳，举例：1571141530100"
+    "sequence":"毫秒级时间戳，示例：1571141530100",
+  	"appid": "xxxx"
 }
-// 需去掉空格压缩
+// 需去掉空格压缩：https://www.Json.cn/
 </code></pre>
 
-<p>握手成功响应：</p>
+<p><strong>握手成功响应：</strong></p>
 
-<p><img src="img/WebSocket_handshake.png" alt="WebSocket握手" /></p>
+<p><img src="./img2/userOnlineSuccess.png" alt="userOnlineSuccess.png" /></p>
 
-<p>示例：</p>
+<p><strong>心跳时间：</strong></p>
 
-<pre><code class="language-Json">{
-    "error":0,
-    "apikey":"登录接口获取的用户APIKEY",
-    "config":{
-        "hb":1,
-        "hbinterval":145
-    },
-    "sequence":"毫秒级时间戳，举例：1571141259100"
-}
-</code></pre>
+<p>「hbInterval」为心跳时间，需要在145s内发送「<strong>ping</strong>」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。</p>
 
-<p>心跳时间：</p>
+<p><img src="./img2/hbInterval.png" alt="hbInterval" /></p>
 
-<p>「hbinterval」为心跳时间，需要在145s内发送「ping」，保持心跳，服务器收到ping后会响应「pong」，自己测试时刻手动发送ping。</p>
+<h4 id="第六步控制设备">第六步：控制设备</h4>
 
-<p><img src="img/WebSocket_hbinterval.png" alt="WebSocket心跳时间" /></p>
+<p>说明：设备在状态改变时会上报信息，这时候如果是APP收到信息，就会同步显示状态，如果自己做服务器或者客户端，也可以将这个变化记录下来，方便自己做统计或者做历史记录功能。</p>
 
-<h2 id="第六步控制设备">第六步：控制设备</h2>
+<p><img src="./img2/controlDevice.png" alt="controlDevice" /></p>
 
-<p>说明：</p>
+<p><strong>发送控制指令：</strong></p>
 
-<p>设备在状态改变时会上报信息，这时候如果是APP收到信息，就会同步显示状态，如果自己做服务器或者客户端，也可以将这个变化记录下来，方便自己做统计或者做历史记录功能。</p>
+<p>params的协议根据不同设备有所不同，商务合作后会根据对接的设备提供 「<strong>协议文档</strong>」。
+「apikey、deviceid、sequence、params」都要替换成自己已经添加设备的参数</p>
 
-<p><img src="img/WebSocket_update.png" alt="WebSocket状态上报" /></p>
-
-<p>发送控制指令：</p>
-
-<p>params的协议根据不同设备有所不同，商务合作后会根据对接的设备提供 「协议文档」。</p>
-
-<p>「apikey、deviceid、sequence、params」都要替换成自己已经添加设备的参数</p>
-
-<p>参数说明请查看「<a href="deviceStatus.html">更新/上报状态</a>」</p>
+<p>参数说明请查看 「<strong>更新/上报状态</strong>」</p>
 
 <p>示例：</p>
 
@@ -1209,7 +1339,7 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
     "apikey":"登录接口获取的用户APIKEY",
     "deviceid":"设备列表接口获取的设备ID",
     "userAgent":"app",
-    "sequence":"毫秒级时间戳，举例：1571141530100",
+    "sequence":"毫秒级时间戳，示例：1571141530100",
     "params":{
         "switch":"off"
     }
@@ -1217,11 +1347,11 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 // 需去掉空格压缩
 </code></pre>
 
-<p><img src="img/WebSocket_control.png" alt="WebSocket发送控制指令" /></p>
+<p><img src="./img2/controlDeviceSuccess.png" alt="controlDeviceSuccess.png" /></p>
 
-<p>控制指令返回：</p>
+<p><strong>控制指令返回：</strong></p>
 
-<p>返回「error:0」表示成功，更多状态码请查看「<a href="deviceStatus.html">更新/上报状态</a>」</p>
+<p>返回「error:0」 表示成功。</p>
 
 <p>示例：</p>
 
@@ -1235,10 +1365,12 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
 
 <p>注意：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。
-设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。
-整个流程顺利完成，接下来在「[API中心](apiOverview.html)」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。
-</code></pre></div></div>
+<ol>
+  <li>如果设备是别人分享给你的，apikey一定要从设备列表接口返回的apikey参数中获取值，如果设备主人就是自己，则登录返回的用户apikey和设备列表返回的apikey都可以。</li>
+  <li>设备一定要在线。发送指令成功后，观察设备是否执行了开或者关，不在线一定报错。</li>
+</ol>
+
+<p>整个流程顺利完成，接下来在「[接口中心」查看如何使用区域功能，帐号功能，设备管理功能，设备控制功能，认证功能。</p>
 
 
 
@@ -1250,7 +1382,7 @@ sharedTo：被分享方的信息（分享方查看设备列表才显示）
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 深圳酷宅科技有限公司。 版权所有。 <br />
-<span>最后更新时间:</span> 2019-11-03<br/>
+<span>最后更新时间:</span> 2020-03-25<br/>
 <p><img src="images/coolkit.png" alt="CoolKit"/></p>
                 </div>
             </div>

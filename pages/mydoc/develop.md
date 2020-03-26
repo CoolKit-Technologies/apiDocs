@@ -9,17 +9,21 @@ folder: mydoc
 
 ## 下载测试APP
 
-下载地址：[http://app.coolkit.cc/dl.html](http://app.coolkit.cc/dl.html)
+[安卓客户端(Google Play)](https://play.google.com/store/apps/details?id=com.coolkit)
 
-也可自行在各大应用商店搜索「易微联」，进行下载。
+[安卓客户端(应用宝)](http://sj.qq.com/myapp/detail.htm?apkName=com.coolkit)
+
+[iOS客户端](https://itunes.apple.com/cn/app/yi-wei-lian/id1035163158?mt=8)
+
+国内用户也可在手机自带的应用商店中搜索「易微联」进行下载。
 
 ## 购买测试设备
 
-购买链接：[淘宝店铺网址](https://m.tb.cn/h.eLJWsO8?sm=65148e)，[亚马逊店铺网址](https://www.amazon.cn/s?k=sonoff&__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&ref=nb_sb_noss_1)
+购买链接：[亚马逊店铺网址](https://www.amazon.cn/s?k=sonoff)
 
-国内用户也可直接通过微信搜索「**[易微联智选](https://shop43224371.youzan.com/v2/feature/2dA8GsGwmy?common%2Furl%2Fcreate=&kdt_id=43032203&scan=3&from=kdt)**」小程序，直接购买测试设备。
+国内用户可直接通过微信搜索「[**易微联智选**](https://shop43224371.youzan.com/v2/feature/2dA8GsGwmy?common%2Furl%2Fcreate=&kdt_id=43032203&scan=3&from=kdt)」小程序，直接购买测试设备。
 
-![易微联智选](img/eWelink_shop.png)
+![易微联智选](img2/eWeLinkShop.png '易微联智选')
 
 ## 注册测试帐号
 
@@ -37,5 +41,5 @@ APP配对添加设备时，会显示设备id（设备id格式1000**）
 ![添加设备](img/addDevice.png)
 
 ## 控制设备
-   
+
 设备上线后，可在APP上尝试控制设备。

@@ -7,7 +7,7 @@ folder: mydoc
 ---
 
 ```
-联系邮箱：wendy.wang@coolkit.cn
+联系邮箱：support@ewelink.zendesk.com
 服务热线：0755-26404901
 服务时间：9:00-18:00(工作日)
 公司地址：深圳市南山区同发路6号T6艺术区2楼B09
