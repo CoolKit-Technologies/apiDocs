@@ -50,7 +50,6 @@ For example:：
 { "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { "switch": "on" } }
 ```
 
-
 Query from app，while no parameter was found
 
 ```
