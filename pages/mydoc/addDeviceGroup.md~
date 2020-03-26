@@ -8,6 +8,7 @@ folder: mydoc
 
 
 设备分组，同时支持分组排序
+
 - 正式环境URL: ``` https://cn(区域)-api.coolkit.cn:8080/api/group``` 
 
 - 测试环境URL: ``` https://testapi.coolkit.cn:8080/api/group``` 

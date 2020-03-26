@@ -608,7 +608,7 @@ $('#toc').on('click', 'a', function() {
 </table>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>params description：
-["switch"," timers"]
+["switch","timers"]
 </code></pre></div></div>
 
 <ul>
@@ -652,19 +652,26 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error code
-0:ok(operation succeeded)
-400:Bad Request（wrong parameter）
-403:Forbidden（no permission）
-500:Internal Server Error（Internal server error）
+<p>Error code:</p>
 
-PARAM description：
-Returns specified json value.When no parameter is found, returns 0 (for device) or empty object( for app).For example:：
-{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { "switch": "on" } }
-Query from app，while no parameter was found
-{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { } }
+<p>0:ok(operation succeeded)<br />
+400:Bad Request（wrong parameter）<br />
+403:Forbidden（no permission）<br />
+500:Internal Server Error（Internal server error）</p>
+
+<p>PARAM description：</p>
+
+<p>Returns specified json value.When no parameter is found, returns 0 (for device) or empty object( for app).</p>
+
+<p>For example:：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { "switch": "on" } }
 </code></pre></div></div>
 
+<p>Query from app，while no parameter was found</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { } }
+</code></pre></div></div>
 
 
 

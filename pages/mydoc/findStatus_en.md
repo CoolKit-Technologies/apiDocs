@@ -20,7 +20,7 @@ Device and app send this command to server to check device statuses or parameter
 
 ```
 params description：
-["switch"," timers"]
+["switch","timers"]
 ```
 
 - Response parameters
@@ -32,18 +32,27 @@ params description：
 |deviceid     |Yes  |String | device id    |
 |params     |Yes  |Params | key-value pair    |
 
-```
-error code
-0:ok(operation succeeded)
-400:Bad Request（wrong parameter）
-403:Forbidden（no permission）
-500:Internal Server Error（Internal server error）
+
+Error code:
+
+0:ok(operation succeeded)  
+400:Bad Request（wrong parameter）  
+403:Forbidden（no permission）  
+500:Internal Server Error（Internal server error）  
 
 PARAM description：
-Returns specified json value.When no parameter is found, returns 0 (for device) or empty object( for app).For example:：
+
+Returns specified json value.When no parameter is found, returns 0 (for device) or empty object( for app).
+
+For example:：
+
+```
 { "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { "switch": "on" } }
-Query from app，while no parameter was found
-{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { } }
 ```
 
 
+Query from app，while no parameter was found
+
+```
+{ "error": 0, "apikey": "123e4567­e89b­12d3­a456­426655440000",  "deviceid": "01ad0253f2", "params": { } }
+```
