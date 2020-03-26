@@ -8,9 +8,7 @@ layout: page_en
 ---
 
 Returns info of all devices in user account including devices shared by others.
-- Production environment URL: ``` https://cn(区域)-api.coolkit.cn:8080/api/user/device``` 
-
-- Test environment URL: ``` https://testapi.coolkit.cn:8080/api/user/device``` 
+- Production environment URL: ``` https://{region}-api.coolkit.cc:8080/api/user/device``` 
 
 - Request method： GET
 

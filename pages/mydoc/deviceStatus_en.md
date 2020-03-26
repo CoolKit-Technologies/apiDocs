@@ -141,8 +141,8 @@ Countdown timer（Activates after specified time, which fires once only.A qucik 
 |sequence     |Yes  |String | sent to device by app, device returns it Intactly    |
 |d_seq     |No  |String | uploaded by device, server passes it Intactly to app    |
 
-```
 error code
+
 0:ok(operation succeeded)
 400:Bad Request（wrong parameter）
 403:Forbidden（no permission）
@@ -150,7 +150,6 @@ error code
 error codes returned from app only a:
 503:Device Offline(Device is offline)
 504:Request Timeout（Request timed out）
-```
 
 
 

@@ -7,12 +7,11 @@ layout: page_en
 ---
 
 Check Device info by Device id
-- Production environment URL: ``` https://cn(区域)-api.coolkit.cn:8080/api/user/device/:deviceid``` 
+- Production environment URL: ``` https://{region}-api.coolkit.cc:8080/api/user/device/:deviceid``` 
 
 - Note:( :deviceid is a parameter)
-- Request example：``` https://{区域}-api.coolkit.cc:8080/api/user/device/100070b402``` 
+- Request example：``` https://{region}-api.coolkit.cc:8080/api/user/device/100070b402``` 
 
-- Test environment URL: ``` https://testapi.coolkit.cn:8080/api/user/device/:deviceid``` 
 
 - Request method： GET
 
