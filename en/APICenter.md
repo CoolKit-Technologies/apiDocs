@@ -618,7 +618,7 @@ en English |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
 | version | number | Yes | Numbererface version: 8 |
-
+| getTags | number | No | 0: Do not return the content of the tags; 1: Return the content of the tags; the default is 0 |
 
 Example: 
 
