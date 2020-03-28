@@ -69,16 +69,16 @@ Example values are for reference only. Please replace them with your own paramet
 
 #### Step 1.Login
 
-REST API Test Tool：[https://www.getpostman.com/](https://www.getpostman.com/)
+REST API Test Tool: [https://www.getpostman.com/](https://www.getpostman.com/)
 
-Online Quick Test：[https://getman.cn/](https://getman.cn/)
+Online Quick Test: [https://getman.cn/](https://getman.cn/)
 
-- URL： https://{region}-api.coolkit.cc:8080/api/user/login
-- Method： post
+- URL:  https://{region}-api.coolkit.cc:8080/api/user/login
+- Method: post
 
-**Request Parameters：**
+**Request Parameters:**
 
-Headers：
+Headers: 
 
 | Name | Value | Required | Example |
 | :--- | :--- | :--- | :--- |
@@ -86,7 +86,7 @@ Headers：
 | Content-Type | application/json | Yes | application/json |
 
 
-Body：
+Body: 
 
 | Name | Type | Required | Comment |
 | :--- | --- | --- | --- |
@@ -96,29 +96,29 @@ Body：
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
-| version | number | Yes | Numbererface version：8 |
+| version | number | Yes | Numbererface version: 8 |
 
-Example：
+Example: 
 
 ```json
 {
-    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
-    "phoneNumber":"+8613185260282",// or "email":"test@test.com"
-    "password":"12345678",
+    "appid": "McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "phoneNumber": "+8613185260282", // or "email": "test@test.com"
+    "password": "12345678",
     "ts": 1558004249,
     "version":8,
-    "nonce":"asbsedwq"
+    "nonce": "asbsedwq"
 }
 ```
 
-Note：
+Note: 
 
 - Change region parameter to your own server. 4 servers available now, respetively cn, as, eu, and us.
 - Users in mainland China should use: https://cn-api.coolkit.cn:8080 -> .cn as domain suffix
-- Users in other regions should use: https://cn-api.coolkit.cn:8080 -> .cc as domain suffix
+- Users in other regions should use: https://{region}-api.coolkit.cn:8080 -> .cc as domain suffix
 - Please check  for signature algorithm.
 
-**Response parameters：**
+**Response parameters:**
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
@@ -128,75 +128,75 @@ Note：
 | user | Array | No | user info |
 | region | string | No | registered region server |
 
-Error code：
+Error code: 
 
-400：Missing parameter  
-301：user in another server region, so app needs to relocate server and reconnect  
-401：Wrong account or password  
-402：Email inactivated  
-404：User does not exist  
-406：authentication failed（ wrong APPID or incomplete parameters）  
-500：server error  
+400: Missing parameter  
+301: user in another server region, so app needs to relocate server and reconnect    
+401: Wrong account or password  
+402: Email inactivated  
+404: User does not exist  
+406: authentication failed（ wrong APPID or incomplete parameters）  
+500: server error  
 
-**Example Response：**
+**Example Response:**
 
 ```json
 {
-    "at":"a527297584f1ca030579a90d2e800481e22e850a",
-    "rt":"24670a9e493ba18cf5d9750f14505705824fcfd9",
+    "at": "a527297584f1ca030579a90d2e800481e22e850a",
+    "rt": "24670a9e493ba18cf5d9750f14505705824fcfd9",
     "user":{
-        "_id":"5c984cd3dc8295fa0ef3e592",
-        "phoneNumber":"+8613185260282",
-        "appId":"1xMdjbmOBYctEJfye4EjFLR2M6YpYyyJ",
-        "lang":"cn",
-        "online":false,
-        "onlineTime":"2019-05-16T10:48:42.091Z",
-        "ip":"113.87.160.95",
-        "location":”Guangdong”,
-        "offlineTime":"2019-05-16T10:51:22.090Z",
+        "_id": "5c984cd3dc8295fa0ef3e592",
+        "phoneNumber": "+8613185260282",
+        "appId": "1xMdjbmOBYctEJfye4EjFLR2M6YpYyyJ",
+        "lang": "cn",
+        "online": false,
+        "onlineTime": "2019-05-16T10:48:42.091Z",
+        "ip": "113.87.160.95",
+        "location": "Guangdong",
+        "offlineTime": "2019-05-16T10:51:22.090Z",
         "appInfos":[
             {
-                "appVersion":"3.6.1",
-                "os":"android"
+                "appVersion": "3.6.1",
+                "os": "android"
             }
         ],
-        "nickname":"coco",
+        "nickname": "coco",
         "yanKanYunInfo":{
-            "username":"yk_+8613185260282",
-            "uid":"a26c94ad607a4a47885dcacbcd66b50a",
-            "app_id":"15241956565715",
-            "accountType":0,
-            "password":"12345678",
-            "token":"f4d0e6f389f441f1aa61d815ac833b90"
+            "username": "yk_+8613185260282",
+            "uid": "a26c94ad607a4a47885dcacbcd66b50a",
+            "app_id": "15241956565715",
+            "accountType": 0,
+            "password": "12345678",
+            "token": "f4d0e6f389f441f1aa61d815ac833b90"
         },
-        "createdAt":"2019-03-25T03:36:51.335Z",
-        "apikey":"95da0fea-6834-469a-b247-4dd5ee9a51f1"
+        "createdAt": "2019-03-25T03:36:51.335Z",
+        "apikey": "95da0fea-6834-469a-b247-4dd5ee9a51f1"
     },
-    "region":"cn"
+    "region": "cn"
 }
 ```
 
-Note：
+Note: 
 
-- [at] is the required parameter for other interfaces, to replace [Authorization]（Authorization：Bearer+SPACE+at）.
+- [at] is the required parameter for other interfaces, to replace [Authorization]（Authorization: Bearer+SPACE+at）.
 - [rt] is used to refresh [at].
 - [region] is the server in which your account is created.
 
 #### Step 2.Obtain device list
 
-- URL： https://{region}-api.coolkit.cc:8080/api/user/device
-- Method： get
+- URL: https://{region}-api.coolkit.cc:8080/api/user/device
+- Method: get
 
-**Request Parameters：**
+**Request Parameters:**
 
-Headers：
+Headers: 
 
 | Name | Value | Required | Example |
 | :--- | :--- | :--- | :--- |
 | Authorization | Bearer+SPACE+at | Yes | Bearer 074e8af6f5f10183647a6a4f5b51fdc6788f617a |
 | Content-Type | application/json | Yes | application/json |
 
-Params：
+Params: 
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
@@ -205,25 +205,25 @@ en English |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
-| version | number | Yes | Numbererface version：8 |
+| version | number | Yes | Numbererface version: 8 |
 
 
-Example：
+Example: 
 
 ```json
 https://eu-api.coolkit.cc:8080/api/user/device?lang=cn&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
 ```
 
-**Response parameters：**
+**Response parameters:**
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
-| error | number | No | Error code, error：0 Success |
+| error | number | No | Error code, error: 0 Success |
 | devicelist | [object] | Yes | return device list when request is successful |
 
-Note：If an empty list is returned, then there is no device in this account or the device hasn’t been associated with your APPID. In the case of lack association, you need to contact your salesperson to get help.
+Note: If an empty list is returned, then there is no device in this account or the device hasn’t been associated with your APPID. In the case of lack association, you need to contact your salesperson to get help.
 
-Device info list：
+Device info list: 
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
@@ -248,7 +248,7 @@ Device info list：
 | showBrand | N | boolean | Display brand and product model or not |
 | uiid | N | number | id of device ui |
 
-Example response：
+Example response: 
 
 ```json
 [
@@ -277,7 +277,7 @@ Example response：
         "__v": 0,
         "onlineTime": "2019-10-15T07:22:14.361Z",
         "ip": "110.110.110.110",
-        "location": “Guangdong”,
+        "location": "Guangdong",
         "settings": {
             "opsNotify": 0,
             "opsHistory": 1,
@@ -319,12 +319,12 @@ Example response：
 
 #### Step 3.Request distribution service
 
-- URL： https://{region}-api.coolkit.cc:8080/dispatch/app
-- Method： post
+- URL: https://{region}-api.coolkit.cc:8080/dispatch/app
+- Method: post
 
-**Request Parameters：**
+**Request Parameters:**
 
-Headers：
+Headers: 
 
 | Name | Value | Required | example |
 | :--- | :--- | :--- | :--- |
@@ -332,29 +332,29 @@ Headers：
 | Content-Type | application/json | Yes | application/json |
 
 
-Body：
+Body: 
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
-| accept | string | Yes | fixed parameter：ws |
+| accept | string | Yes | fixed parameter: ws |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
-| version | number | Yes | Numbererface version：8 |
+| version | number | Yes | Numbererface version: 8 |
 
-Example：
+Example: 
 
 ```json
 {
-    "accept":"ws",
-    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
+    "accept": "ws",
+    "appid": "McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
     "ts":15452192511,
     "version":8,
-    "nonce":"asbsedwq"
+    "nonce": "asbsedwq"
 }
 ```
 
-**Response parameters：**
+**Response parameters:**
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
@@ -365,16 +365,16 @@ Example：
 | reason | string | Yes | return ‘ok’ when successful |
 
 
-Error code：
+Error code: 
 
-0：success  
-400：Client Parameter error  
-401：authentication failed（ prompts to login）  
-402：[at] expired（ APP refreshes [access token] automatically）  
-403：no permission（ APP prompts no permission, for instance, app has no permission to access OTA interface）（401-403 authentication error sent by internal authorization system）  
-500：server error  
+0: success  
+400: Client Parameter error  
+401: authentication failed（ prompts to login）  
+402: [at] expired（ APP refreshes [access token] automatically）  
+403: no permission（ APP prompts no permission, for instance, app has no permission to access OTA interface）（401-403 authentication error sent by internal authorization system）  
+500: server error  
 
-**Example Response：**
+**Example Response:**
 
 ```json
 {
@@ -388,15 +388,15 @@ Error code：
 
 #### Step 4.Establish persistent connection
 
-Workflows for establishing websocket connection and sending control commands：
+Workflows for establishing websocket connection and sending control commands: 
 
 ![controlDeviceProcess](./img/controlDeviceProcess.jpeg)
 
 Establish persistant connection through the IP or domain+Port returned from Step 3.
 
-Request：wss://eu-pconnect2.coolkit.cc:8080/api/ws
+Request: wss://eu-pconnect2.coolkit.cc:8080/api/ws
 
-WebSocket test tool： [http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
+WebSocket test tool:  [http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
 
 Create handshake through IP returned by distribution service or domain.
 
@@ -411,24 +411,24 @@ Handshake example:
 
 ```json
 {
-    "action":"userOnline",
+    "action": "userOnline",
     "version":8,
     "ts":1571141259,
     "at": "<AT>",
-    "userAgent":"app",
-    "apikey":"<USER APIKEY>",
-    "nonce":"2plz69ax",
-    "sequence":"1571141530100",
+    "userAgent": "app",
+    "apikey": "<USER APIKEY>",
+    "nonce": "2plz69ax",
+    "sequence": "1571141530100",
   	"appid": "xxxx"
 }
-// remove space before you compress it：https://www.json.cn/
+// remove space before you compress it: https://www.json.cn/
 ```
 
-**handshake success response：**
+**handshake success response:**
 
 ![userOnlineSuccess.png](./img/userOnlineSuccess.png)
 
-**Hearbeat Interval：**
+**Hearbeat Interval:**
 
 'hbInterval' means hearbeat Interval. '**ping**' needs to be sent in 145S.Server will respond pong when ping is received.You can send ping manually when testing.
 
@@ -436,13 +436,13 @@ Handshake example:
 
 #### Step 6.Control devices
 
-Note：
+Note: 
 
 Device will report data when its status changes.Once the app receives the update, it will sync device status. When you are hosting your own server or client, you can also take down the change and use it for statistics or logs features.
 
 ![controlDevice](./img/controlDevice.png)
 
-**Send control command：**
+**Send control command:**
 
 Params vary accoridng to protocols.When business agreement is reached, '**protocol documentation**' will be provided by your salesperson based on the type of your devices.
 
@@ -454,13 +454,13 @@ Example:
 
 ```json
 {
-    "action":"update",
-    "apikey":"<USER APIKEY>",
-    "deviceid":"10000xxxxx",
-    "userAgent":"app",
-    "sequence":"1571141530100",
+    "action": "update",
+    "apikey": "<USER APIKEY>",
+    "deviceid": "10000xxxxx",
+    "userAgent": "app",
+    "sequence": "1571141530100",
     "params":{
-        "switch":"off"
+        "switch": "off"
     }
 }
 // remove space before you compress it
@@ -472,18 +472,18 @@ Example:
 
 'error:0' means success. For more error codes, please check 「**Update/Report Status**」
 
-Example：
+Example: 
 
 ```json
 {
     "error":0,
-    "deviceid":"10000xxxxx",
-    "apikey":"xxxxx",
-    "sequence":"1571141530100"
+    "deviceid": "10000xxxxx",
+    "apikey": "xxxxx",
+    "sequence": "1571141530100"
 }
 ```
 
-Note：
+Note: 
 
 - If device is shared by other user,you must select apikey returned from device list.If you are device owner,both apikey returned from login and apikey from device list will work.
 - Device must be online.After command is sent, check if device turns on/off accordingly.When device is offline, error will be returned for sure.
@@ -494,12 +494,12 @@ If everything goes on well until now, next, please check '**API Center**' for ho
 
 Preparation for accessing Cloud platform services,including descriptions of general parameters,introduction to signature rule for authorization,examples for signature calculation, and expanation for access token and refresh token.
 
-Description：
+Description: 
 
 Parameters in general instructions are public for all APIs.Accessing API takes both general parameters and interface parameters.（General instructions only apply to REST API.For WebSocket API, please check distribution service）
 
 - HTTP Request Header should specify Content-Type:application/json
-- Character Encoding：utf-8
+- Character Encoding: utf-8
 - The Authorization field of HTTP Request Header must include signature or access token value
 - Both HTTP and websocket uses SSL/TLS，port is 8080，Server end supports SSLV3,TLS1.1, TLS 1.2
 
@@ -509,10 +509,10 @@ Parameters in general instructions are public for all APIs.Accessing AP
 | :--- | :--- | :--- | :--- |
 | appid  | string | Yes | appid provided by Coolkit |
 | nonce  | string | Yes | 8-digit random alphanumeric String |
-| ts | number | Yes | timestamp of API calling, say current timestamp（timestamp：current time in seconds from Epoch（Jan 1, 1970），say unix-timestamp） |
+| ts | number | Yes | timestamp of API calling, say current timestamp（timestamp: current time in seconds from Epoch（Jan 1, 1970），say unix-timestamp） |
 | version | number | Yes | Numbererface version:8 |
 
-Note：
+Note: 
 
 - In principle, user or device apikey should be uploaded. Upload apikey of device when operating on devices such as checking device info, change device name etc.
 - When getting 400 error from interface, please check these required parameters.
@@ -521,9 +521,9 @@ Note：
 
 - All API accessing(including login) before login requires signature calculation.Signature value is put in **Authorization.**
 
-e.g. _Authorization：Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=_
+e.g. _Authorization: Sign QtKh6EnKoNmPnv17Ump3b/6r2hjojWb4nqSt4lnyj2U=_
 
-- GET Request：
+- GET Request: 
     Order all parameters alphabetically based on the names of parameters and concatenate them with &:
 
 ```json
@@ -544,26 +544,26 @@ e.g
 {"appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr","nonce":"232323df","ts":1558004249,"version":8,"phoneNumber":"+8613123456789","password":"12345678"}
 ```
 
-Or：
+Or: 
 
 ```json
 {"appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr","nonce":"232323df","ts":1558004249,"version":8,"email":"123@gmail.com","password":"12345678"}
 ```
 
-**Note：**
+**Note:**
 
-Country code must be added to the value of phoneNumber,such as：+86
+Country code must be added to the value of phoneNumber,such as: +86
 Only one of phoneNumber and email need to be passed. 'phoneNumber' is passed only for accounts in cn server, 'email' or 'phoneNumber' for as server, 'email' for eu and us server.
 
 **Signature Calculation**
 
-**Sha256 encrypted calculation examples in other programming languages：**[https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/](https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
+**Sha256 encrypted calculation examples in other programming languages:**[https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/](https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
 
 Online calculation site: [https://1024tools.com/hmac](https://1024tools.com/hmac)
 
 ![calculateSignature](./img/calculateSignature.png)
 
-- Signature Algorithm demo①： taking login as example, method：POST（check 'signature rule' for GET method）
+- Signature Algorithm demo①: taking login as example, method: POST（check 'signature rule' for GET method）
 
 ```Javascript
 // node.js
@@ -577,7 +577,7 @@ console.log(theSign)
 // XuOzGxtG50CiF4H3odUfZsvKVl5+qSPzhfLEuUd4eJw=
 ```
 
-- Signature Algorithm demo②：
+- Signature Algorithm demo②: 
 
 ```Python
 # Python
@@ -630,7 +630,7 @@ After login succeeds,access token will be returned（at returned after login，s
 - Connect device to Internet
 - Add device to user account
 
-Note：
+Note: 
 
 - Pairing process only fits for devices that can not be paired by eWeLink APP, such as a device whose APP is developed by yourself.
 - Devices that can be added through eWeLink APP do not need to go through this pairing process.
@@ -667,16 +667,16 @@ Content-Length: 99
 
 ```json
 {
-  "deviceid":"100000788a",
-  "apikey":"4b21ebbe-8870-4d4a-93f2-*********",
-  "chipid":"sjljb",
-  "accept":"post"
+  "deviceid": "100000788a",
+  "apikey": "4b21ebbe-8870-4d4a-93f2-*********",
+  "chipid": "sjljb",
+  "accept": "post"
 }
 ```
 
 7. APP requests add device interface and add parameters of devices to user account
 
-8. APP sends：distribution server address, port, WiFi SSID and password
+8. APP sends: distribution server address, port, WiFi SSID and password
 
 ```json
 POST /ap HTTP/1.1
@@ -689,7 +689,7 @@ Content-Length: 76
 ```
 
 ```json
-{"port":443,"serverName":"{region}-disp.coolkit.cc","password":"12345678","ssid":"eWelink"}
+{"port":443,"serverName": "{region}-disp.coolkit.cc","password": "12345678","ssid": "eWelink"}
 ```
 
 Note: {region}-disp.coolkit.cc, can be cn, as, us, eu, for example: eu-disp.coolkit.cc
