@@ -1038,7 +1038,7 @@ Error code:
 
 Change the name of the channel of multi-channel device.
 
-- URL: https://{region}-api.coolkit.cc:8080/api/user/api/user/tags
+- URL: https://{region}-api.coolkit.cc:8080/api/user/tags
 - Method: post
 
 **Request Parameters:**
