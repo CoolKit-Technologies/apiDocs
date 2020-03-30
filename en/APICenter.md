@@ -54,8 +54,8 @@ https://api.coolkit.cc:8080/api/user/region?country_code=86&appid=McFJj4Noke1mGD
 
 | Name | Type | Required | Comment |
 | :--- | --- | --- | --- |
-| region | string | Yes | Region server |
 | error | number | Yes |  |
+| region | string | Yes | Region server |
 | requestid| string| No| ts+"-"+nonce |
 
 **Example Response:**
@@ -123,6 +123,7 @@ Note:
 
 
 | Name | Type | Required | Comment |
+| :--- | :--- | :--- | :--- |
 | error | number | Yes | Error code |
 | region | string | No | returned when account not in current region |
 | msg | string | No | error cause |
@@ -1516,7 +1517,7 @@ Parameters are as follows:
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
 | userAgent | string | Yes | fixed parameter: app |
-| sequence | number | Yes | 13-digit standard timestamp |
+| sequence | string | Yes | 13-digit standard timestamp |
 | version | number | Yes | Numbererface version: 8 |
 
 Example: 
@@ -1531,7 +1532,7 @@ Example:
    "apikey":"APIKEY obtained from login interface",
    "appid":"McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr",
    "nonce":"2plz69ax",
-   "sequence": 1571141530100
+   "sequence": "1571141530100"
 }
 // Remove SPACE before compressing, 不要带多余的逗号
 ```
@@ -1543,7 +1544,7 @@ Example:
 | error | Yes | number | Error code |
 | apikey | Yes | string | user apikey |
 | config | No | string | configuration info |
-| sequence | Yes | number | 13-digit standard timestamp |
+| sequence | Yes | string | 13-digit standard timestamp |
 
 Configdescription: 
 
@@ -1582,7 +1583,7 @@ Parameters:
 | action | string | Yes | fixed parameter: sysmsg |
 | apikey | string | Yes | user apikey（obtainable from login page） |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
-| ts | number | Yes | 10-digit standard timestamp |
+| ts | number | Yes | fixed parameter: 0 |
 | deviceid | string | Yes | device ID |
 | params | object | Yes | Parameters: {k:v} |
 
@@ -1593,7 +1594,7 @@ Example:
     "action":"sysmsg",
     "deviceid":"1000000001",
     "apikey":"User APIKEY",
-    "ts": 15452192511,
+    "ts": 0,
     "params":{
         "online":false
     }
@@ -1615,7 +1616,7 @@ Parameters:
 | deviceid | string | Yes | device ID |
 | params | object | Yes | The statuses of device to change, either object or object array. Server sends sends this parameter by transparent transmission. |
 | userAgent | string | Yes| client: app|
-| sequence | number | Yes| 13-digit standard timestamp |
+| sequence | string | Yes| 13-digit standard timestamp |
 | ts | number | Yes | fixed parameter: 0|
 
 Example: 
@@ -1626,7 +1627,7 @@ Example:
     "deviceid":"10000001",
     "apikey":"User Apikey",
     "userAgent":"app",
-    "sequence": 1585297259553,
+    "sequence": "1585297259553",
     "ts": 0,
     "params":{
         "switch": "on" // 1 channel device
@@ -1646,7 +1647,7 @@ Contact your salesperson to get related protocol documentation. For those who us
 | error | number | Yes | Error code |
 | apikey | string | No | User APIKEY |
 | deviceid | string | No | device ID |
-| sequence | number | Yes| 13-digit standard timestamp |
+| sequence | string | Yes| 13-digit standard timestamp |
 
 Example: 
 
@@ -1655,7 +1656,7 @@ Example:
     "error": 0,
     "deviceid": "1000000001",
     "apikey": "***************",
-    "sequence": 1585297259553
+    "sequence": "1585297259553"
 }
 ```
 
@@ -1677,7 +1678,7 @@ Parameters:
 | deviceid | string | Yes | device ID |
 | params | array | Yes | String array specifying parameters to check. By default, check all parameters. |
 | userAgent | string | Yes |client: app |
-| sequence | number | Yes| 13-digit standard timestamp |
+| sequence | string | Yes| 13-digit standard timestamp |
 | ts | number | Yes | fixed parameter: 0|
 
 Example: 
@@ -1687,10 +1688,9 @@ Example:
     "action":"query",
     "deviceid":"1000000001",
     "apikey":"User APIKEY",
-    "sequence": 1585296084000,
+    "sequence": "1585296084000",
     "params":["switch","timers"], // If the return is empty, you can use [] to query the status of all fields
     "ts": 0,
-  	"from": "app",
     "userAgent": "app"
 }
 ```
@@ -1718,7 +1718,7 @@ Example:
     "apikey":"***************",
     "params":{
         "switch":"on",
-      ...
+        ...
     }
 }
 ```
@@ -1740,10 +1740,11 @@ Parameters:
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: share |
 | apikey | string | Yes | user apikey（obtainable from login page） |
+| selfApikey | string | Yes | user apikey: Same as apikey|
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
 | userAgent | string | Yes | fixed parameter: app |
-| sequence | number | Yes | 13-digit standard timestamp |
+| sequence | string | Yes | 13-digit standard timestamp |
 
 Params description: 
 
@@ -1753,8 +1754,9 @@ Params description:
 | deviceName | string | Yes | device name by owner |
 | userName | string | Yes | user name of owner |
 | permit | number | No | um of permission values, calculated by offset. |
-| shareTime | number | No | GMT standard time, in milliseconds, used to order sharing in app |
+| shareTime | string | No | GMT standard time, in milliseconds, used to order sharing in app |
 | note | string | Yes | Note by owner, 10 Chinese characters at most |
+| sender_appid | string | Yes | sender appid |
 
 **permit Calculation Rules: 1:add new timers; 2:edit timers; 4:delete timers; 8:enable timers；The sum of all four permissions is 15.**
 
@@ -1764,15 +1766,18 @@ Example:
 {
     "action":"share",
     "apikey":"User APIKEY",
-    "deviceid":"1000000001",
-    "sequence":1585296084000,
-    "userAgent":"app",
+    "selfApikey": "User APIKEY",
+    "deviceid": "1000000001",
+    "sequence": "1585296084000",
+    "userAgent": "app",
     "params":{
         "uid":"+86127123456789",
         "deviceName":"My device 00001",
         "userName":"Friend",
         "permit":15,
-        "note":"Test sharing."
+        "note":"Test sharing.",
+        "shareTime": "1584231085395",
+        "sender_appid": "McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr"
     }
 }
 ```
@@ -1785,7 +1790,7 @@ Example:
 | error | number | Yes | Error code |
 | apikey | string | No | User APIKEY |
 | deviceid | string | No | device ID |
-| sequence | number | No | 13-digit standard timestamp, returned by server as is |
+| sequence | string | No | 13-digit standard timestamp, returned by server as is |
 
 **Example Response:**
 
@@ -1795,7 +1800,7 @@ Example:
   "result": 2,
   "apikey":"User APIKEY",
   "deviceid": "1000000001",
-  "sequence": 1585296084000
+  "sequence": "1585296084000"
 }
 ```
 
@@ -1812,7 +1817,7 @@ Parameters:
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
 | userAgent | string | Yes | fixed parameter: app |
-| sequence | number | Yes | 13-digit standard timestamp |
+| sequence | string | Yes | 13-digit standard timestamp |
 
 paramsdescription: 
 
@@ -1831,18 +1836,18 @@ Example:
 
 ```json
 {
-    "action":"updateShare",
-    "apikey":"User APIKEY",
-    "deviceid":"1000000001",
-    "sequence":1585296084000,
-    "nonce":"asdasvz1",
-    "userAgent":"app",
+    "action": "updateShare",
+    "apikey": "User APIKEY",
+    "deviceid": "1000000001",
+    "sequence": "1585296084000",
+    "nonce": "asdasvz1",
+    "userAgent": "app",
     "params":{
-        "uid":"+86127123456789",
-        "deviceName":"My device 00001",
-        "userName":"Friend",
-        "permit":11,
-        "note":" Testing share edit. "
+        "uid": "+86127123456789",
+        "deviceName": "My device 00001",
+        "userName": "Friend",
+        "permit": 11,
+        "note": "Testing share edit. "
     }
 }
 ```
@@ -1855,7 +1860,7 @@ Example:
 | error | string | Yes | Error code |
 | apikey | string | No | User APIKEY |
 | deviceid | string | No | device ID|
-| sequence | number | No | 13-digit standard timestamp, returned by server as is |
+| sequence | string | No | 13-digit standard timestamp, returned by server as is |
 
 Error code: 
 
@@ -1894,7 +1899,7 @@ Parameters:
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
 | userAgent | string | Yes | fixed parameter: app |
-| sequence | number | Yes | 13-digit standard timestamp |
+| sequence | string | Yes | 13-digit standard timestamp |
 
 paramsdescription: 
 
@@ -1910,7 +1915,7 @@ Example:
     "action":"cancelShare",
     "apikey":"User APIKEY",
     "deviceid":"1000000001",
-    "sequence":1585296084000,
+    "sequence": "1585296084000",
     "userAgent":"app",
     "params":{
         "uid":"+86127123456789",
@@ -1924,7 +1929,7 @@ Example:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | error | string | Yes | Error code |
-| sequence | number | No | 13-digit standard timestamp, returned by server as is |
+| sequence | string | No | 13-digit standard timestamp, returned by server as is |
 
 Error code: 
 
