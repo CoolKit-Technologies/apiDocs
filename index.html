@@ -19,6 +19,10 @@
   <div id="app"></div>
   
   <script>
+    // 兼容旧域名
+    if (window.location.href == 'https://coolkit-technologies.github.io/apiDocs/index.html'){
+      window.location.href = 'https://coolkit-technologies.github.io/apiDocs/'
+    }
     window.$docsify = {
       name: {
         '/zh-cmn/': '酷宅开放平台 3.0',
