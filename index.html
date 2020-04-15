@@ -24,7 +24,7 @@
     const my_href = new Set(['https://coolkit-technologies.github.io/apiDocs/index.html','https://coolkit-technologies.github.io/apiDocs/index.html#/']);
     let my_url = window.location.href;
     if(my_href.has(my_url) ){
-      my_url = 'https://coolkit-technologies.github.io/apiDocs/'
+      window.location.href = 'https://coolkit-technologies.github.io/apiDocs/'
     }
     window.$docsify = {
       name: {
