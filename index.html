@@ -21,8 +21,10 @@
   
   <script>
     // 兼容旧域名
-    if ((window.location.href == 'https://coolkit-technologies.github.io/apiDocs/index.html') || (window.location.href == 'https://coolkit-technologies.github.io/apiDocs/index.html#/')){
-      window.location.href = 'https://coolkit-technologies.github.io/apiDocs/'
+    const my_href = new Set(['https://coolkit-technologies.github.io/apiDocs/index.html','https://coolkit-technologies.github.io/apiDocs/index.html#/']);
+    let my_url = window.location.href;
+    if(my_href.has(my_url) ){
+      my_url = 'https://coolkit-technologies.github.io/apiDocs/'
     }
     window.$docsify = {
       name: {
