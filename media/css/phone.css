@@ -1,0 +1,15 @@
+.cover-main span,.cover-main blockquote,.cover-main ul{
+    color: #fff;
+  }
+  section.cover .cover-main>p:last-child a{
+    background-color: #fff;
+  }
+  
+  .app-nav a {
+    color: #999;
+  }
+  
+  section.cover .cover-main>p:last-child a:last-child:hover{
+    opacity: 1;
+  }
+  
