@@ -653,7 +653,10 @@ Note:
 ```json
 GET /device HTTP/1.1
 Host: 192.168.1.1
-Connection: Keep-Alive
+Accept: application/json
+Content-Type: application/json;charset=UTF-8,
+Package-Name: com.coolkit
+Cache-Control: no-store
 ```
 
 6. Device responds:（Responds deviceID, apikey）
