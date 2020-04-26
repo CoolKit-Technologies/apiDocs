@@ -652,9 +652,9 @@ Note:
 
 ```json
 GET /device HTTP/1.1
-Host: 192.168.1.1
+Host: 172.10.0.163
 Accept: application/json
-Content-Type: application/json;charset=UTF-8,
+Content-Type: application/json;charset=UTF-8
 Package-Name: com.coolkit
 Cache-Control: no-store
 ```
@@ -683,19 +683,20 @@ Content-Length: 99
 
 ```json
 POST /ap HTTP/1.1
-User-Agent: Dalvik/1.6.0 (Linux; U; Android 4.4.2; SM705 Build/SANFRANCISCO)
-Host: 192.168.1.1
-Connection: Keep-Alive
-Accept-Encoding: gzip
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 76
+Host: 172.10.0.163
+Accept: application/json
+Content-Type: application/json;charset=UTF-8
+Package-Name: com.coolkit
+Cache-Control: no-store
 ```
 
 ```json
 {"port":443,"serverName": "{region}-disp.coolkit.cc","password": "12345678","ssid": "eWelink"}
 ```
 
-Note: {region}-disp.coolkit.cc, can be cn, as, us, eu, for example: eu-disp.coolkit.cc
+Note: {region}-disp.coolkit.cc, region can be as, us, eu, for example: eu-disp.coolkit.cc
+
+cn region write：cn-disp.coolkit.cn
 
 9. Device response:
 
@@ -710,7 +711,7 @@ Content-Length: 11
 {"error":0}
 ```
 
-Pairing completed
+Pairing completed, The application can request the "Get Device List" interface at this time to obtain the added device information. At the same time, a long connection should be established to monitor the device online status and wait for the device online message.
 
 #### AP Pairing Process
 
