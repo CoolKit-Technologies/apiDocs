@@ -1788,9 +1788,9 @@ Example:
 | :--- | :--- | :--- | :--- |
 | result | number | No | 1: user not found；2: user accepted；3: user refused；4: sharing completed |
 | error | number | Yes | Error code |
-| apikey | string | No | User APIKEY |
+| apikey | string | No | Sharer user apikey, return what you receive |
 | deviceid | string | No | device ID |
-| sequence | string | No | 13-digit standard timestamp, returned by server as is |
+| sequence | string | No | 13-digit standard timestamp, return what you receive |
 
 **Example Response:**
 
@@ -1798,9 +1798,9 @@ Example:
 {
   "error": 0,
   "result": 2,
-  "apikey":"User APIKEY",
-  "deviceid": "1000000001",
-  "sequence": "1585296084000"
+  "apikey": "Sharer user apikey", // return what you receive
+  "deviceid": "1000000001", // return what you receive
+  "sequence": "1585296084000" // return what you receive
 }
 ```
 
