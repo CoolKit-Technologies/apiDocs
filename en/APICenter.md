@@ -1506,6 +1506,8 @@ When creating wss connection, client will verify the consistency of domain in ce
 
 Consequently, we suggest skipping verification for certificate domain (which works for both android and java). When impossible to skip certificate verification, the last resort would be to create wss connection with domain name.
 
+- URL: wss://IP:Port/api/ws 
+
 Parameters are as follows:
 
 | Name | Type | Required | Comment |
