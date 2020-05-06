@@ -761,7 +761,7 @@ Params:
 Example: 
 
 ```json
-https://eu-api.coolkit.cc:8080/api/user/device/1000000001?deviceid=&1000000001&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq
+https://eu-api.coolkit.cc:8080/api/user/device/1000000001?deviceid=&1000000001&appid=McFJj4Noke1mGDZCR1QarGW7P9Ycp0Vr&ts=1558004249&version=8&nonce=asbsedwq&apikey=95da0fea-6834-469a-b247-4dd5ee9a51f1
 ```
 
 **Response parameters:**
