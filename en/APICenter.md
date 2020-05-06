@@ -752,6 +752,7 @@ Params:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | deviceid | string | Yes | device ID |
+| apikey | string | Yes | user apikey(obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1127,7 +1128,7 @@ Body:
 | index | number | Yes | index of the group |
 | name | string | Yes | Group name |
 | groupType | number | Yes | fixed parameter: 0 |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1196,7 +1197,7 @@ Body:
 | index | number | Yes | group index |
 | name | string | Yes | group name |
 | groupType | number | Yes | fixed parameter: 0 |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1253,7 +1254,7 @@ Params:
 | :--- | :--- | :--- | :--- |
 | id | string | Yes | groupid |
 | type | number | Yes | fixed parameter: 0 |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1302,7 +1303,7 @@ Body:
 | :--- | :--- | :--- | :--- |
 | deviceinfos | Array | Yes | device array: [device] |
 | groupType | number | Yes | fixed parameter: 0 |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1374,7 +1375,7 @@ Params:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | groupType | number | Yes | fixed parameter: 0 |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1514,7 +1515,7 @@ Parameters are as follows:
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: userOnline |
 | at | string | Yes | AT obtainbed from login interface |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
@@ -1583,7 +1584,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: sysmsg |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | fixed parameter: 0 |
 | deviceid | string | Yes | device ID |
@@ -1614,7 +1615,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: update |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | deviceid | string | Yes | device ID |
 | params | object | Yes | The statuses of device to change, either object or object array. Server sends sends this parameter by transparent transmission. |
 | userAgent | string | Yes| client: app|
@@ -1676,7 +1677,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: query |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | deviceid | string | Yes | device ID |
 | params | array | Yes | String array specifying parameters to check. By default, check all parameters. |
 | userAgent | string | Yes |client: app |
@@ -1741,7 +1742,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: share |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | selfApikey | string | Yes | user apikey: Same as apikey|
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
@@ -1815,7 +1816,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: updateShare |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey (obtainable from login page) |
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
 | userAgent | string | Yes | fixed parameter: app |
@@ -1897,7 +1898,7 @@ Parameters:
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
 | action | string | Yes | fixed parameter: cancelShare |
-| apikey | string | Yes | user apikey（obtainable from login page） |
+| apikey | string | Yes | user apikey(obtainable from login page) |
 | deviceid | string | Yes | device ID |
 | params | Array | Yes | share parameters |
 | userAgent | string | Yes | fixed parameter: app |
