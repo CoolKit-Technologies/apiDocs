@@ -200,8 +200,7 @@ Params:
 
 | Name | Type | Required | Comment |
 | :--- | :--- | :--- | :--- |
-| lang | string | No | the languages of response, cn means Chinese 
-en English |
+| lang | string | No | the languages of response, cn means Chinese, en English |
 | appid | string | Yes | APPID |
 | nonce | string | Yes | 8-digit random alphanumeric characters |
 | ts | number | Yes | 10-digit standard timestamp |
