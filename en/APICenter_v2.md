@@ -745,11 +745,13 @@ Request parameters:
 
 | **Name** | **Type** | **Allows empty** | **Description**                                                                                                                                     |
 |:-------- |:-------- |:---------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id       | String   | N                | ID code, by the formula: MD5(deviceid+apikey). Pay attention to the order.                                                                          |
+| id       | String   | N                | Obtain the device gsmId from the QR code on the scanning device, format: https://api.coolkit.cc:8080/api/user/device/addGsm?id=348512d49379bb0acace4598e14fc450|
 | name     | String   | N                | Device name                                                                                                                                         |
 | familyid | String   | Y                | The home ID of the device. When this field is empty, the device will be added to the current home.                                                  |
 | roomid   | String   | Y                | The ID of the room to which the device belongs. If it is empty, the device will be added to [Unallocated].                                          |
 | sort     | Int      | Y                | The way to assign a sequence number to a new device.  If this field is empty, the default is 1.  1=smaller sequence number 2=larger sequence number |
+
+Note: The application scans the QR code on the device to obtain a URL format string. Please note that the domain name may be changed, but "/addGsm?id={gsmId}" will not change here.
 
 Response data parameters:
 

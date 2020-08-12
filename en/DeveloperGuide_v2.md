@@ -96,7 +96,6 @@ The value of phoneNumber needs to add country code such as: +86
 
 phoneNumber or email, only one of them need to be passed. In China mainland only "phoneNumber" can be passed. In the rest of Asia region, "phoneNumber" or "email" can be passed, and "email" can be passed in Europe and America.
 
-
 Calculating the signature:
 
 Use the "app secret" as the key to generate the HMAC-SHA256 signature of the signed string, and set the Base64-encoded signature to Authorization.
