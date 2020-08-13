@@ -83,7 +83,6 @@ Request parameters:
 | phoneNumber      | String   | Y                | Mobile phone number（checked in priority）which starts with country code such as  "+8618023456789".  Either email or phoneNumber is required. Otherwise, error will occur. |
 | verificationCode | String   | N                | SMS/email verification code                                                                                                                                              |
 | password         | String   | N                | Password                                                                                                                                                                 |
-| extraPush        | Object   | Y                | Push channel, see [Login] interface                                                                                                                                      |
 
 Response data parameters:
 
@@ -129,21 +128,7 @@ Request parameters:
 | countryCode | String   | N                | Country code starting with "+", such as "+86"                                                                                                                            |
 | email       | String   | Y                | Email address, case-insensitive                                                                                                                                          |
 | phoneNumber | String   | Y                | Mobile phone number（checked in priority）which starts with country code such as  "+8618023456789".  Either email or phoneNumber is required. Otherwise, error will occur. |
-| password    | String   | N                | Password                                                                                                                                                                 |
-| extraPush   | Object   | Y                | Push channel                                                                                                                                                             |
-
-Note on extraPush：The server uses Umeng push by default. If an additional push channel is added to the appid, then push channel is required to call the login interface. Its fields are in the formats as follows.
-
-| **Name** | **Type** | **Allows empty** | **Description**                                                    |
-|:-------- |:-------- |:---------------- |:------------------------------------------------------------------ |
-| type     | String   | N                | Channel type, fcm=Google push                                      |
-| info     | Object   | N                | The definition of this filed varies according to the channel type. |
-
-When type is fcm, info is defined as follows
-
-| **Name** | **Type** | **Allows empty** | **Description** |
-|:-------- |:-------- |:---------------- |:--------------- |
-| token    | String   | N                | fcm push token  |
+| password    | String   | N                | Password|
 
 Response data parameters:
 
@@ -176,7 +161,6 @@ Request parameters:
 | **Name**         | **Type** | **Allows empty** | **Description**                                                          |
 |:---------------- |:-------- |:---------------- |:------------------------------------------------------------------------ |
 | countryCode      | String   | N                | Country code starting with "+", such as "+86"                            |
-| extraPush        | Object   | Y                | Push channel, see [Login] interface                                      |
 | lang             | String   | Y                | cn returns Chinese, and en returns English, default en                   |
 | phoneNumber      | String   | N                | Mobile phone number starting with country code, such as "+8618023456789" |
 | verificationCode | String   | N                | SMS Verification Code                                                    |
@@ -319,21 +303,6 @@ Response data parameters:
 |:-------- |:-------- |:---------------- |:--------------- |
 | at       | String   | N                | Access Token    |
 | rt       | String   | N                | Refresh Token   |
-
-
-### Set Additional Push Channel
-
-URL: /v2/user/extra-push
-
-Request method: post
-
-Request parameters:
-
-| **Name**  | **Type** | **Allows empty** | **Description**                     |
-|:--------- |:-------- |:---------------- |:----------------------------------- |
-| extraPush | Object   | N                | Push channel, see [Login] interface |
-
-Response data parameter：None
 
 ### Log Out
 

@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-13 18:41:13
+ * @LastEditTime: 2020-08-13 18:48:26
 --> 
 # API Reference
 
@@ -19,7 +19,6 @@
 | Get user info | get /v2/user/profile     | Get the information of current account such as the nickname. |
 | Update user info | post /v2/user/profile     | Update the information of current account such as the nickname. |
 | Refresh access token | post /v2/user/refresh     | “access token” expires in 30 days (for security reasons) by default. When this happens, no need to log in again to get 'access token', just use 'refresh token' endpoint to refresh the 'access token'.   |
-| Set up extra push channel | post /v2/user/extra-push     | Google push is supported. |
 | Log out | delete /v2/user/logout     | Log out |
 | Delete account | post /v2/user/close-account     | Delete account |
 
