@@ -8,8 +8,8 @@
 
 * [Platform Overview](/en/PlatformOverview)
 * [Pricing](/en/Pricing)
-* [Developer Guide v2](/en/DeveloperGuide_v2)
-* [API Center v2](/en/APICenter_v2)
+* [Developer Guide v2](/en/DeveloperGuideV2)
+* [API Center v2](/en/APICenterV2)
 * [Developer Guide](/en/DeveloperGuide)
 * [API Center](/en/APICenter)
 * [FAQ](/en/FAQ)
