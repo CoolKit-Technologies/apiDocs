@@ -193,31 +193,6 @@ Response data parameters:
 
 See [Login](/#/en/APICenterV2?id=account-login) interface for error responses.
 
-### WeChat quick login (Not available yet)
-
-Description：This interface will use the mobile phone number from the WeChat authorization to log in, and link the eWeChat account with the WeChat account.If the phone number does not exist, a new account will be created.Please refer to [here  ](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html) and [ here ](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)for WeChat quick login.
-
-URL: /v2/user/wx-login
-
-Request method: post
-
-Request parameters:
-
-| **Name**      | **Type** | **Allows empty** | **Description**                                 |
-|:------------- |:-------- |:---------------- |:----------------------------------------------- |
-| code          | String   | Y                | Authentication information authorized by WeChat |
-| encryptedData | String   | N                | Authentication information authorized by WeChat |
-| iv            | String   | N                | Authentication information authorized by WeChat |
-
-Response data parameters:
-
-| **Name** | **Type** | **Allows empty** | **Description**                                                |
-|:-------- |:-------- |:---------------- |:-------------------------------------------------------------- |
-| user     | User     | N                | User info. Please refer to the [Register an account] interface |
-| at       | String   | N                | Access Token                                                   |
-| rt       | String   | N                | Refresh Token                                                  |
-| region   | String   | N                | User's region code cn=China as=Asia  us=Americas  eu=Europe    |
-
 ### Send Verification Code
 
 URL: /v2/user/verification-code

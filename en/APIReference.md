@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-03 09:40:14
+ * @LastEditTime: 2020-08-13 18:41:13
 --> 
 # API Reference
 
@@ -13,7 +13,6 @@
 | Create account | post /v2/user/register | You can create an account with your email. |
 | Login   | post /v2/user/login     | You should log in before you access device data or other resources |
 | SMS login | post /v2/user/sms-login     |  Only users registered by phone number in mainland China has access to this. |
-| Wechat Login | post /v2/user/wx-login    | Quick register and login through Wechat phone number |
 | Send verification code | post /v2/user/verification-code| Send verification code to email or phone number.|
 | Reset password | post /v2/user/reset-pwd    |  When you forgot your password, reset password with this endpoint. |
 | Change password | post /v2/user/change-pwd     | After you have logged in, you can use this endpoint to change your password with your old password. |
