@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-13 18:48:26
+ * @LastEditTime: 2020-08-18 18:31:06
 --> 
 # API Reference
 
@@ -48,13 +48,13 @@
 | Delete group | delete /v2/device/group    | Delete a group |
 | Change group status | post /v2/device/group/status    | Update the status of a group, such as turning on/off a group.  |
 | Add device to group | post /v2/device/group/add    | The device to add should have the same UIID as existing devices in the group.  |
-| Delete from group | post /v2/device/group/delete    | Delete a device from the group  |
+| Delete devices from group | post /v2/device/group/delete    | Delete devices from the group  |
 | Add multiple devices to group | post /v2/device/group/update    | Add multiple devices to a group |
 | Share devices | post /v2/device/share    | Share devices to another user (in the same region server) |
 | Edit sharing permission | post /v2/device/share/permit    | Edit the timer permissions for the shared user |
 | Cancel sharing | delete /v2/device/share    | Cancel sharing devices with a user |
-| Get device logs | get /v2/device/history    | Get the action logs of a device |
-| Clean device logs | delete /v2/device/history    |  Clean the action logs of a device |
+| Get device operating history | get /v2/device/history    | Get device operating history |
+| Clean device operating history | delete /v2/device/history    |  Clean device operating history |
 | Check device OTA update | post /v2/device/ota/query | Check if there is any new firmware available for the device |
 
 ## Homes and rooms
