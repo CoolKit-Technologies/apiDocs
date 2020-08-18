@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-18 18:31:06
+ * @LastEditTime: 2020-08-19 11:56:01
 --> 
 # API Reference
 
@@ -32,8 +32,8 @@
 
 | Name   | API       | Description       |
 |------|-----------|-----------|
-| Get thing list | get /v2/device/thing     |  Get all the devices and groups under the specified home ID. 
-| Get a specified thing |  post /v2/device/thing    | Get a specified group or device |
+| Get thing list | get /v2/device/thing     |  Get all the devices and groups under the specified home ID. |
+| Get specified things list |  post /v2/device/thing    | Get specified groups or devices |
 | Get the status of a device or a group | get /v2/device/thing/status     |  Get the status of one device or a group, such as the on/off of a switch. |
 | Update one thing | post /v2/device/thing/status     | Set the status of a device or a group, such as the on/off of a switch. |
 | Update multiple things | post /v2/device/thing/batch-status | Update the statuses of multiple devices or groups such as the on/off of switches. |
