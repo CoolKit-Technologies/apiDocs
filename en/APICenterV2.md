@@ -1005,6 +1005,8 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:----------------------------------------------------------------------------------------------------------------------------- |
 | updatedThingList | Array    | N                | The updated thing list of  the shared devices. See [Add device] for data response, containing the information of shared user. |
 
+Note: post /v2/device/share will return the other party's apikey parameters, which can be written down and used in post /v2/device/share/permit and delete /v2/device/share.
+
 ### Change Sharing Permission
 
 URL: /v2/device/share/permit
@@ -1018,6 +1020,8 @@ Request parameters:
 | deviceid | String   | N                | Device ID                                                               |
 | apikey   | String   | N                | Apikey of the shared user whose sharing permissions are to be modified. |
 | permit   | Int      | N                | Updated sharing permissions. See [Device sharing] endpoint for details. |
+
+Note: The apikey parameter comes from the detailed information of the device. Please search for the parameter shareTo in the document.
 
 Response data parameters:
 
