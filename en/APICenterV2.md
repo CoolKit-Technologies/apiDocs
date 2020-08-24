@@ -68,7 +68,7 @@ Example 2: Error response
 
 ## User
 
-### Register an account
+### Create account
 
 URL: /v2/user/register
 
@@ -114,7 +114,7 @@ user:
 
 See [Login](/#/en/APICenterV2?id=account-login) interface for error responses.
 
-### Account login
+### Login
 
 URL: /v2/user/login
 
@@ -149,7 +149,7 @@ When the error is 10004, it means that the account is not in the current region,
 }
 ```
 
-### Log in with SMS code
+### SMS Login
 URL: /v2/user/sms-login
 
 Request method: post
@@ -250,7 +250,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Get user information
+### Get User Information
 
 URL: /v2/user/profile
 
@@ -267,7 +267,7 @@ Response data parameters:
 | user     | Object   | N                | User info. Please refer to the [Register an account] interface |
 | region   |  String  | N                | User's region code cn=China as=Asia  us=Americas  eu=Europe    |
 
-### Update user information
+### Update User Information
 
 URL: /v2/user/profile
 
@@ -283,7 +283,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Refresh Authentication Token
+### Refresh Access Token
 
 URL: /v2/user/refresh
 
@@ -477,7 +477,7 @@ family description：
 | index    | Int      | N                | Device index, which could be negative |
 | roomid   | String   | Y                | Room ID of the device                 |
 
-### Get Thing list
+### Get Thing List
 
 URL: /v2/device/thing
 
@@ -506,13 +506,13 @@ Response data parameters:
 
 List items of thingList
 
-| **Name** | **Type** | **Allows empty** | **Description**                                                                                                                                                                                                                                         |
+| **Name** | **Type** | **Allows empty** | **Description**|
 |:-------- |:-------- |:---------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| itemType | Int      | N                | Item type 1=user’s own device 2=device shared by others 3=user's own group                                                                                                                                                                              |
+| itemType | Int      | N                | Item type 1=user’s own device 2=device shared by others 3=user's own group|
 | itemData | Object   | N                | The structures of this field differs from itemType. When itemType is 1 or 2,  refer to the description for device list item in [Get the list of all devices] interface. For 3, see the description of groupList item in the [Get group list] interface. |
-| index    | Int      | N                | Sequence number                                                                                                                                                                                                                                         |
+| index    | Int      | N                | Sequence number|
 
-### Get specified Things list
+### Get Specified Things list
 
 URL: /v2/device/thing
 
@@ -537,7 +537,7 @@ Response data parameters:
 |:--------- |:-------- |:---------------- |:---------------------------------------------------------------- |
 | thingList | Array    | N                | Thing list.  Please refer to the description in [Get Thing list] |
 
-### Get device or group status
+### Get Device or Group Status
 
 URL: /v2/device/thing/status
 
@@ -568,7 +568,7 @@ Response data parameters:
 |:-------- |:-------- |:---------------- |:--------------------------------- |
 | params   | Object   | N                | Device or group status attributes |
 
-### Update the status of a device or group
+### Update the Status of a Device or Group
 
 URL: /v2/device/thing/status
 
@@ -590,7 +590,7 @@ Request parameters:
 Response data parameter: None
 
 
-### Update the status of multiple devices or groups
+### Update the Status of Multiple Devices or Groups
 
 Description: This interface will actually send control commands directly to the device, which is dedicated to devices that cannot be updated via a persistent connection.
 
@@ -627,7 +627,7 @@ Items in the respList:
 | id       | String   | N                | When type=1, this means deviceid. For 2, group ID.                                                                                |
 | error    | Int      | N                | Response error code, 0 means no error. If type=2, error is fixed to 0. If timeout is 0 when calling, error is fixed to 0 as well. |
 
-### Add WiFi device
+### Add WiFi Device
 
 URL: /v2/device/add
 
@@ -679,7 +679,7 @@ Note: In case that error code 30017 is returned, the reason is that the brand of
 }
 ```
 
-### Add GSM device
+### Add GSM Device
 
 URL: /v2/device/add-gsm
 
@@ -719,7 +719,7 @@ Items in the thingList:
 | itemData | Object   | N                | Please refer to the description of the deviceList items in the [Get the list of all devices] interface. |
 | index    | Int      | N                | Sequence number                                                                                         |
 
-### Update name/room of device
+### Update Name/Room of Device
 
 URL: /v2/device/update-info
 
@@ -735,7 +735,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Delete device
+### Delete Device
 
 URL: /v2/device
 
@@ -749,7 +749,7 @@ Request method: delete
 
 Response data parameter: None
 
-### Edit device tags
+### Change Device Tags
 
 This endpoint can be used to change the names of sub-channels or realize some special functions based on your own ideas.
 
@@ -791,7 +791,7 @@ Response data parameters:
 |:------------ |:-------- |:---------------- |:------------------------------------ |
 | updatedThing | Object   | N                | The thing data of the updated device |
 
-### Get group list
+### Get Group List 
 
 URL: /v2/device/group
 
@@ -840,7 +840,7 @@ family description:
 | index    | Int      | N                | The sequence number of the group, which could be a negative number |
 | roomid   | String   | Y                | The ID of the room to which the group is assigned                  |
 
-### Add group
+### Add Group
 
 URL: /v2/device/group
 
@@ -868,7 +868,7 @@ Response data parameters:
 | index            | Int                               | N                | Sequence number                                                                |
 | updatedThingList | Array\<Object\> | N                | The thing list of the updated devices, including the main device of the group. |
 
-### Edit group
+### Change Group Name
 
 URL: /v2/device/group
 
@@ -885,7 +885,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Delete group
+### Delete Group
 
 URL: /v2/device/group
 
@@ -899,7 +899,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Change group status
+### Change Group Status
 
 URL: /v2/device/group/status
 
@@ -914,7 +914,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Add devices to a group
+### Add Devices to a Group
 
 URL: /v2/device/group/add
 
@@ -935,7 +935,7 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:-------------------------------------- |
 | updatedThingList | Array    | N                | The thing list of the updated devices. |
 
-### Delete devices from a group
+### Delete Devices from Group 
 
 URL: /v2/device/group/delete
 
@@ -954,7 +954,7 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:-------------------------------------- |
 | updatedThingList | Array    | N                | The thing list of the updated devices. |
 
-### Update the device list of a group
+### Update the Device List of a Group
 
 URL: /v2/device/group/update
 
@@ -975,7 +975,7 @@ Response data parameter：
 |:---------------- |:-------- |:---------------- |:-------------------------------------- |
 | updatedThingList | Array    | N                | The thing list of the updated devices. |
 
-### Device sharing
+### Share Devices
 
 URL: /v2/device/share
 
@@ -1005,7 +1005,7 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:----------------------------------------------------------------------------------------------------------------------------- |
 | updatedThingList | Array    | N                | The updated thing list of  the shared devices. See [Add device] for data response, containing the information of shared user. |
 
-### Modify sharing permissions
+### Change Sharing Permission
 
 URL: /v2/device/share/permit
 
@@ -1025,7 +1025,7 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:--------------------------------------------------------------------------------------------------------------------------- |
 | updatedThingList | Array    | N                | The updated thing list of  the devices. See [Add device] interface for response, containing the information of shared user. |
 
-### Cancel sharing
+### Cancel Sharing
 
 URL: /v2/device/share
 
@@ -1044,7 +1044,7 @@ Response data parameters:
 |:---------------- |:-------- |:---------------- |:-------------------------------------------------------------------------------------------------------------------------- |
 | updatedThingList | Array    | N                | The updated thing list of the devices. See [Add device] interface for response, containing the information of shared user. |
 
-### Get device logs
+### Get Device Operating History
 
 URL: /v2/device/history
 
@@ -1075,7 +1075,7 @@ histories item description:
 | opsAccount | String   | Y                | If the action was requested in the app, the account of the requesting user (who may also be a shared user) will be returned.                                   |
 | opsTime    | Long     | N                | Timestamp of the action, accurate to milliseconds.                                                                                                             |
 
-### Clear device logs
+### Clean Device Operating History
 
 URL: /v2/device/history
 
@@ -1089,7 +1089,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Check for firmware updates
+### Get Device OTA Update Information
 
 URL: /v2/device/ota/query
 
@@ -1178,9 +1178,9 @@ When the device confirms that the file is fine, it will respond (based on differ
 
 Then the app prompts "Upgrade in progress" (unable to confirm the real OTA progress) and save the information of the original firmware version. In the process of device OTA upgrade, the device will reboot. After rebooting, it will report the new firmware version. When the app receives the new version, it compares with the original version. If the new is greater than the old, then firmware upgrade is successful, otherwise failure occured.
 
-## Homes and rooms
+## Homes and Rooms
 
-### Get the list of homes and rooms
+### Get Homes and Rooms
 
 URL: /v2/family
 
@@ -1216,7 +1216,7 @@ RoomList items:
 | name     | String   | N                | Room name                                             |
 | index    | Int      | N                | Sequence number of the room, which could be negative. |
 
-### Add a home
+### Add a Home
 
 URL: /v2/family
 
@@ -1239,7 +1239,7 @@ Response data parameters:
 | index    | Int                               | N                | Sequence number of home                                                                            |
 | roomList | Array\<Object\> | Y                | For the room list, please refer to the description of [Get the list of homes and rooms] interface. |
 
-### Add a room
+### Add a Room
 
 URL: /v2/family/room
 
@@ -1263,7 +1263,7 @@ Response data parameters:
 | name     | String   | N                | Room name                   |
 | index    | Int      | N                | Sequence number of the room |
 
-### Edit home
+### Change Home Name
 
 URL: /v2/family
 
@@ -1280,7 +1280,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Edit room
+### Change Room Name
 
 URL: /v2/family/room
 
@@ -1297,7 +1297,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Sort rooms
+### Sort Rooms
 
 URL: /v2/family/room/index
 
@@ -1314,7 +1314,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Delete home
+### Delete Home
 
 URL: /v2/family
 
@@ -1330,7 +1330,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Delete room
+### Delete Room
 
 URL: /v2/family/room
 
@@ -1344,7 +1344,7 @@ Request parameters:
 
 Response data parameter: None
 
-### Sort things in a home
+### Sort Things in a Home
 
 URL: /v2/family/thing/sort
 
@@ -1368,7 +1368,7 @@ thingList items:
 
 Response data parameter: None
 
-### Reorganize things in a room
+### Move things
 
 URL: /v2/family/room/thing
 
@@ -1382,11 +1382,11 @@ Request parameters:
 |:------------ |:-------- |:---------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | roomid       | String   | N                | Room ID                                                                                                                                                                                                                              |
 | oldThingList | Array    | N                | The thing list of the original room. If there are no things in the room, then an empty list [] is passed in. For the items of the list, please refer to the description of the thingList items in [Sort things in a home] interface. |
-| newThingList | Array    | N                | The adjusted thing list of the room.                                                                                                                                                                                                 |
+| newThingList | Array    | N                | The adjusted thing list of the room.|
 
 Response data parameter: None
 
-### Switch current home
+### Switch Current Home
 
 URL: /v2/family/current
 
@@ -1402,7 +1402,7 @@ Response data parameter: None
 
 ## Message Center
 
-### Get the list of messages
+### Get the List of Messages
 
 URL: /v2/message/read
 
@@ -1435,9 +1435,9 @@ MessageList items:
 
 Response data parameter: None
 
-## Manage and control device
+## Manage and Control Device
 
-### HTTP: Distribution service (APP)
+### HTTP: Distribution Service (APP)
 
 Distributed address for persistent connection used by the app
 
