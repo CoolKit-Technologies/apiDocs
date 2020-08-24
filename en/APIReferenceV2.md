@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-24 10:55:29
+ * @LastEditTime: 2020-08-24 14:37:53
 --> 
 # API Reference
 
@@ -19,16 +19,16 @@
 | Get User Info | get /v2/user/profile     | Get the information of current account such as the nickname. |
 | Update User Info | post /v2/user/profile     | Update the information of current account such as the nickname. |
 | Refresh Access Token | post /v2/user/refresh     | “access token” expires in 30 days (for security reasons) by default. When this happens, no need to log in again to get 'access token', just use 'refresh token' endpoint to refresh the 'access token'.   |
-| Log Out | delete /v2/user/logout     | Log out |
+| Logout | delete /v2/user/logout     | Log out |
 | Delete Account | post /v2/user/close-account     | Delete account |
 
-## Homepage
+## HomePage
 
 | Name   | API       | Description       |
 |------|-----------|-----------|
-| Homepage | post /v2/homepage     |  Allows you to check messages, scenes, things, homes, and user info.  |
+| HomePage | post /v2/homepage     |  Allows you to check messages, scenes, things, homes, and user info.  |
 
-## Manage device
+## Manage Device
 
 | Name   | API       | Description       |
 |------|-----------|-----------|

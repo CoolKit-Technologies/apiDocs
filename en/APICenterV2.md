@@ -304,7 +304,7 @@ Response data parameters:
 | at       | String   | N                | Access Token    |
 | rt       | String   | N                | Refresh Token   |
 
-### Log Out
+### Logout
 
 URL: /v2/user/logout
 
