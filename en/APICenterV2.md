@@ -1441,7 +1441,7 @@ Response data parameter: None
 
 ## Manage and Control Device
 
-### HTTP: Distribution Service (APP)
+### HTTP: DispatchService (APP)
 
 Distributed address for persistent connection used by the app
 
@@ -1492,7 +1492,7 @@ When establishing a wss connection, the client will verify whether the accessed 
 
 Hence, it is recommended that the client skip the domain name verification for the certificate (both android and java can do that). If you cannot skip the certificate verification, you can try to establish a wss connection via IP.
 
-Obtain the persistent connection address to be connected from [HTTP: Distribution service], and concatenate it into: "wss://IP:port/api/ws", so as to establish a persistent connection. After the handshake is successful, you need to send the string "ping" to the server periodically (see the hbInterval field for the interval) to keep the heartbeat, otherwise the device will be forced to go offline by the server.
+Obtain the persistent connection address to be connected from [HTTP: Dispatchservice], and concatenate it into: "wss://IP:port/api/ws", so as to establish a persistent connection. After the handshake is successful, you need to send the string "ping" to the server periodically (see the hbInterval field for the interval) to keep the heartbeat, otherwise the device will be forced to go offline by the server.
 
 Its parameters are as follows,
 

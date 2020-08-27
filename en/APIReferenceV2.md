@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-07-24 15:19:34
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-24 14:37:53
+ * @LastEditTime: 2020-08-27 15:33:54
 --> 
 # API Reference
 
@@ -83,7 +83,7 @@
 
 | Name   | API       | Description       |
 |------|-----------|-----------|
-| Distribution Service | Fixed interface  | Get the distributed address of the persistent connection for the app |
+| Dispatch Service | Fixed interface  | Get the distributed address of the persistent connection for the app |
 
 # Summary
 

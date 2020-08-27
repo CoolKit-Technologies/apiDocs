@@ -316,7 +316,7 @@ Example response:
 ]
 ```
 
-#### Step 3.Request distribution service
+#### Step 3.Request Dispatchservice
 
 - URL: https://{region}-api.coolkit.cc:8080/dispatch/app
 - Method: post
@@ -397,7 +397,7 @@ Request: wss://eu-pconnect2.coolkit.cc:8080/api/ws
 
 WebSocket test tool:  [http://www.blue-zero.com/WebSocket/](http://www.blue-zero.com/WebSocket/)
 
-Create handshake through IP returned by distribution service or domain.
+Create handshake through IP returned by Dispatchservice or domain.
 
 #### Step 5.Handshake
 
@@ -678,7 +678,7 @@ Content-Length: 99
 
 7. APP requests add device interface and add parameters of devices to user account
 
-8. APP sends: distribution server address, port, WiFi SSID and password
+8. APP sends: Dispatchserver address, port, WiFi SSID and password
 
 ```json
 POST /ap HTTP/1.1

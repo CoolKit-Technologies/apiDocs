@@ -1426,7 +1426,7 @@ Error code:
 
 ### HTTP : Server Dispatch
 
-Please refer to: [Developer Guide->Step 3: Request distribution service]
+Please refer to: [Developer Guide->Step 3: Request Dispatchservice]
 Persistent connection can only be built after address and port are obtained.
 
 - URL: https://{region}-api.coolkit.cc:8080/dispatch/app

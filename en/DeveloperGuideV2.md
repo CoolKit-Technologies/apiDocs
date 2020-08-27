@@ -56,7 +56,7 @@ Let’s get started  with a sample "How to develop my own application?".
 
 - Step 1: Log in to the account and get the access token by authenticating the account. Only after passing the authentication can you gain access to the service.
 - Step 2: Request the "Get Home Page" or "Get Things List" interface to get all the devices added under the account. Controlling devices requires device and user data.
-- Step 3: Access the distribution service to get the port, persistent connection IP, and other information.
+- Step 3: Access the Dispatchservice to get the port, persistent connection IP, and other information.
 - Step 4: Establish a persistent connection. According to the information obtained from step 3, establish a connection.
 - Step 5: According to the authentication information (at means access token) obtained from step 1, establish the handshake. Once the handshake is established, you've passed the authentication and you are allowed to control devices.
 - Step 6: Control the device. Send the update command according to the device information obtained from step 2 to control the device.
@@ -253,7 +253,7 @@ Content-Length: 99
 
 7. APP requests "Add WiFi Device" HTTP interface, the request parameters include device ID, device APIKEY, CHIPID and other information. After the call is successful, the device can be added to the user account.
 
-8. APP sending: Distribution service address, port number, WiFi hotspot SSID and password
+8. APP sending: Dispatchservice address, port number, WiFi hotspot SSID and password
 
 ```json
 POST /ap HTTP/1.1
@@ -267,7 +267,7 @@ Cache-Control: no-store
 Body：
 
 ```json
-{"port":443,"serverName":"device long connection distribution domain name","password":"12345678","ssid":"eWelink"}
+{"port":443,"serverName":"device long connection Dispatchdomain name","password":"12345678","ssid":"eWelink"}
 ```
 
 Notes：This step can be retried multiple times. eWeLink will retry 5 times with a total interval of 70 seconds, which can be fine-tuned to adapt to the device.
