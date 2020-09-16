@@ -28,8 +28,6 @@ Log in with the account you just created and add a test device.
 
 Open eWeLink app and follow user manual to enter pairing mode and add the device you bought.
 
-When adding a device, the app will show you device id(e.g. 1000******)
-
 ![addDevice](./img/addDevice.png)
 
 ### Control Device

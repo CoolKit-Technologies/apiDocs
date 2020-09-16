@@ -173,7 +173,6 @@ Response data parameters:
 | at         | String   | N                | Access Token                                                          |
 | rt         | String   | N                | Refresh Token                                                         |
 | region     | String   | N                | User's region code cn=China as=Asia  us=Americas  eu=Europe           |
-| firstLogin | Boolean  | N                | true for newly created accounts, while false means existing accounts. |
 
 See [Login](/#/en/APICenterV2?id=account-login) interface for error responses.
 

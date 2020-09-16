@@ -26,8 +26,6 @@ Log in to the APP.
 
 Follow the instructions to set the device in pairing mode and add it to your account.
 
-The APP will display the device ID when you pair the device (ID format 1000******).
-
 ![Add Device](./img/addDevice.png)
 
 ### Control Device
