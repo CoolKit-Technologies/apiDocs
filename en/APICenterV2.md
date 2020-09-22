@@ -688,7 +688,7 @@ Request parameters:
 
 | **Name** | **Type** | **Allows empty** | **Description**                                                                                                                                     |
 |:-------- |:-------- |:---------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id       | String   | N                | Obtain the device gsmId from the QR code on the scanning device, format: https://api.coolkit.cc:8080/api/user/device/addGsm?id=348512d49379bb0acace4598e14fc450|
+| id       | String   | N                | Get the gsmId of the device from the QR code URL on the scanning device. The URL format is: https://api.coolkit.cc:8080/api/user/device/addGsm?id=348512d49379bb0acace4598e14fc450, ID is the latter parameter|
 | name     | String   | N                | Device name                                                                                                                                         |
 | familyid | String   | Y                | The home ID of the device. When this field is empty, the device will be added to the current home.                                                  |
 | roomid   | String   | Y                | The ID of the room to which the device belongs. If it is empty, the device will be added to [Unallocated].                                          |
