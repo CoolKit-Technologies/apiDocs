@@ -20,7 +20,7 @@ How access token is used remains the same.See below:
 |:--------------- |:------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | X-CK-Appid | The interface under the [User] category cannot be empty | The idendifier assigned to the app to control the interface calling permission|
 | X-CK-Nonce| Yes| A combination of 8 uppercase or lowercase letters and numbers. The client should try to use random strings to facilitate joint debugging with the server.|
-| Authorization   | Not allowed to be empty                                 | API call credentials, see [Development Documents/Signature Rules for the calculation method ](/#/en/DeveloperGuideV?id=signature-rules)|
+| Authorization   | Not allowed to be empty                                 | API call credentials, see [Development Documents/Signature Rules for the calculation method ](/en/DeveloperGuideV?id=signature-rules)|
 | Content-Type    | PUT and POST requests are not allowed to be empty       | Fixed as application/json|
 | Host            | Not allowed to be empty| Most HTTP clients will automatically add this field. If not, it must be explicitly specified by the code. The value is the corresponding interface domain name, such as: cn-apia.coolkit.cn, us-apia.coolkit.cc |
 
@@ -112,7 +112,7 @@ user:
 | denyRecharge   | Boolean  | Y                | Whether the current account is allowed to extend subscription period.  When this field is empty or the value is false,  the current acccount can be recharged. Otherwise, recharge is prohibited. |
 | accountConsult | Boolean  | Y                | Inquired subscription plans or not                                                                                                                                                                |
 
-See [Login](/#/en/APICenterV2?id=account-login) interface for error responses.
+See [Login](/en/APICenterV2?id=account-login) interface for error responses.
 
 ### Login
 
@@ -174,7 +174,7 @@ Response data parameters:
 | rt         | String   | N                | Refresh Token                                                         |
 | region     | String   | N                | User's region code cn=China as=Asia  us=Americas  eu=Europe           |
 
-See [Login](/#/en/APICenterV2?id=account-login) interface for error responses.
+See [Login](/en/APICenterV2?id=account-login) interface for error responses.
 
 ### Send Verification Code
 
