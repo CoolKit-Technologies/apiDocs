@@ -158,7 +158,7 @@ You can put the parameters of the demo in your own signature algorithm. If the c
 
 - All interfaces that can only be called after logging in need to add an access token to the Authorization parameter of the request header, for example: Authorization: Bearer a527297584f1ca030579a90d2e800481e22e850a When logging in to the interface successfully, it will return access token (at after successful login, that is, access token).
 - The access token is valid for one month. The same account cannot be logged in to the same application at the same time. The token will refresh every time when logging in. Therefore, users who log in later will refresh their tokens, which invalidates the tokens of users who log in earlier, and forces them to go offline.
-- The refresh token is valid for two months.When the access token expires, you can request the refresh interface through the refresh token, and get new access token and refresh token.For details, please refer to [Refresh Authentication Token].
+- The refresh token is valid for two months.When the access token expires, you can request the refresh interface through the refresh token, and get new access token and refresh token.For details, please refer to [Refresh Authentication Token](/en/APICenterV2?id=refresh-access-token).
 
 ## Device pairing
 
