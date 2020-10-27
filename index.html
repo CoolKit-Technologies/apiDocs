@@ -2,7 +2,7 @@
  * @Author: Carl
  * @Date: 2020-05-25 19:50:00
  * @LastEditors: Carl
- * @LastEditTime: 2020-10-27 16:28:48
+ * @LastEditTime: 2020-10-27 17:06:08
 --> 
 <!DOCTYPE html>
 <html lang="zh-Hans-CN">
@@ -10,8 +10,8 @@
   <meta charset="UTF-8">
   <title>酷宅开放平台 4.0</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta http-equiv="refresh" content="0; URL=https://coolkit-technologies.github.io/eWeLink-API/">
-  <meta name="description" content="Description">
+  <!-- <meta http-equiv="refresh" content="0; URL=https://coolkit-technologies.github.io/eWeLink-API/"> -->
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="./media/img/favicon.ico">
   <link rel="stylesheet" href="./media/css/vue.css">
@@ -28,10 +28,10 @@
   
   <script>
     // 兼容旧域名
-    const my_href = new Set(['https://coolkit-technologies.github.io/apiDocs/index.html','https://coolkit-technologies.github.io/apiDocs/index.html#/']);
+    const my_href = new Set(['https://coolkit-technologies.github.io/apiDocs/index.html','https://coolkit-technologies.github.io/apiDocs/index.html#/', 'https://coolkit-technologies.github.io/apiDocs/', 'https://coolkit-technologies.github.io/apiDocs/#/']);
     let my_url = window.location.href;
     if(my_href.has(my_url) ){
-      window.location.href = 'https://coolkit-technologies.github.io/eWeLink-API/'
+      window.location.href = 'https://coolkit-technologies.github.io/eWeLink-API/#/'
     }
     window.$docsify = {
       name: {
