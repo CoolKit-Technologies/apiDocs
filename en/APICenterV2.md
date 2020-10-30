@@ -110,7 +110,8 @@ user:
 | accountLevel   | Int      | N                | Account level 10=Free 20=Advanced 30=Pro                                                                                                                                                          |
 | levelExpiredAt | Long     | Y                | Subscription expiration timestamp, which is accurate to milliseconds. If this field is empty or 0, it means there is no expiration time                                                           |
 | denyRecharge   | Boolean  | Y                | Whether the current account is allowed to extend subscription period.  When this field is empty or the value is false,  the current acccount can be recharged. Otherwise, recharge is prohibited. |
-| accountConsult | Boolean  | Y                | Inquired subscription plans or not                                                                                                                                                                |
+| accountConsult | Boolean  | Y                | Inquired subscription plans or not|
+| ipCountry   | String   | Y   | server side works out the country and region of the user based on requester ip. Please refer to alpha-2 version of the list of country codes [here](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). When "Get User Information" or "Homepage" interface (with the getUser parameter) is called, this field will be returned by the server side.|
 
 See [Login](/en/APICenterV2?id=account-login) interface for error responses.
 

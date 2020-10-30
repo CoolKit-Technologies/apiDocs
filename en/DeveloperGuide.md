@@ -617,7 +617,7 @@ You can use demo parameters in your own authorization calculation.If t
 Authorization: Bearer a527297584f1ca030579a90d2e800481e22e850a
 After login succeeds,access token will be returned（at returned after login，say access token）.
 - access token remains valid for one month.One account can not be logined by multiple users at the same time.Every time one logins,token will be refreshed.Thus,the second user who logins later will refresh the token and make the token of previous user expire.First user will be forced to log out.
-- refresh token remains valid for two months.When access token expires,access token and refresh token can be regained by accessing refresh token API. Please check 'Refresh token' for details.
+- Refresh Token remains valid for two months.When access token expires,access token and Refresh Token can be regained by accessing Refresh Token API. Please check 'Refresh Token' for details.
 
 ## Pairing devices
 

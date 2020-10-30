@@ -2,12 +2,14 @@
  * @Author: Carl
  * @Date: 2020-08-05 17:16:26
  * @LastEditors: Carl
- * @LastEditTime: 2020-08-05 17:40:10
+ * @LastEditTime: 2020-10-30 16:16:35
 -->
+
 # Change log
 
 | Time | Change log | Author |
 | :--- | :--- | :--- |
+| 2020.10.30 | Update the user information returned in the user-related interface and add the ipCountry field | Carl |
 | 2020.07.09 | Update [/v2/user/register] interface content, add additional push channel fields, and add [/v2/user/extra-push] interface | Carl |
 | 2020.07.02 | Add [/v2/device/thing/batch-status] and [/v2/device/group/update] interface | Carl |
 | 2020.07.01 | Update interface [/v2/device/tags], add modification type field | Carl |
