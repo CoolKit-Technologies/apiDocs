@@ -515,7 +515,7 @@ Error code:
 
 ### Token Refresh
 
-Acesss Token expires every 30 days by default due to security reasons. while users do not need to login again to get access token, instead uses refresh token to refresh and get access token.
+Access Token expires every 30 days by default due to security reasons. while users do not need to login again to get access token, instead uses refresh token to refresh and get access token.
 
 - URL: https://{region}-api.coolkit.cc:8080/api/user/refresh
 - Method: get

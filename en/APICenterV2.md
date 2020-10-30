@@ -288,7 +288,7 @@ URL: /v2/user/refresh
 
 Request method: post
 
-Note: The acesss token expires in 30 days by default (for security reasons). When this happens, you do not need to log in again to obtain the acesss token, but call this interface to refresh the acesss token
+Note: The Access Token expires in 30 days by default (for security reasons). When this happens, you do not need to log in again to obtain the Access Token, but call this interface to refresh the Access Token
 
 Request parameters:
 
