@@ -1,7 +1,12 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: Carl
+ * @Date: 2020-03-19 17:57:02
+ * @LastEditors: Carl
+ * @LastEditTime: 2021-12-10 17:48:56
+-->
+
 # Pricing
 
-**$699/Year**
-
-You salesperson will walk you through paying the fee and help you get your APPID in one working day. Only valid APPID has access to eWeLink cloud platform service. 
-
-APPID remains valid for a year. It will expire automatically without renewal.To renew your appid, please contact your salesperson.
+This document is no longer maintained and has been transferred to [new address](https://coolkit-technologies.github.io/eWeLink-API/), the original content is discarded!

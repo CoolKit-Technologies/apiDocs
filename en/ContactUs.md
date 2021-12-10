@@ -1,15 +1,10 @@
-# Contact us
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: Carl
+ * @Date: 2020-03-28 10:08:48
+ * @LastEditors: Carl
+ * @LastEditTime: 2021-12-10 17:49:18
+-->
 
-Email: support@ewelink.zendesk.com
-
-Service Hotline: 0755-26404901
-
-Operating Hours: 9:00-18:00(Week days)
-
-Company Address: B09, F2, T6 Art Zone,Guanlong Famous Garden, 6 Tongfa Rd, Nanshan District, Shenzhen,Guangdong
-
-Feel free to contact us through the methods above whenever you have any question, inquiry, or suggestion.We will try our best to help. 
-
-Search "eWeLink" to follow us on social media.
-
-![contactUs](./img/contactUs.png 'contactUs')
+This document is no longer maintained and has been transferred to [new address](https://coolkit-technologies.github.io/eWeLink-API/), the original content is discarded!
